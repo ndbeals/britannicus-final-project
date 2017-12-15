@@ -1,6 +1,6 @@
 create table tblItemConditions (
-	id INT,
-	condition VARCHAR(12)
+	id INTEGER,
+	condition VARCHAR(25)
 );
 insert into tblItemConditions (id, condition) values (1, 'As New');
 insert into tblItemConditions (id, condition) values (2, 'Fine');

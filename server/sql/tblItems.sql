@@ -1,13 +1,13 @@
 create table tblItems (
-	item_id VARCHAR(9),
-	isbn VARCHAR(9),
-	item_name VARCHAR(9),
-	author VARCHAR(9),
-	genre VARCHAR(9),
-	publisher VARCHAR(9),
-	item_type VARCHAR(9),
-	price VARCHAR(9),
-	description VARCHAR(9)
+	item_id SERIAL PRIMARY KEY,
+	isbn CHAR(11),
+	item_name VARCHAR(30),
+	author VARCHAR(30),
+	genre VARCHAR(20),
+	publisher VARCHAR(20),
+	item_type INTEGER,
+	price MONEY,
+	description VARCHAR(100)
 );
 insert into tblItems (item_id, isbn, item_name, author, genre, publisher, item_type, price, description) values (1, '147492343-7', 'Fundamentals of Wavelets', 'Goswami, Jaideva', 'signal_processing', 'Wiley', 3, '$13.39', 'Badger, european');
 insert into tblItems (item_id, isbn, item_name, author, genre, publisher, item_type, price, description) values (2, '347134497-7', 'Data Smart', 'Foreman, John', 'data_science', 'Wiley', 3, '$54.40', 'Capuchin, brown');

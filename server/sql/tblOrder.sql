@@ -1,9 +1,9 @@
 create table tblOrder (
-	order_id VARCHAR(5),
-	inventory_id VARCHAR(5),
-	customer_id VARCHAR(5),
-	quantity VARCHAR(5),
-	source VARCHAR(5)
+	order_id SERIAL PRIMARY KEY,
+	inventory_id INTEGER,
+	customer_id INTEGER,
+	quantity INTEGER,
+	source VARCHAR(20)
 );
 insert into tblOrder (order_id, inventory_id, customer_id, quantity, source) values (1, 910, 287, 6, 'Reactive');
 insert into tblOrder (order_id, inventory_id, customer_id, quantity, source) values (2, 268, 750, 5, 'protocol');
