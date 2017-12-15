@@ -1,9 +1,11 @@
+DROP TABLE IF EXISTS tblOrder CASCADE;
+
 create table tblOrder (
 	order_id SERIAL PRIMARY KEY,
-	inventory_id INTEGER,
-	customer_id INTEGER,
+	inventory_id INTEGER REFERENCES tblInventory(inventory_id),
+	customer_id INTEGER REFERENCES tblCustomer(customer_id),
 	quantity INTEGER,
-	source VARCHAR(20)
+	source VARCHAR(50)
 );
 insert into tblOrder (order_id, inventory_id, customer_id, quantity, source) values (1, 910, 287, 6, 'Reactive');
 insert into tblOrder (order_id, inventory_id, customer_id, quantity, source) values (2, 268, 750, 5, 'protocol');

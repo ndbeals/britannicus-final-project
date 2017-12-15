@@ -1,9 +1,11 @@
+DROP TABLE IF EXISTS tblInventory CASCADE;
+
 create table tblInventory (
 	inventory_id SERIAL PRIMARY KEY,
-	item_id INTEGER,
-	item_condition INTEGER,
+	item_id INTEGER REFERENCES tblItems(item_id),
+	item_condition INTEGER REFERENCES tblItemConditions(condition_id),
 	amount INTEGER,
-	notes VARCHAR(100)
+	notes VARCHAR(250)
 );
 insert into tblInventory (inventory_id, item_id, item_condition, amount, notes) values (1, 80, 1, 10, 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut');
 insert into tblInventory (inventory_id, item_id, item_condition, amount, notes) values (2, 82, 2, 0, 'blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede');

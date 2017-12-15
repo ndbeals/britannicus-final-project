@@ -1,13 +1,15 @@
+DROP TABLE IF EXISTS tblItems CASCADE;
+
 create table tblItems (
 	item_id SERIAL PRIMARY KEY,
 	isbn CHAR(11),
-	item_name VARCHAR(30),
+	item_name VARCHAR(100),
 	author VARCHAR(30),
 	genre VARCHAR(20),
 	publisher VARCHAR(20),
 	item_type INTEGER,
 	price MONEY,
-	description VARCHAR(100)
+	description VARCHAR(200)
 );
 insert into tblItems (item_id, isbn, item_name, author, genre, publisher, item_type, price, description) values (1, '147492343-7', 'Fundamentals of Wavelets', 'Goswami, Jaideva', 'signal_processing', 'Wiley', 3, '$13.39', 'Badger, european');
 insert into tblItems (item_id, isbn, item_name, author, genre, publisher, item_type, price, description) values (2, '347134497-7', 'Data Smart', 'Foreman, John', 'data_science', 'Wiley', 3, '$54.40', 'Capuchin, brown');

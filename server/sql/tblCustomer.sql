@@ -2,14 +2,14 @@ DROP TABLE IF EXISTS tblCustomer CASCADE;
 
 create table tblCustomer (
 	customer_id SERIAL PRIMARY KEY,
-	first_name VARCHAR(20),
-	last_name VARCHAR(20),
-	email VARCHAR(30),
+	first_name VARCHAR(25),
+	last_name VARCHAR(25),
+	email VARCHAR(40),
 	phone_number VARCHAR(20),
 	address VARCHAR(40),
-	city VARCHAR(20),
-	state VARCHAR(20),
-	country VARCHAR(20)
+	city VARCHAR(30),
+	state VARCHAR(30),
+	country VARCHAR(30)
 );
 insert into tblCustomer (customer_id, first_name, last_name, email, phone_number, address, city, state, country) values (1, 'Annnora', 'McKag', 'amckag0@latimes.com', '+1 513 380 5466', '134 Center Terrace', 'Cincinnati', 'Ohio', 'United States');
 insert into tblCustomer (customer_id, first_name, last_name, email, phone_number, address, city, state, country) values (2, 'Bondon', 'Perkin', 'bperkin1@mayoclinic.com', '+44 889 132 8214', '4 Scoville Pass', 'Hatton', 'England', 'United Kingdom');
