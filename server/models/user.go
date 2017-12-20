@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 
+	// "github.com/ndbeals/brittanicus-final-project/db"
 	"github.com/ndbeals/brittanicus-final-project/db"
 	"github.com/ndbeals/brittanicus-final-project/forms"
 )
@@ -11,9 +12,9 @@ import (
 //User ...
 type User struct {
 	ID       int    `db:"user_id, primarykey, autoincrement" json:"user_id"`
+	Name     string `db:"user_name" json:"user_name"`
 	Email    string `db:"user_email" json:"user_email"`
 	Password string `db:"user_password" json:"-"`
-	Name     string `db:"user_name" json:"user_name"`
 	// UpdatedAt int64  `db:"updated_at" json:"updated_at"`
 	// CreatedAt int64  `db:"created_at" json:"created_at"`
 }
@@ -87,16 +88,16 @@ func (m UserModel) GetOne(userID int64) (user User, err error) {
 	fmt.Printf("GET ONE: %d \n", userID)
 
 	// row := db.DBE.QueryRow("SELECT user_id, user_name, user_email, user_password FROM tblUser WHERE user_id=$1", userID)
-	dbaa := db.Init()
-	row := dbaa.QueryRow("SELECT user_id, user_name FROM tblUser WHERE user_id=$1", userID)
+	// dbaa := db.Init()
+	row := db.DB.QueryRow("SELECT user_id, user_name, user_email, user_password FROM tblUser WHERE user_id=$1", userID)
 
 	var uid int
 	var userName string
-	// var userEmail string
-	// var userPassword string
+	var userEmail string
+	var userPassword string
 
-	// err = row.Scan(&uid, &userName, &userEmail, &userPassword)
-	err = row.Scan(&uid, &userName)
+	err = row.Scan(&uid, &userName, &userEmail, &userPassword)
+	// err = row.Scan(&uid, &userName)
 
 	fmt.Printf("WUT : %s \n", userName)
 
@@ -104,9 +105,9 @@ func (m UserModel) GetOne(userID int64) (user User, err error) {
 		return User{}, err
 	}
 
-	// user = User{uid, userName, userEmail, userPassword}
+	user = User{uid, userName, userEmail, userPassword}
 
-	// fmt.Printf("GOT USER: %+v \n", user)
+	fmt.Printf("GOT USER: %+v \n", user)
 
 	return user, err
 }

@@ -1,15 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"runtime"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/lib/pq"
 	"github.com/ndbeals/brittanicus-final-project/controllers"
 	"github.com/ndbeals/brittanicus-final-project/db"
-
-	_ "github.com/lib/pq"
 )
 
 const (
@@ -21,7 +19,13 @@ const (
 func main() {
 	r := gin.Default()
 
-	dba := db.Init()
+	dbs := db.Init()
+
+	defer dbs.Close()
+
+	// db.DB = dbs
+
+	// dba := db.Init()
 
 	// fmt.Println("# Inserting values")
 
@@ -42,33 +46,20 @@ func main() {
 
 	// fmt.Println(affect, "rows changed")
 
-	fmt.Println("# Querying")
-	rows, err := dba.Query("SELECT * FROM tbluser")
-	checkErr(err)
+	// fmt.Println("# Querying")
+	// rows, err := dbs.Query("SELECT * FROM tbluser")
+	// checkErr(err)
 
-	for rows.Next() {
-		var uid int
-		var username string
-		var department string
-		var created string
-		err = rows.Scan(&uid, &username, &department, &created)
-		checkErr(err)
-		fmt.Println("uid | username | department | created ")
-		fmt.Printf("%3v | %8v | %6v | %6v\n", uid, username, department, created)
-	}
-
-	dbaa := db.Init()
-	row := dbaa.QueryRow("SELECT user_id, user_name FROM tblUser WHERE user_id=$1", 1)
-
-	var uid int
-	var userName string
-	// var userEmail string
-	// var userPassword string
-
-	// err = row.Scan(&uid, &userName, &userEmail, &userPassword)
-	err = row.Scan(&uid, &userName)
-
-	fmt.Printf("WUT : %s \n", userName)
+	// for rows.Next() {
+	// 	var uid int
+	// 	var username string
+	// 	var department string
+	// 	var created string
+	// 	err = rows.Scan(&uid, &username, &department, &created)
+	// 	checkErr(err)
+	// 	fmt.Println("uid | username | department | created ")
+	// 	fmt.Printf("%3v | %8v | %6v | %6v\n", uid, username, department, created)
+	// }
 
 	// fmt.Println("# Deleting")
 	// stmt, err = db.Prepare("delete from userinfo where uid=$1")
@@ -93,14 +84,36 @@ func main() {
 		v1.POST("/user/signup", user.Signup)
 		// v1.GET("/user/signout", user.Signout)
 
-		/*** START Article ***/
-		article := new(controllers.ArticleController)
+		/*** START CUSTOMER ***/
+		customer := new(controllers.CustomerController)
 
-		v1.POST("/article", article.Create)
-		v1.GET("/articles", article.All)
-		v1.GET("/article/:id", article.One)
-		v1.PUT("/article/:id", article.Update)
-		v1.DELETE("/article/:id", article.Delete)
+		v1.GET("/customer/:id", customer.GetOne)
+		v1.GET("/customers/:page/:amount", customer.GetSet)
+
+		// v1.POST("/user/signin", user.Signin)
+		// v1.POST("/user/signup", user.Signup)
+		// v1.GET("/user/signout", user.Signout)
+
+		/*** START ORDERS ***/
+		order := new(controllers.OrderController)
+
+		v1.GET("/order/:id", order.GetOne)
+		v1.GET("/orders/:page/:amount", order.GetSet)
+
+		/*** START TRANSACTIONS ***/
+		transaction := new(controllers.TransactionController)
+
+		v1.GET("/transaction/:id", transaction.GetOne)
+		// v1.GET("/customers/:page/:amount", order.GetSet)
+
+		/*** START Article ***/
+		// article := new(controllers.ArticleController)
+
+		// v1.POST("/article", article.Create)
+		// v1.GET("/articles", article.All)
+		// v1.GET("/article/:id", article.One)
+		// v1.PUT("/article/:id", article.Update)
+		// v1.DELETE("/article/:id", article.Delete)
 	}
 
 	r.LoadHTMLGlob("./public/html/*")

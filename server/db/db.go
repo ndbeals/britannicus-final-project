@@ -10,41 +10,38 @@ import (
 )
 
 //DB ...
-type DB struct {
-	*sql.DB
-}
+// type DB struct {
+// 	*sql.DB
+// }
 
 const (
-	//DbUser ...
-	DbUser = "brittanicus"
-	//DbPassword ...
-	DbPassword = "brittanicus"
-	//DbName ...
-	DbName = "brittanicus"
+	DB_USER     = "brittanicus"
+	DB_PASSWORD = "brittanicus"
+	DB_NAME     = "brittanicus"
 )
 
 var (
-	db *sql.DB
+	DB *sql.DB
 	// DBE *sql.DB
 )
 
 //Init ...
-func Init() sql.DB {
+func Init() *sql.DB {
 
 	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
-		DbUser, DbPassword, DbName)
+		DB_USER, DB_PASSWORD, DB_NAME)
 
 	var err error
 	// db, err = ConnectDB(dbinfo)
-	db, err := sql.Open("postgres", dbinfo)
+	dbs, err := sql.Open("postgres", dbinfo)
+
+	DB = dbs
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer db.Close()
-
-	return *db
+	return dbs
 }
 
 //ConnectDB ...
@@ -68,5 +65,5 @@ func ConnectDB(dataSourceName string) (*gorp.DbMap, error) {
 
 //GetDB ...
 func GetDB() *sql.DB {
-	return db
+	return DB
 }
