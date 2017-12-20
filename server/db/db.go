@@ -23,37 +23,50 @@ const (
 	DbName = "brittanicus"
 )
 
-var db *gorp.DbMap
+var (
+	db *sql.DB
+	// DBE *sql.DB
+)
 
 //Init ...
-func Init() {
+func Init() sql.DB {
 
 	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
 		DbUser, DbPassword, DbName)
 
 	var err error
-	db, err = ConnectDB(dbinfo)
+	// db, err = ConnectDB(dbinfo)
+	db, err := sql.Open("postgres", dbinfo)
+
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	defer db.Close()
+
+	return *db
 }
 
 //ConnectDB ...
 func ConnectDB(dataSourceName string) (*gorp.DbMap, error) {
+	// DBE, err := sql.Open("postgres", dataSourceName)
 	db, err := sql.Open("postgres", dataSourceName)
+
 	if err != nil {
 		return nil, err
 	}
 	if err = db.Ping(); err != nil {
 		return nil, err
 	}
+
+	// defer DBE.Close()
+
 	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.PostgresDialect{}}
 	//dbmap.TraceOn("[gorp]", log.New(os.Stdout, "golang-gin:", log.Lmicroseconds)) //Trace database requests
 	return dbmap, nil
 }
 
 //GetDB ...
-func GetDB() *gorp.DbMap {
+func GetDB() *sql.DB {
 	return db
 }

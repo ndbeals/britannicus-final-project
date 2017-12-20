@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"strconv"
+
 	"github.com/ndbeals/brittanicus-final-project/forms"
 	"github.com/ndbeals/brittanicus-final-project/models"
 
@@ -97,4 +99,30 @@ func (ctrl UserController) Signout(c *gin.Context) {
 	session.Clear()
 	session.Save()
 	c.JSON(200, gin.H{"message": "Signed out..."})
+}
+
+//GetOne ...
+func (ctrl UserController) GetOne(c *gin.Context) {
+	// userID := getUserID(c)
+
+	// if userID == 0 {
+	// 	c.JSON(403, gin.H{"message": "Please login first"})
+	// 	c.Abort()
+	// 	return
+	// }
+
+	uid := c.Param("id")
+
+	if uid, err := strconv.ParseInt(uid, 10, 64); err == nil {
+
+		data, err := userModel.GetOne(uid)
+		if err != nil {
+			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.Abort()
+			return
+		}
+		c.JSON(200, gin.H{"data": data})
+	} else {
+		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+	}
 }
