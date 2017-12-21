@@ -7,23 +7,14 @@ import (
 	"github.com/ndbeals/brittanicus-final-project/db"
 )
 
-//InventoryCondition ...
-type InventoryCondition struct {
-	ID                 int    `json:"inventory_id"`
-	ProductID          int    `json:"product_id"`
-	InventoryCondition int    `json:"inventory_condition"`
-	Amount             int    `json:"amount"`
-	Note               string `json:"note"`
-}
-
 //Inventory ...
 type Inventory struct {
-	ID                 int    `json:"inventory_id"`
-	ProductID          int    `json:"product_id"`
-	InventoryCondition int    `json:"-"`
-	ConditionString    string `json:"inventory_condition"`
-	Amount             int    `json:"amount"`
-	Note               string `json:"note"`
+	ID                 int     `json:"inventory_id"`
+	Product            Product `json:"product"`
+	InventoryCondition int     `json:"-"`
+	ConditionString    string  `json:"inventory_condition"`
+	Amount             int     `json:"amount"`
+	Note               string  `json:"note"`
 }
 
 //InventoryModel ...
@@ -52,10 +43,8 @@ func InitializeInventoryModel() {
 		if err != nil {
 			panic(err)
 		}
-
 		conditionLookup[conditionID] = condition.String
 	}
-
 }
 
 //GetInventoryModel ...
@@ -82,7 +71,12 @@ func (m InventoryModel) GetOne(InventoryID int) (inventory Inventory, err error)
 		panic(err)
 	}
 
-	inventory = Inventory{inventoryID, productID, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String}
+	product, err := GetProductModel().GetOne(productID)
+	if err != nil {
+		panic(err)
+	}
+
+	inventory = Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String}
 
 	return inventory, err
 }
@@ -106,7 +100,12 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 			panic(err)
 		}
 
-		inventoryList = append(inventoryList, Inventory{inventoryID, productID, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String})
+		product, err := GetProductModel().GetOne(productID)
+		if err != nil {
+			panic(err)
+		}
+
+		inventoryList = append(inventoryList, Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String})
 	}
 
 	return inventoryList, err

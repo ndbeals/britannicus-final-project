@@ -8,7 +8,7 @@ create table jncOrderItems
 );
 
 insert into jncOrderItems (order_id, inventory_id, quantity) values (1, 910, 1);
-insert into jncOrderItems (order_id, inventory_id, quantity) values (2, 268, 1);
+insert into jncOrderItems (order_id, inventory_id, quantity) values (1, 268, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (3, 781, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (4, 98, 3);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (5, 39, 1);

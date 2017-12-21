@@ -13,7 +13,7 @@ create table tblProducts (
 );
 insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (1, '147492343-7', 'Fundamentals of Wavelets', 'Goswami, Jaideva', 'signal_processing', 'Wiley', 2, 13.39, 'Badger, european');
 insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (2, '347134497-7', 'Data Smart', 'Foreman, John', 'data_science', 'Wiley', 2, 54.40, 'Capuchin, brown');
-insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (2, '825681833-6', 'God Created the Integers', 'Hawking, Stephen', 'mathematics', 'Penguin', 2, 57.96, 'Hippopotamus');
+insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (3, '825681833-6', 'God Created the Integers', 'Hawking, Stephen', 'mathematics', 'Penguin', 2, 57.96, 'Hippopotamus');
 insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (4, '032125405-8', 'Superfreakonomics', 'Dubner, Stephen', 'economics', 'HarperCollins', 2, 30.34, 'Brown brocket');
 insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (5, '275909620-3', 'Orientalism', 'Said, Edward', 'history', 'Penguin', 1, 45.03, 'Peccary, white-lipped');
 insert into tblProducts (product_id, isbn, product_name, author, genre, publisher, product_type, price, description) values (6, '266783088-1', 'Nature of Statistical Learning Theory, The', 'Vapnik, Vladimir', 'data_science', 'Springer', 2, 54.79, 'Tiger cat');

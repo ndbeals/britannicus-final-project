@@ -25,6 +25,8 @@ func main() {
 	defer dbs.Close()
 
 	models.InitializeInventoryModel()
+	models.InitializeProductModel()
+	models.InitializeOrderModel()
 
 	// db.DB = dbs
 
@@ -83,8 +85,8 @@ func main() {
 
 		v1.GET("/user/:id", user.GetOne)
 
-		v1.POST("/user/signin", user.Signin)
-		v1.POST("/user/signup", user.Signup)
+		// v1.POST("/user/signin", user.Signin)
+		// v1.POST("/user/signup", user.Signup)
 		// v1.GET("/user/signout", user.Signout)
 
 		/*** START CUSTOMER ***/
@@ -94,10 +96,6 @@ func main() {
 		v1.GET("/customers/:page/:amount", customer.GetList)
 		v1.GET("/customer/:id/transactions", customer.GetTransactions)
 
-		// v1.POST("/user/signin", user.Signin)
-		// v1.POST("/user/signup", user.Signup)
-		// v1.GET("/user/signout", user.Signout)
-
 		/*** START INVENTORY ***/
 		inventory := new(controllers.InventoryController)
 
@@ -105,7 +103,7 @@ func main() {
 		v1.GET("/inventories/:page/:amount", inventory.GetList)
 
 		/*** START PRODUCTS ***/
-		product := new(controllers.InventoryController)
+		product := new(controllers.ProductController)
 
 		v1.GET("/product/:id", product.GetOne)
 		v1.GET("/products/:page/:amount", product.GetList)
