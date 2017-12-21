@@ -1,10 +1,14 @@
 package models
 
 import (
+	"errors"
+	"fmt"
 	"log"
 	"math"
+	"time"
 
 	"github.com/ndbeals/brittanicus-final-project/db"
+	"github.com/ndbeals/brittanicus-final-project/forms"
 )
 
 var (
@@ -68,6 +72,43 @@ func GetOrderModel() (model OrderModel) {
 	model = *orderModel
 
 	return model
+}
+
+//Create ...
+func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) {
+	// // turn item list into actual inventory list
+	// for _,items := range form.ItemList {
+
+	// }
+
+	// Vars to for inserting into the table
+	customerID := form.CustomerID
+	dateTime := int(time.Now().Unix())
+
+	res, err := db.DB.Exec("INSERT INTO public.tblOrder(customer_id, date_time) VALUES($1, $2 )", customerID, dateTime)
+
+	log.Println(err)
+
+	if res != nil && err == nil {
+		orderID, err := res.LastInsertId()
+
+		fmt.Printf("order id? %d \n\n", orderID)
+
+		for item, quantity := range form.ItemList {
+			db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2 )", orderID, item, quantity)
+
+		}
+
+		order, err = orderModel.GetOne(int(orderID))
+		fmt.Printf("\n\nOrder saf DATA: %+v \n\n", order)
+		if err != nil {
+			return Order{}, err
+		}
+
+		return order, nil
+	}
+
+	return Order{}, errors.New("Couldn't create Order record for some reason " + err.Error())
 }
 
 //GetOne ...

@@ -17,7 +17,7 @@ var orderModel = models.GetOrderModel()
 
 //CreateOrder ...
 func (ctrl OrderController) CreateOrder(c *gin.Context) {
-	var createOrderForm *forms.CreateOrder
+	var createOrderForm forms.CreateOrderForm
 	fmt.Printf("\n\nOrder DATA: %s \n\n", c.PostForm("customer_id"))
 
 	if c.BindJSON(&createOrderForm) != nil {
@@ -26,9 +26,26 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 		return
 	}
 
-	order, err = orderModel.Create(createOrderForm)
+	order, err := orderModel.Create(createOrderForm)
 
-	fmt.Printf("\n\nOrder POST DATA: %+v \n\n", createOrderForm)
+	fmt.Printf("\n\nOrder POST DATA: %+v \n\n", order)
+	if err != nil {
+		c.JSON(406, gin.H{"message": err.Error()})
+		c.Abort()
+		return
+	}
+
+	if order.ID > 0 {
+		// session := sessions.Default(c)
+		// session.Set("user_id", user.ID)
+		// session.Set("user_email", user.Email)
+		// session.Set("user_name", user.Name)
+		// session.Save()
+		c.JSON(200, gin.H{"message": "Successfully created order", "data": order})
+	} else {
+		c.JSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
+	}
+
 }
 
 //GetOne ...

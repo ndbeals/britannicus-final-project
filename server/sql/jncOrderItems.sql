@@ -9,6 +9,7 @@ create table jncOrderItems
 
 insert into jncOrderItems (order_id, inventory_id, quantity) values (1, 910, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (1, 268, 1);
+insert into jncOrderItems (order_id, inventory_id, quantity) values (2, 896, 4);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (3, 781, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (4, 98, 3);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (5, 39, 1);
@@ -1006,4 +1007,4 @@ insert into jncOrderItems (order_id, inventory_id, quantity) values (996, 988, 1
 insert into jncOrderItems (order_id, inventory_id, quantity) values (997, 169, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (998, 847, 1);
 insert into jncOrderItems (order_id, inventory_id, quantity) values (999, 170, 1);
-insert into jncOrderItems (order_id, inventory_id, quantity) values (1000, 896, 4);
+

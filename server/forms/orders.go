@@ -1,9 +1,9 @@
 package forms
 
 //SigninForm ...
-type CreateOrder struct {
-	CustomerID int   `form:"customer_id" json:"customer_id" binding:"required"`
-	ItemList   []int `form:"item_list" json:"item_list" binding:"required"`
+type CreateOrderForm struct {
+	CustomerID int         `form:"customer_id" json:"customer_id" binding:"required"`
+	ItemList   map[int]int `form:"item_list" json:"item_list" binding:"required"`
 }
 
 // //SignupForm ...
