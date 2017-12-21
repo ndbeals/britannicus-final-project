@@ -8,6 +8,7 @@ import (
 	_ "github.com/lib/pq"
 	"github.com/ndbeals/brittanicus-final-project/controllers"
 	"github.com/ndbeals/brittanicus-final-project/db"
+	"github.com/ndbeals/brittanicus-final-project/models"
 )
 
 const (
@@ -22,6 +23,8 @@ func main() {
 	dbs := db.Init()
 
 	defer dbs.Close()
+
+	models.InitializeInventoryModel()
 
 	// db.DB = dbs
 
@@ -88,23 +91,36 @@ func main() {
 		customer := new(controllers.CustomerController)
 
 		v1.GET("/customer/:id", customer.GetOne)
-		v1.GET("/customers/:page/:amount", customer.GetSet)
+		v1.GET("/customers/:page/:amount", customer.GetList)
+		v1.GET("/customer/:id/transactions", customer.GetTransactions)
 
 		// v1.POST("/user/signin", user.Signin)
 		// v1.POST("/user/signup", user.Signup)
 		// v1.GET("/user/signout", user.Signout)
 
+		/*** START INVENTORY ***/
+		inventory := new(controllers.InventoryController)
+
+		v1.GET("/inventory/:id", inventory.GetOne)
+		v1.GET("/inventories/:page/:amount", inventory.GetList)
+
+		/*** START PRODUCTS ***/
+		product := new(controllers.InventoryController)
+
+		v1.GET("/product/:id", product.GetOne)
+		v1.GET("/products/:page/:amount", product.GetList)
+
 		/*** START ORDERS ***/
 		order := new(controllers.OrderController)
 
 		v1.GET("/order/:id", order.GetOne)
-		v1.GET("/orders/:page/:amount", order.GetSet)
+		v1.GET("/orders/:page/:amount", order.GetList)
 
 		/*** START TRANSACTIONS ***/
 		transaction := new(controllers.TransactionController)
 
 		v1.GET("/transaction/:id", transaction.GetOne)
-		// v1.GET("/customers/:page/:amount", order.GetSet)
+		// v1.GET("/customers/:page/:amount", order.GetList)
 
 		/*** START Article ***/
 		// article := new(controllers.ArticleController)

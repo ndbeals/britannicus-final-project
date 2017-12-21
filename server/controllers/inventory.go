@@ -8,19 +8,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//OrderController ...
-type OrderController struct{}
+//InventoryController ...
+type InventoryController struct{}
 
-var orderModel = models.GetOrderModel()
+var inventoryModel = models.GetInventoryModel()
 
 //GetOne ...
-func (ctrl OrderController) GetOne(c *gin.Context) {
-	orderid := c.Param("id")
+func (ctrl InventoryController) GetOne(c *gin.Context) {
+	inventoryid := c.Param("id")
 
-	if orderid, err := strconv.ParseInt(orderid, 10, 32); err == nil {
-		orderid := int(orderid)
+	if inventoryid, err := strconv.ParseInt(inventoryid, 10, 32); err == nil {
+		inventoryid := int(inventoryid)
 
-		data, err := orderModel.GetOne(orderid)
+		data, err := inventoryModel.GetOne(inventoryid)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
@@ -33,7 +33,7 @@ func (ctrl OrderController) GetOne(c *gin.Context) {
 }
 
 //GetList ...
-func (ctrl OrderController) GetList(c *gin.Context) {
+func (ctrl InventoryController) GetList(c *gin.Context) {
 	page := c.Param("page")
 	amount, err := strconv.ParseInt(c.Param("amount"), 10, 32)
 
@@ -43,7 +43,7 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 
 	if page, err := strconv.ParseInt(page, 10, 32); err == nil {
 		page, amount := int(page), int(amount)
-		data, err := orderModel.GetList(page, amount)
+		data, err := inventoryModel.GetList(page, amount)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()

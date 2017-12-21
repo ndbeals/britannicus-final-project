@@ -20,6 +20,22 @@ type Transaction struct {
 //TransactionModel ...
 type TransactionModel struct{}
 
+var (
+	transModel *TransactionModel
+)
+
+//GetTransactionModel
+func GetTransactionModel() (model TransactionModel) {
+
+	if transModel != nil {
+		return *transModel
+	}
+	transModel = new(TransactionModel)
+	model = *transModel
+
+	return model
+}
+
 //Signin ...
 func (m TransactionModel) Signin(form forms.SigninForm) (transaction Transaction, err error) {
 
@@ -74,7 +90,7 @@ func (m TransactionModel) Signup(form forms.SignupForm) (transaction Transaction
 }
 
 //GetOne ...
-func (m TransactionModel) GetOne(TransactionID int64) (transaction Transaction, err error) {
+func (m TransactionModel) GetOne(TransactionID int) (transaction Transaction, err error) {
 	// dbaa := db.Init()
 	row := db.DB.QueryRow("SELECT transaction_id, customer_id, order_id, payment_method, amount_paid FROM tblTransaction WHERE transaction_id=$1", TransactionID)
 
@@ -87,7 +103,7 @@ func (m TransactionModel) GetOne(TransactionID int64) (transaction Transaction, 
 		return Transaction{}, err
 	}
 
-	userID, err := NewCustomerModel().GetOne(int64(customerID))
+	userID, err := GetCustomerModel().GetOne(int(customerID))
 
 	transaction = Transaction{transactionID, userID, orderID, paymentMethod, amountPaid}
 
@@ -95,32 +111,32 @@ func (m TransactionModel) GetOne(TransactionID int64) (transaction Transaction, 
 }
 
 //GetAll ...
-func (m TransactionModel) GetAllByUser(UserID int64) (transactions []Transaction, err error) {
+func (m TransactionModel) GetAllByCustomer(CustomerID int) (transactions []Transaction, err error) {
 
-	// Page = int64(math.Max(float64((Page-1)*Amount), 0))
+	rows, err := db.DB.Query("SELECT transaction_id, customer_id, order_id, payment_method, amount_paid FROM tblTransaction tblTransaction WHERE customer_id=$1", CustomerID)
+	if err != nil {
+		panic(err)
+	}
 
-	// dbaa := db.Init()
-	// rows, err := dbaa.Query("SELECT transaction_id, first_name, last_name, email, phone_number, address, city, state, country FROM tblTransaction OFFSET $1 LIMIT $2", Page, Amount)
-	// if err != nil {
-	// 	panic(err)
-	// }
+	defer rows.Close()
 
-	// for rows.Next() {
-	// 	var uid int
-	// 	var firstName, lastName, email, phoneNumber string
-	// 	var address, city, state, country sql.NullString
+	for rows.Next() {
+		var transactionID, customerID, orderID, paymentMethod int
+		var amountPaid float64
 
-	// 	err = rows.Scan(&uid, &firstName, &lastName, &email, &phoneNumber, &address, &city, &state, &country)
+		err = rows.Scan(&transactionID, &customerID, &orderID, &paymentMethod, &amountPaid)
+		if err != nil {
+			panic(err)
+		}
 
-	// 	if err != nil {
-	// 		panic(err)
-	// 	}
+		userID, err := GetCustomerModel().GetOne(int(customerID))
+		if err != nil {
+			panic(err)
+		}
 
-	// 	transactions = append(transactions, Transaction{uid, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String})
+		transactions = append(transactions, Transaction{transactionID, userID, orderID, paymentMethod, amountPaid})
 
-	// 	// fmt.Println("uid | username | department | created ")
-	// 	// fmt.Printf("%3v | %8v | %6v | %6v\n", uid, firstName, lastName, email)
-	// }
+	}
 
 	return transactions, err
 }

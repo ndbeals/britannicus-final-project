@@ -9,7 +9,7 @@ import (
 
 //UserSessionInfo ...
 type UserSessionInfo struct {
-	ID    int64  `json:"id"`
+	ID    int    `json:"id"`
 	Name  string `json:"name"`
 	Email string `json:"email"`
 }
@@ -51,9 +51,9 @@ func (j *JSONRaw) UnmarshalJSON(data []byte) error {
 }
 
 //ConvertToInt64 ...
-func ConvertToInt64(number interface{}) int64 {
+func ConvertToInt64(number interface{}) int {
 	if reflect.TypeOf(number).String() == "int" {
-		return int64(number.(int))
+		return int(number.(int))
 	}
-	return number.(int64)
+	return number.(int)
 }

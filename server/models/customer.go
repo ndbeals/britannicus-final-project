@@ -21,8 +21,8 @@ type Customer struct {
 	City        string `json:"customer_city"`
 	State       string `json:"customer_state"`
 	Country     string `json:"customer_country"`
-	// UpdatedAt int64  `db:"updated_at" json:"updated_at"`
-	// CreatedAt int64  `db:"created_at" json:"created_at"`
+	// UpdatedAt int  `db:"updated_at" json:"updated_at"`
+	// CreatedAt int  `db:"created_at" json:"created_at"`
 }
 
 //CustomerModel ...``
@@ -30,12 +30,18 @@ type CustomerModel struct {
 }
 
 var (
-	loadedCustomers map[int64]Customer
+	loadedCustomers map[int]Customer
+	custModel       *CustomerModel
 )
 
-//NewCustomerModel ...
-func NewCustomerModel() (model CustomerModel) {
-	model = *new(CustomerModel)
+//CustomerModel ...
+func GetCustomerModel() (model CustomerModel) {
+
+	if custModel != nil {
+		return *custModel
+	}
+	custModel = new(CustomerModel)
+	model = *custModel
 
 	return model
 }
@@ -93,26 +99,20 @@ func (m CustomerModel) Signup(form forms.SignupForm) (customer Customer, err err
 	return customer, errors.New("Not registered")
 }
 
-//One ...
-func (m CustomerModel) One(CustomerID int64) (customer Customer, err error) {
-	// err = db.GetDB().SelectOne(&Customer, "SELECT id, email, name FROM public.Customer WHERE id=$1", CustomerID)
-	return customer, err
-}
-
 //GetTransactions ...
-func (m CustomerModel) GetTransactions(CustomerID int64) (customer Customer, err error) {
-	// err = db.GetDB().SelectOne(&Customer, "SELECT id, email, name FROM public.Customer WHERE id=$1", CustomerID)
-	return customer, err
+func (m CustomerModel) GetTransactions(CustomerID int) (transactions []Transaction, err error) {
+
+	return GetTransactionModel().GetAllByCustomer(CustomerID)
 }
 
 //GetOne ...
-func (m CustomerModel) GetOne(CustomerID int64) (customer Customer, err error) {
+func (m CustomerModel) GetOne(CustomerID int) (customer Customer, err error) {
 	if len(loadedCustomers) > 0 {
 		if (loadedCustomers[CustomerID] != Customer{}) {
 			return loadedCustomers[CustomerID], nil
 		}
 	} else {
-		loadedCustomers = make(map[int64]Customer)
+		loadedCustomers = make(map[int]Customer)
 	}
 
 	// dbaa := db.Init()
@@ -128,15 +128,15 @@ func (m CustomerModel) GetOne(CustomerID int64) (customer Customer, err error) {
 	}
 
 	customer = Customer{customerID, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String}
-	loadedCustomers[int64(customerID)] = customer
+	loadedCustomers[customerID] = customer
 
 	return customer, err
 }
 
-//GetAll ...
-func (m CustomerModel) GetSet(Page int64, Amount int64) (customers []Customer, err error) {
+//GetList ...
+func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err error) {
 
-	Page = int64(math.Max(float64((Page-1)*Amount), 0))
+	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
 	// dbaa := db.Init()
 	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, city, state, country FROM tblCustomer OFFSET $1 LIMIT $2", Page, Amount)

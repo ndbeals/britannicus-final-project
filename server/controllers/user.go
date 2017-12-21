@@ -16,7 +16,7 @@ type UserController struct{}
 var userModel = new(models.UserModel)
 
 //getUserID ...
-func getUserID(c *gin.Context) int64 {
+func getUserID(c *gin.Context) int {
 	session := sessions.Default(c)
 	userID := session.Get("user_id")
 	if userID != nil {
@@ -103,19 +103,12 @@ func (ctrl UserController) Signout(c *gin.Context) {
 
 //GetOne ...
 func (ctrl UserController) GetOne(c *gin.Context) {
-	// userID := getUserID(c)
+	userid := c.Param("id")
 
-	// if userID == 0 {
-	// 	c.JSON(403, gin.H{"message": "Please login first"})
-	// 	c.Abort()
-	// 	return
-	// }
+	if userid, err := strconv.ParseInt(userid, 10, 32); err == nil {
+		userid := int(userid)
 
-	uid := c.Param("id")
-
-	if uid, err := strconv.ParseInt(uid, 10, 64); err == nil {
-
-		data, err := userModel.GetOne(uid)
+		data, err := userModel.GetOne(userid)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()

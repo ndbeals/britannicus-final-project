@@ -15,8 +15,8 @@ type User struct {
 	Name     string `db:"user_name" json:"user_name"`
 	Email    string `db:"user_email" json:"user_email"`
 	Password string `db:"user_password" json:"-"`
-	// UpdatedAt int64  `db:"updated_at" json:"updated_at"`
-	// CreatedAt int64  `db:"created_at" json:"created_at"`
+	// UpdatedAt int  `db:"updated_at" json:"updated_at"`
+	// CreatedAt int  `db:"created_at" json:"created_at"`
 }
 
 //UserModel ...
@@ -76,13 +76,13 @@ func (m UserModel) Signup(form forms.SignupForm) (user User, err error) {
 }
 
 //One ...
-func (m UserModel) One(userID int64) (user User, err error) {
+func (m UserModel) One(userID int) (user User, err error) {
 	// err = db.GetDB().SelectOne(&user, "SELECT id, email, name FROM public.user WHERE id=$1", userID)
 	return user, err
 }
 
 //GetOne ...
-func (m UserModel) GetOne(userID int64) (user User, err error) {
+func (m UserModel) GetOne(userID int) (user User, err error) {
 	// err = db.GetDB().SelectOne(&user, "SELECT id, email, name FROM public.user WHERE id=$1", userID)
 
 	fmt.Printf("GET ONE: %d \n", userID)

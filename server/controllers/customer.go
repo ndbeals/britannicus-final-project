@@ -13,10 +13,10 @@ import (
 //CustomerController ...
 type CustomerController struct{}
 
-var CustomerModel = models.NewCustomerModel()
+var customerModel = models.GetCustomerModel()
 
 //getCustomerID ...
-func getCustomerID(c *gin.Context) int64 {
+func getCustomerID(c *gin.Context) int {
 	session := sessions.Default(c)
 	CustomerID := session.Get("Customer_id")
 	if CustomerID != nil {
@@ -47,7 +47,7 @@ func (ctrl CustomerController) Signin(c *gin.Context) {
 		return
 	}
 
-	Customer, err := CustomerModel.Signin(signinForm)
+	Customer, err := customerModel.Signin(signinForm)
 	if err == nil {
 		session := sessions.Default(c)
 		session.Set("Customer_id", Customer.ID)
@@ -72,7 +72,7 @@ func (ctrl CustomerController) Signup(c *gin.Context) {
 		return
 	}
 
-	Customer, err := CustomerModel.Signup(signupForm)
+	Customer, err := customerModel.Signup(signupForm)
 
 	if err != nil {
 		c.JSON(406, gin.H{"message": err.Error()})
@@ -105,9 +105,10 @@ func (ctrl CustomerController) Signout(c *gin.Context) {
 func (ctrl CustomerController) GetTransactions(c *gin.Context) {
 	userid := c.Param("id")
 
-	if userid, err := strconv.ParseInt(userid, 10, 64); err == nil {
+	if userid, err := strconv.ParseInt(userid, 10, 32); err == nil {
+		userid := int(userid)
 
-		data, err := CustomerModel.GetOne(userid)
+		data, err := customerModel.GetTransactions(userid)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
@@ -129,11 +130,12 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 	// 	return
 	// }
 
-	uid := c.Param("id")
+	userid := c.Param("id")
 
-	if uid, err := strconv.ParseInt(uid, 10, 64); err == nil {
+	if userid, err := strconv.ParseInt(userid, 10, 32); err == nil {
+		userid := int(userid)
 
-		data, err := CustomerModel.GetOne(uid)
+		data, err := customerModel.GetOne(userid)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
@@ -146,7 +148,7 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 }
 
 //GetOne ...
-func (ctrl CustomerController) GetSet(c *gin.Context) {
+func (ctrl CustomerController) GetList(c *gin.Context) {
 	// CustomerID := getCustomerID(c)
 
 	// if CustomerID == 0 {
@@ -162,8 +164,9 @@ func (ctrl CustomerController) GetSet(c *gin.Context) {
 		amount = 100
 	}
 
-	if page, err := strconv.ParseInt(page, 10, 64); err == nil {
-		data, err := CustomerModel.GetSet(page, amount)
+	if page, err := strconv.ParseInt(page, 10, 32); err == nil {
+		page, amount := int(page), int(amount)
+		data, err := customerModel.GetList(page, amount)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()

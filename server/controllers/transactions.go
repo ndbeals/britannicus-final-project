@@ -16,7 +16,7 @@ type TransactionController struct{}
 var transactionModel = new(models.TransactionModel)
 
 //getTransactionID ...
-func getTransactionID(c *gin.Context) int64 {
+func getTransactionID(c *gin.Context) int {
 	session := sessions.Default(c)
 	transactionID := session.Get("transaction_id")
 	if transactionID != nil {
@@ -103,19 +103,12 @@ func (ctrl TransactionController) Signout(c *gin.Context) {
 
 //GetOne ...
 func (ctrl TransactionController) GetOne(c *gin.Context) {
-	// transactionID := getTransactionID(c)
+	transactionid := c.Param("id")
 
-	// if transactionID == 0 {
-	// 	c.JSON(403, gin.H{"message": "Please login first"})
-	// 	c.Abort()
-	// 	return
-	// }
+	if transactionid, err := strconv.ParseInt(transactionid, 10, 32); err == nil {
+		transactionid := int(transactionid)
 
-	uid := c.Param("id")
-
-	if uid, err := strconv.ParseInt(uid, 10, 64); err == nil {
-
-		data, err := transactionModel.GetOne(uid)
+		data, err := transactionModel.GetOne(transactionid)
 		if err != nil {
 			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
