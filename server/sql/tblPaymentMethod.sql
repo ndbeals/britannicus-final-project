@@ -5,8 +5,8 @@ CREATE TABLE tblPaymentMethod (
     payment_method      VARCHAR(25)
 );
 
-INSERT INTO tblPaymentMethod (payment_method_id, payment_method) VALUES (1, 'Cash');
-INSERT INTO tblPaymentMethod (payment_method_id, payment_method) VALUES (2, 'Debit');
-INSERT INTO tblPaymentMethod (payment_method_id, payment_method) VALUES (3, 'Visa');
-INSERT INTO tblPaymentMethod (payment_method_id, payment_method) VALUES (4, 'Mastercard');
-INSERT INTO tblPaymentMethod (payment_method_id, payment_method) VALUES (5, 'American Express');
+INSERT INTO tblPaymentMethod (payment_method) VALUES ('Cash');
+INSERT INTO tblPaymentMethod (payment_method) VALUES ('Debit');
+INSERT INTO tblPaymentMethod (payment_method) VALUES ('Visa');
+INSERT INTO tblPaymentMethod (payment_method) VALUES ('Mastercard');
+INSERT INTO tblPaymentMethod (payment_method) VALUES ('American Express');

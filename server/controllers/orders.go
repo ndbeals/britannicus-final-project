@@ -28,7 +28,7 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 
 	order, err := orderModel.Create(createOrderForm)
 
-	fmt.Printf("\n\nOrder POST DATA: %+v \n\n", order)
+	// fmt.Printf("\n\nOrder POST DATA: %+v \n\n", order)
 	if err != nil {
 		c.JSON(406, gin.H{"message": err.Error()})
 		c.Abort()
@@ -43,7 +43,7 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 		// session.Save()
 		c.JSON(200, gin.H{"message": "Successfully created order", "data": order})
 	} else {
-		c.JSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
+		// c.JSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
 	}
 
 }
@@ -84,7 +84,7 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"Message": data})
+		c.JSON(200, gin.H{"data": data})
 	} else {
 		c.JSON(404, gin.H{"Message": "Invalid parameter"})
 	}

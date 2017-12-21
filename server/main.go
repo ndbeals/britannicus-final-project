@@ -11,14 +11,28 @@ import (
 	"github.com/ndbeals/brittanicus-final-project/models"
 )
 
-const (
-	DB_USER     = "brittanicus"
-	DB_PASSWORD = "brittanicus"
-	DB_NAME     = "brittanicus"
-)
+//CORSMiddleware ...
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "http://localhost")
+		c.Writer.Header().Set("Access-Control-Max-Age", "86400")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, UPDATE")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, x-access-token")
+		c.Writer.Header().Set("Access-Control-Expose-Headers", "Content-Length")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+
+		if c.Request.Method == "OPTIONS" {
+			fmt.Println("OPTIONS")
+			c.AbortWithStatus(200)
+		} else {
+			c.Next()
+		}
+	}
+})
 
 func main() {
 	r := gin.Default()
+	r.Use(CORSMiddleware)
 
 	dbs := db.Init()
 
@@ -50,21 +64,6 @@ func main() {
 	// checkErr(err)
 
 	// fmt.Println(affect, "rows changed")
-
-	// fmt.Println("# Querying")
-	// rows, err := dbs.Query("SELECT * FROM tbluser")
-	// checkErr(err)
-
-	// for rows.Next() {
-	// 	var uid int
-	// 	var username string
-	// 	var department string
-	// 	var created string
-	// 	err = rows.Scan(&uid, &username, &department, &created)
-	// 	checkErr(err)
-	// 	fmt.Println("uid | username | department | created ")
-	// 	fmt.Printf("%3v | %8v | %6v | %6v\n", uid, username, department, created)
-	// }
 
 	// fmt.Println("# Deleting")
 	// stmt, err = db.Prepare("delete from userinfo where uid=$1")
