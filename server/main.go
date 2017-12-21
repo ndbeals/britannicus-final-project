@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"runtime"
 
@@ -28,11 +29,11 @@ func CORSMiddleware() gin.HandlerFunc {
 			c.Next()
 		}
 	}
-})
+}
 
 func main() {
 	r := gin.Default()
-	r.Use(CORSMiddleware)
+	r.Use(CORSMiddleware())
 
 	dbs := db.Init()
 

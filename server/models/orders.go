@@ -119,16 +119,20 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 			panic(err)
 		}
 
+		// fmt.Printf("customerID %d \n\n", customerID)
+
 		customer, err := GetCustomerModel().GetOne(customerID)
 		if err != nil {
 			panic(nil)
 		}
 
+		// fmt.Printf("GOT USER: %+v \n", customer)
+
 		order, cached = getOrder(orderID)
+		order.Customer = customer
 		if cached == true {
 			return order, err
 		}
-		order.Customer = customer
 		order.OrderTime = orderTime
 
 		rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
@@ -175,11 +179,11 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 		}
 
 		order, cached = getOrder(orderID)
+		order.Customer = customer
 		if cached {
 			orders = append(orders, order)
 		} else {
 
-			order.Customer = customer
 			order.OrderTime = orderTime
 
 			rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)

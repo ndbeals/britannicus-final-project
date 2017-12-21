@@ -84,7 +84,7 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.JSON(200, data)
 	} else {
 		c.JSON(404, gin.H{"Message": "Invalid parameter"})
 	}
