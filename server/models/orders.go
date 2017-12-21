@@ -1,8 +1,6 @@
 package models
 
 import (
-	"database/sql"
-	"fmt"
 	"log"
 	"math"
 
@@ -37,13 +35,13 @@ func (o *Order) AddToInventory(inventoryID int, orderAmount int) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("\n\nOrder: %+v \n\n", o)
-	fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
+	// fmt.Printf("\n\nOrder: %+v \n\n", o)
+	// fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
 
 	itemList := ItemList{inventory.ID, inventory.Product, inventory.InventoryCondition, inventory.ConditionString, orderAmount, inventory.Note}
 
-	fmt.Println("ADDED?")
-	fmt.Printf("GOT ITEMLIST: %+v \n", itemList)
+	// fmt.Println("ADDED?")
+	// fmt.Printf("GOT ITEMLIST: %+v \n", itemList)
 
 	*o.ItemList = append(*o.ItemList, itemList)
 }
@@ -72,32 +70,18 @@ func GetOrderModel() (model OrderModel) {
 	return model
 }
 
-func getOrder(OrderID int) (order Order) {
-	if loadedOrders[OrderID].ID > 0 {
-		fmt.Println("cached order")
-		fmt.Printf("%+v\n\n", loadedOrders[OrderID].ItemList)
-		return loadedOrders[OrderID]
-	}
-	order = Order{}
-	order.ID = OrderID
-	order.ItemList = &[]ItemList{}
-	loadedOrders[OrderID] = order
-	return order
-}
-
 //GetOne ...
 func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
-	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, jncOrderItems.inventory_id, jncOrderItems.quantity, tblOrder.date_time from tblOrder LEFT OUTER JOIN jncOrderItems ON tblOrder.order_id = jncOrderItems.order_id WHERE tblOrder.order_id=$1", OrderID)
+	rows, err := db.DB.Query("select order_id, customer_id, date_time from tblOrder WHERE tblOrder.order_id=$1", OrderID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	var cached bool
+
 	for rows.Next() {
 		var orderID, customerID, inventoryID, quantity, orderTime int
-		// var firstName, lastName, email, phoneNumber string
-		// var address, city, state, country sql.NullString
-
-		err = rows.Scan(&orderID, &customerID, &inventoryID, &quantity, &orderTime)
+		err = rows.Scan(&orderID, &customerID, &orderTime)
 		if err != nil {
 			panic(err)
 		}
@@ -107,15 +91,26 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 			panic(nil)
 		}
 
-		// if err != nil {
-		// return Order{}, err
-		// }
-
-		order = getOrder(orderID)
+		order, cached = getOrder(orderID)
+		if cached == true {
+			return order, err
+		}
 		order.Customer = customer
 		order.OrderTime = orderTime
 
-		order.AddToInventory(inventoryID, quantity)
+		rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		for rows.Next() {
+			err = rows.Scan(&inventoryID, &quantity)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			order.AddToInventory(inventoryID, quantity)
+		}
 	}
 
 	return order, err
@@ -126,28 +121,67 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	// dbaa := db.Init()
-	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, jncOrderItems.inventory_id, jncOrderItems.quantity from tblOrder INNER JOIN jncOrderItems ON tblOrder.order_id = jncOrderItems.order_id OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
+	var order Order
+	var cached bool
+
 	for rows.Next() {
-		var orderID int
-		var firstName, lastName, email, phoneNumber string
-		var address, city, state, country sql.NullString
-
-		err = rows.Scan(&orderID, &firstName, &lastName, &email, &phoneNumber, &address, &city, &state, &country)
-
+		var orderID, customerID, inventoryID, quantity, orderTime int
+		err = rows.Scan(&orderID, &customerID, &orderTime)
 		if err != nil {
 			panic(err)
 		}
 
-		// orders = append(orders, Order{orderID, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String})
+		customer, err := GetCustomerModel().GetOne(customerID)
+		if err != nil {
+			panic(nil)
+		}
 
-		// fmt.Println("orderID | username | department | created ")
-		// fmt.Printf("%3v | %8v | %6v | %6v\n", orderID, firstName, lastName, email)
+		order, cached = getOrder(orderID)
+		if cached {
+			orders = append(orders, order)
+		} else {
+
+			order.Customer = customer
+			order.OrderTime = orderTime
+
+			rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			for rows.Next() {
+				err = rows.Scan(&inventoryID, &quantity)
+				if err != nil {
+					log.Fatal(err)
+				}
+
+				order.AddToInventory(inventoryID, quantity)
+				// }
+
+				// if len(*order.ItemList) < 2 {
+				orders = append(orders, order)
+				// fmt.Println("appended")
+				// }
+			}
+
+		}
 	}
 
 	return orders, err
+}
+
+func getOrder(OrderID int) (order Order, cached bool) {
+	if loadedOrders[OrderID].ID > 0 {
+		return loadedOrders[OrderID], true
+	}
+	order = Order{}
+	order.ID = OrderID
+	order.ItemList = &[]ItemList{}
+	loadedOrders[OrderID] = order
+	return order, false
 }

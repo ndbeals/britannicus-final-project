@@ -1,8 +1,10 @@
 package controllers
 
 import (
+	"fmt"
 	"strconv"
 
+	"github.com/ndbeals/brittanicus-final-project/forms"
 	"github.com/ndbeals/brittanicus-final-project/models"
 
 	"github.com/gin-gonic/gin"
@@ -12,6 +14,22 @@ import (
 type OrderController struct{}
 
 var orderModel = models.GetOrderModel()
+
+//CreateOrder ...
+func (ctrl OrderController) CreateOrder(c *gin.Context) {
+	var createOrderForm *forms.CreateOrder
+	fmt.Printf("\n\nOrder DATA: %s \n\n", c.PostForm("customer_id"))
+
+	if c.BindJSON(&createOrderForm) != nil {
+		c.JSON(406, gin.H{"message": "Invalid Post form", "form": createOrderForm})
+		c.Abort()
+		return
+	}
+
+	order, err = orderModel.Create(createOrderForm)
+
+	fmt.Printf("\n\nOrder POST DATA: %+v \n\n", createOrderForm)
+}
 
 //GetOne ...
 func (ctrl OrderController) GetOne(c *gin.Context) {
@@ -49,7 +67,7 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.JSON(200, data)
+		c.JSON(200, gin.H{"Message": data})
 	} else {
 		c.JSON(404, gin.H{"Message": "Invalid parameter"})
 	}

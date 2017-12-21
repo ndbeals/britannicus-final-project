@@ -114,6 +114,8 @@ func main() {
 		v1.GET("/order/:id", order.GetOne)
 		v1.GET("/orders/:page/:amount", order.GetList)
 
+		v1.POST("order/new", order.CreateOrder)
+
 		/*** START TRANSACTIONS ***/
 		transaction := new(controllers.TransactionController)
 
