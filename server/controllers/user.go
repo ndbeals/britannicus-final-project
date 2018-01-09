@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"fmt"
 	"strconv"
 
-	"github.com/ndbeals/brittanicus-final-project/forms"
-	"github.com/ndbeals/brittanicus-final-project/models"
+	"github.com/ndbeals/britannicus-final-project/forms"
+	"github.com/ndbeals/britannicus-final-project/models"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -41,6 +42,8 @@ func getSessionUserInfo(c *gin.Context) (userSessionInfo models.UserSessionInfo)
 func (ctrl UserController) Signin(c *gin.Context) {
 	var signinForm forms.SigninForm
 
+	// fmt.Println("EMAIL FORM", c.DefaultPostForm("email", "default"))
+
 	if c.BindJSON(&signinForm) != nil {
 		c.JSON(406, gin.H{"message": "Invalid form", "form": signinForm})
 		c.Abort()
@@ -50,7 +53,8 @@ func (ctrl UserController) Signin(c *gin.Context) {
 	user, err := userModel.Signin(signinForm)
 	if err == nil {
 		session := sessions.Default(c)
-		session.Set("user_id", user.ID)
+		fmt.Println("Ifds", session)
+		// session.Set("user_id", user.ID)
 		session.Set("user_email", user.Email)
 		session.Set("user_name", user.Name)
 		session.Save()

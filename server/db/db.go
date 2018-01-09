@@ -15,9 +15,10 @@ import (
 // }
 
 const (
-	DB_USER     = "brittanicus"
-	DB_PASSWORD = "brittanicus"
-	DB_NAME     = "brittanicus"
+	DB_HOST     = "192.168.0.13"
+	DB_USER     = "britannicus"
+	DB_PASSWORD = "britannicus"
+	DB_NAME     = "britannicus"
 )
 
 var (
@@ -28,12 +29,14 @@ var (
 //Init ...
 func Init() *sql.DB {
 
-	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
-		DB_USER, DB_PASSWORD, DB_NAME)
+	dbinfo := fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable",
+		DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+
+	fmt.Println(dbinfo)
 
 	var err error
 	// db, err = ConnectDB(dbinfo)
-	dbs, err := sql.Open("postgres", dbinfo)
+	dbs, err := sql.Open("postgres", "postgres://britannicus:britannicus@192.168.0.13/britannicus?sslmode=disable")
 
 	DB = dbs
 

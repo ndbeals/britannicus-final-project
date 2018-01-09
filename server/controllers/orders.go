@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/ndbeals/brittanicus-final-project/forms"
-	"github.com/ndbeals/brittanicus-final-project/models"
+	"github.com/ndbeals/britannicus-final-project/forms"
+	"github.com/ndbeals/britannicus-final-project/models"
 
 	"github.com/gin-gonic/gin"
 )

@@ -3,9 +3,9 @@ package models
 import (
 	"errors"
 
-	// "github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/forms"
+	// "github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/forms"
 )
 
 //Transaction ...

@@ -5,9 +5,9 @@ import (
 	"errors"
 	"math"
 
-	// "github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/forms"
+	// "github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/forms"
 )
 
 //Customer ...
@@ -139,7 +139,7 @@ func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
 	// dbaa := db.Init()
-	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, city, state, country FROM tblCustomer OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, customer_city, customer_state, customer_country FROM tblCustomer OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		panic(err)
 	}

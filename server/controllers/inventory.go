@@ -3,7 +3,7 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/ndbeals/brittanicus-final-project/models"
+	"github.com/ndbeals/britannicus-final-project/models"
 
 	"github.com/gin-gonic/gin"
 )

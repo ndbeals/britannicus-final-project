@@ -4,8 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/forms"
+	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/forms"
+	"golang.org/x/crypto/bcrypt"
 )
 
 //User ...
@@ -24,20 +25,34 @@ type UserModel struct{}
 //Signin ...
 func (m UserModel) Signin(form forms.SigninForm) (user User, err error) {
 
-	// err = db.GetDB().SelectOne(&user, "SELECT id, email, password, name, updated_at, created_at FROM public.user WHERE email=LOWER($1) LIMIT 1", form.Email)
+	row := db.DB.QueryRow("SELECT user_id, user_name, user_email, user_password FROM tblUser WHERE user_email=$1 LIMIT 1", form.Email)
+	fmt.Println(form.Email)
+	var uid int
+	var userName string
+	var userEmail string
+	var userPassword string
 
-	// if err != nil {
-	// 	return user, err
-	// }
+	err = row.Scan(&uid, &userName, &userEmail, &userPassword)
 
-	// bytePassword := []byte(form.Password)
-	// byteHashedPassword := []byte(user.Password)
+	if err != nil {
+		return user, err
+	}
 
-	// err = bcrypt.CompareHashAndPassword(byteHashedPassword, bytePassword)
+	user.ID = uid
+	user.Name = userName
+	user.Email = userEmail
+	user.Password = userPassword
 
-	// if err != nil {
-	// 	return user, errors.New("Invalid password")
-	// }
+	bytePassword := []byte(form.Password)
+	byteHashedPassword := []byte(user.Password)
+
+	err = bcrypt.CompareHashAndPassword(byteHashedPassword, bytePassword)
+
+	if err != nil {
+		return user, errors.New("Invalid password")
+	}
+
+	fmt.Println(user.ID)
 
 	return user, nil
 }

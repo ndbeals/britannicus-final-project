@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"math"
 
-	"github.com/ndbeals/brittanicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/db"
 )
 
 //Inventory ...

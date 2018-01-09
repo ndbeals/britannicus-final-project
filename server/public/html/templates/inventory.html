@@ -1,0 +1,96 @@
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+<!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
+<script src="/public/js/inventory.js" type="text/javascript"></script>
+
+<!-- <script>
+    $(document).ready(function(){
+        console.log("DOC ready",$.get);
+
+        $.get("http://localhost:9000/v1/inventories/" + 1 + "/20", function (data) {
+            if (data !== null) {
+                for (var i = 0; i < data.length; i++) {
+                    item = data[i];
+
+                    AddItem(item.inventory_id, item.product.product_name, item.product.product_genre, item.amount, item.product.product_price, item.inventory_condition);
+                }
+            }
+        })
+            .done(function () {
+                //alert("second success");
+            })
+            .fail(function () {
+                //alert("error");
+            })
+            .always(function (data) {
+                //alert("finished" + data);
+            });
+    });
+    
+    (function ($) {
+            console.log("HI DERE")
+            console.log($.get)
+        })(jQuery());
+    
+    var result = "";
+
+    function AddItem(itemID, itemName, itemGenre, quantity, price, condition) {
+            result = result +
+                "<div class='listitem row border border-info'>" +
+                // " <a href=' " + item[0] + "'>" + 
+                "<div class='col-sm-1'>" + itemID + "</div>" +
+                "<div class='col-sm-4'>" + itemName + "</div>" +
+                "<div class='col-sm-2'>" + itemGenre + "</div>" +
+                "<div class='col-sm-1'>" + quantity + "</div>" +
+                "<div class='col-sm-1'>" + price + "</div>" +
+                "<div class='col-sm-2'>" + condition + "</div>" +
+                "<form class='form-inline my-2 my-lg-0'> <div class='col-sm-1'> <button class='btn-sm btn-outline-success my-2 my-sm-0' onclick='location.href='item.html';'>" + itemID + "</button>" + "</div></form>" +
+                // " </a>" +
+                "</div>";
+            $("#inventory").html(result);
+        }
+
+</script> -->
+
+    <div id="topnavbar"></div>
+    
+    <div class="container">
+        <h1>Inventory</h1>
+    
+        <form class="form-inline">
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" placeholder="Filter" aria-label="Search">
+            <button class="form-control btn btn-outline-success col-sm-1" id="search">Search</button>
+    
+            <div class="col-sm-1 ml-5"></div>
+    
+            <label class="sr-only" for="pagenumber">Page</label>
+            <div class="input-group ml-5 mr-4 mb-2 mr-sm-1 mb-sm-0">
+                <input type="number" min="0" class="form-control col-sm-4" id="pagenumber" placeholder="Page">
+                <button class="btn-success input-group-addon col-sm-3 " id="gotopagenumber">Go To</button>
+                <!-- <div class="input-group-addon">@</div> -->
+            </div>
+            <div class="mx-3"></div>
+    
+            <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button>
+            <button class="form-control btn btn-outline-success mx-1" id="next">Next</button>
+        </form>
+        </br>
+        <div class="row">
+            <div class="col-sm-1">ID</div>
+            <div class="col-sm-4">Item Name</div>
+            <div class="col-sm-2">Genre</div>
+            <div class="col-sm-1">Quantity</div>
+            <div class="col-sm-1">Price</div>
+            <div class="col-sm-2">Condition</div>
+        </div>
+    
+        <div id="inventory"></div>
+    
+    </div>
+    
+    <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
+    		Chromium <script>document.write(process.versions.chrome)</script>,
+    		and Electron <script>document.write(process.versions.electron)</script>. -->
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

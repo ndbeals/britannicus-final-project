@@ -5,11 +5,12 @@ import (
 	"net/http"
 	"runtime"
 
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
-	"github.com/ndbeals/brittanicus-final-project/controllers"
-	"github.com/ndbeals/brittanicus-final-project/db"
-	"github.com/ndbeals/brittanicus-final-project/models"
+	"github.com/ndbeals/britannicus-final-project/controllers"
+	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/models"
 )
 
 //CORSMiddleware ...
@@ -35,8 +36,11 @@ func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 
-	dbs := db.Init()
+	store := sessions.NewCookieStore([]byte("secret"))
+	//sessions.NewRedisStore(10, "tcp", "localhost:6379", "", []byte("secret"))
+	r.Use(sessions.Sessions("gin-boilerplate-session", store))
 
+	dbs := db.Init()
 	defer dbs.Close()
 
 	models.InitializeInventoryModel()
@@ -85,7 +89,7 @@ func main() {
 
 		v1.GET("/user/:id", user.GetOne)
 
-		// v1.POST("/user/signin", user.Signin)
+		v1.POST("/user/signin", user.Signin)
 		// v1.POST("/user/signup", user.Signup)
 		// v1.GET("/user/signout", user.Signout)
 
@@ -132,14 +136,22 @@ func main() {
 		// v1.DELETE("/article/:id", article.Delete)
 	}
 
-	r.LoadHTMLGlob("./public/html/*")
+	r.LoadHTMLGlob("./public/html/templates/*")
+	// r.LoadHTMLGlob("./public/html/templates/*/*")
 
 	r.Static("/public", "./public")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
-			"ginBoilerplateVersion": "v0.03",
-			"goVersion":             runtime.Version(),
+			"title":     "Home Page",
+			"goVersion": runtime.Version(),
+		})
+	})
+
+	r.GET("/inventory", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "inventory.html", gin.H{
+			"title":     "Inventory Page",
+			"goVersion": runtime.Version(),
 		})
 	})
 
