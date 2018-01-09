@@ -140,6 +140,8 @@ func main() {
 	// r.LoadHTMLGlob("./public/html/templates/*/*")
 
 	r.Static("/public", "./public")
+	r.Static("/js", "./public/js")
+	r.Static("/css", "./public/css")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
