@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"runtime"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -32,13 +31,27 @@ func CORSMiddleware() gin.HandlerFunc {
 	}
 }
 
+// authentication middleware
+func AuthenticationMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		userID := controllers.GetUserID(c)
+
+		if userID == 0 {
+
+			c.AbortWithStatus(404)
+		}
+
+		c.Next()
+	}
+}
+
 func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 
 	store := sessions.NewCookieStore([]byte("secret"))
 	//sessions.NewRedisStore(10, "tcp", "localhost:6379", "", []byte("secret"))
-	r.Use(sessions.Sessions("gin-boilerplate-session", store))
+	r.Use(sessions.Sessions("britannicus-session", store))
 
 	dbs := db.Init()
 	defer dbs.Close()
@@ -82,14 +95,13 @@ func main() {
 
 	// fmt.Println(affect, "rows changed")
 
-	v1 := r.Group("/v1")
+	user := new(controllers.UserController)
+	v1 := r.Group("/v1", AuthenticationMiddleware())
 	{
 		/*** START USER ***/
-		user := new(controllers.UserController)
 
 		v1.GET("/user/:id", user.GetOne)
 
-		v1.POST("/user/signin", user.Signin)
 		// v1.POST("/user/signup", user.Signup)
 		// v1.GET("/user/signout", user.Signout)
 
@@ -139,21 +151,45 @@ func main() {
 	r.LoadHTMLGlob("./public/html/templates/*")
 	// r.LoadHTMLGlob("./public/html/templates/*/*")
 
-	r.Static("/public", "./public")
+	// r.Static("/public", "./public")
 	r.Static("/js", "./public/js")
 	r.Static("/css", "./public/css")
 
+	r.POST("/user/signin", user.Signin)
+	r.GET("/user/signout", user.Signout)
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"title":     "Home Page",
-			"goVersion": runtime.Version(),
+		userID := controllers.GetUserID(c)
+		fmt.Println(c.Get("user"))
+		fmt.Println(sessions.Default(c).Get("user"))
+
+		fmt.Println("ASF", userID, c.Request.URL)
+
+		if userID == 0 {
+			c.HTML(http.StatusOK, "login.html", gin.H{
+				"title": "Login Page",
+			})
+		} else {
+			user, _ := controllers.GetLoggedinUser(c)
+
+			c.HTML(http.StatusOK, "index.html", gin.H{
+				"title": "Home Page",
+				"route": "/",
+				"user":  user,
+			})
+		}
+	})
+
+	r.GET("/products", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "products.html", gin.H{
+			"title": "Products Page",
+			"route": "/products",
 		})
 	})
 
 	r.GET("/inventory", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "inventory.html", gin.H{
-			"title":     "Inventory Page",
-			"goVersion": runtime.Version(),
+			"title": "Inventory Page",
+			"route": "/inventory",
 		})
 	})
 

@@ -21,7 +21,7 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 	fmt.Printf("\n\nOrder DATA: %s \n\n", c.PostForm("customer_id"))
 
 	if c.BindJSON(&createOrderForm) != nil {
-		c.JSON(406, gin.H{"message": "Invalid Post form", "form": createOrderForm})
+		c.IndentedJSON(406, gin.H{"message": "Invalid Post form", "form": createOrderForm})
 		c.Abort()
 		return
 	}
@@ -30,7 +30,7 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 
 	// fmt.Printf("\n\nOrder POST DATA: %+v \n\n", order)
 	if err != nil {
-		c.JSON(406, gin.H{"message": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": err.Error()})
 		c.Abort()
 		return
 	}
@@ -41,9 +41,9 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 		// session.Set("user_email", user.Email)
 		// session.Set("user_name", user.Name)
 		// session.Save()
-		c.JSON(200, gin.H{"message": "Successfully created order", "data": order})
+		c.IndentedJSON(200, gin.H{"message": "Successfully created order", "data": order})
 	} else {
-		// c.JSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
+		// c.IndentedJSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
 	}
 
 }
@@ -57,13 +57,13 @@ func (ctrl OrderController) GetOne(c *gin.Context) {
 
 		data, err := orderModel.GetOne(orderid)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, gin.H{"data": data})
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
 
@@ -80,12 +80,12 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 		page, amount := int(page), int(amount)
 		data, err := orderModel.GetList(page, amount)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, data)
+		c.IndentedJSON(200, data)
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }

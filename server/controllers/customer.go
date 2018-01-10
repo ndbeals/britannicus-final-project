@@ -42,7 +42,7 @@ func (ctrl CustomerController) Signin(c *gin.Context) {
 	var signinForm forms.SigninForm
 
 	if c.BindJSON(&signinForm) != nil {
-		c.JSON(406, gin.H{"message": "Invalid form", "form": signinForm})
+		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signinForm})
 		c.Abort()
 		return
 	}
@@ -55,9 +55,9 @@ func (ctrl CustomerController) Signin(c *gin.Context) {
 		// session.Set("Customer_name", Customer.Name)
 		session.Save()
 
-		c.JSON(200, gin.H{"message": "Customer signed in", "Customer": Customer})
+		c.IndentedJSON(200, gin.H{"message": "Customer signed in", "Customer": Customer})
 	} else {
-		c.JSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
 	}
 
 }
@@ -67,7 +67,7 @@ func (ctrl CustomerController) Signup(c *gin.Context) {
 	var signupForm forms.SignupForm
 
 	if c.BindJSON(&signupForm) != nil {
-		c.JSON(406, gin.H{"message": "Invalid form", "form": signupForm})
+		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signupForm})
 		c.Abort()
 		return
 	}
@@ -75,7 +75,7 @@ func (ctrl CustomerController) Signup(c *gin.Context) {
 	Customer, err := customerModel.Signup(signupForm)
 
 	if err != nil {
-		c.JSON(406, gin.H{"message": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": err.Error()})
 		c.Abort()
 		return
 	}
@@ -86,9 +86,9 @@ func (ctrl CustomerController) Signup(c *gin.Context) {
 		session.Set("Customer_email", Customer.Email)
 		// session.Set("Customer_name", Customer.Name)
 		session.Save()
-		c.JSON(200, gin.H{"message": "Success signup", "Customer": Customer})
+		c.IndentedJSON(200, gin.H{"message": "Success signup", "Customer": Customer})
 	} else {
-		c.JSON(406, gin.H{"message": "Could not signup this Customer", "error": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": "Could not signup this Customer", "error": err.Error()})
 	}
 
 }
@@ -98,7 +98,7 @@ func (ctrl CustomerController) Signout(c *gin.Context) {
 	session := sessions.Default(c)
 	session.Clear()
 	session.Save()
-	c.JSON(200, gin.H{"message": "Signed out..."})
+	c.IndentedJSON(200, gin.H{"message": "Signed out..."})
 }
 
 //GetTransactions
@@ -110,13 +110,13 @@ func (ctrl CustomerController) GetTransactions(c *gin.Context) {
 
 		data, err := customerModel.GetTransactions(userid)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, gin.H{"data": data})
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
 
@@ -125,7 +125,7 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 	// CustomerID := getCustomerID(c)
 
 	// if CustomerID == 0 {
-	// 	c.JSON(403, gin.H{"message": "Please login first"})
+	// 	c.IndentedJSON(403, gin.H{"message": "Please login first"})
 	// 	c.Abort()
 	// 	return
 	// }
@@ -137,13 +137,13 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 
 		data, err := customerModel.GetOne(userid)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, gin.H{"data": data})
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
 
@@ -152,7 +152,7 @@ func (ctrl CustomerController) GetList(c *gin.Context) {
 	// CustomerID := getCustomerID(c)
 
 	// if CustomerID == 0 {
-	// 	c.JSON(403, gin.H{"message": "Please login first"})
+	// 	c.IndentedJSON(403, gin.H{"message": "Please login first"})
 	// 	c.Abort()
 	// 	return
 	// }
@@ -168,12 +168,12 @@ func (ctrl CustomerController) GetList(c *gin.Context) {
 		page, amount := int(page), int(amount)
 		data, err := customerModel.GetList(page, amount)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, data)
+		c.IndentedJSON(200, data)
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }

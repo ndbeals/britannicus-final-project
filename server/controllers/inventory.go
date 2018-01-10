@@ -22,13 +22,13 @@ func (ctrl InventoryController) GetOne(c *gin.Context) {
 
 		data, err := inventoryModel.GetOne(inventoryid)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, gin.H{"data": data})
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
 
@@ -45,12 +45,12 @@ func (ctrl InventoryController) GetList(c *gin.Context) {
 		page, amount := int(page), int(amount)
 		data, err := inventoryModel.GetList(page, amount)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, data)
+		c.IndentedJSON(200, data)
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }

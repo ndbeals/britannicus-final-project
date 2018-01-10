@@ -42,7 +42,7 @@ func (ctrl TransactionController) Signin(c *gin.Context) {
 	var signinForm forms.SigninForm
 
 	if c.BindJSON(&signinForm) != nil {
-		c.JSON(406, gin.H{"message": "Invalid form", "form": signinForm})
+		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signinForm})
 		c.Abort()
 		return
 	}
@@ -55,9 +55,9 @@ func (ctrl TransactionController) Signin(c *gin.Context) {
 		// session.Set("transaction_name", transaction.Name)
 		session.Save()
 
-		c.JSON(200, gin.H{"message": "Transaction signed in", "transaction": transaction})
+		c.IndentedJSON(200, gin.H{"message": "Transaction signed in", "transaction": transaction})
 	} else {
-		c.JSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
 	}
 
 }
@@ -67,7 +67,7 @@ func (ctrl TransactionController) Signup(c *gin.Context) {
 	var signupForm forms.SignupForm
 
 	if c.BindJSON(&signupForm) != nil {
-		c.JSON(406, gin.H{"message": "Invalid form", "form": signupForm})
+		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signupForm})
 		c.Abort()
 		return
 	}
@@ -75,7 +75,7 @@ func (ctrl TransactionController) Signup(c *gin.Context) {
 	transaction, err := transactionModel.Signup(signupForm)
 
 	if err != nil {
-		c.JSON(406, gin.H{"message": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": err.Error()})
 		c.Abort()
 		return
 	}
@@ -86,9 +86,9 @@ func (ctrl TransactionController) Signup(c *gin.Context) {
 		// session.Set("transaction_email", transaction.Email)
 		// session.Set("transaction_name", transaction.Name)
 		session.Save()
-		c.JSON(200, gin.H{"message": "Success signup", "transaction": transaction})
+		c.IndentedJSON(200, gin.H{"message": "Success signup", "transaction": transaction})
 	} else {
-		c.JSON(406, gin.H{"message": "Could not signup this transaction", "error": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": "Could not signup this transaction", "error": err.Error()})
 	}
 
 }
@@ -98,7 +98,7 @@ func (ctrl TransactionController) Signout(c *gin.Context) {
 	session := sessions.Default(c)
 	session.Clear()
 	session.Save()
-	c.JSON(200, gin.H{"message": "Signed out..."})
+	c.IndentedJSON(200, gin.H{"message": "Signed out..."})
 }
 
 //GetOne ...
@@ -110,12 +110,12 @@ func (ctrl TransactionController) GetOne(c *gin.Context) {
 
 		data, err := transactionModel.GetOne(transactionid)
 		if err != nil {
-			c.JSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
-		c.JSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, gin.H{"data": data})
 	} else {
-		c.JSON(404, gin.H{"Message": "Invalid parameter"})
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
