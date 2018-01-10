@@ -14,6 +14,7 @@ type Inventory struct {
 	InventoryCondition int     `json:"-"`
 	ConditionString    string  `json:"inventory_condition"`
 	Amount             int     `json:"amount"`
+	Price              float64 `json:"item_price"`
 	Note               string  `json:"note"`
 }
 
@@ -26,7 +27,7 @@ var (
 )
 
 //InitializeInventoryModel ...
-func InitializeInventoryModel() {
+func InitializeInventoryModel() *InventoryModel {
 	GetInventoryModel()
 	conditionLookup = make(map[int]string)
 
@@ -45,6 +46,8 @@ func InitializeInventoryModel() {
 		}
 		conditionLookup[conditionID] = condition.String
 	}
+
+	return inventoryModel
 }
 
 //GetInventoryModel ...
@@ -61,12 +64,13 @@ func GetInventoryModel() (model InventoryModel) {
 
 //GetOne ...
 func (m InventoryModel) GetOne(InventoryID int) (inventory Inventory, err error) {
-	row := db.DB.QueryRow("SELECT inventory_id, product_id, inventory_condition, amount, notes FROM tblInventory WHERE inventory_id=$1", InventoryID)
+	row := db.DB.QueryRow("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory WHERE inventory_id=$1", InventoryID)
 
 	var inventoryID, productID, inventoryCondition, amount int
+	var price float64
 	var notes sql.NullString
 
-	err = row.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &notes)
+	err = row.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &price, &notes)
 	if err != nil {
 		panic(err)
 	}
@@ -76,7 +80,7 @@ func (m InventoryModel) GetOne(InventoryID int) (inventory Inventory, err error)
 		panic(err)
 	}
 
-	inventory = Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String}
+	inventory = Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, price, notes.String}
 
 	return inventory, err
 }
@@ -86,16 +90,17 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, notes FROM tblInventory OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		panic(err)
 	}
 
 	for rows.Next() {
 		var inventoryID, productID, inventoryCondition, amount int
+		var price float64
 		var notes sql.NullString
 
-		err = rows.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &notes)
+		err = rows.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &price, &notes)
 		if err != nil {
 			panic(err)
 		}
@@ -105,7 +110,7 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 			panic(err)
 		}
 
-		inventoryList = append(inventoryList, Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, notes.String})
+		inventoryList = append(inventoryList, Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, price, notes.String})
 	}
 
 	return inventoryList, err

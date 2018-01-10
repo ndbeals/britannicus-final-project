@@ -20,7 +20,8 @@ type User struct {
 }
 
 //UserModel ...
-type UserModel struct{}
+type UserModel struct {
+}
 
 //Signin ...
 func (m UserModel) Signin(form forms.SigninForm) (user User, err error) {

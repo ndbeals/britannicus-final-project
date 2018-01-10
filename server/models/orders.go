@@ -57,9 +57,11 @@ var (
 )
 
 //InitializeOrderModel ...
-func InitializeOrderModel() {
+func InitializeOrderModel() *OrderModel {
 	GetOrderModel()
 	loadedOrders = make(map[int]Order)
+
+	return orderModel
 }
 
 //GetOrderModel ...

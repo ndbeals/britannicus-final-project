@@ -12,7 +12,9 @@ import (
 )
 
 //UserController ...
-type UserController struct{}
+type UserController struct {
+	// Delme string
+}
 
 var userModel = new(models.UserModel)
 
@@ -36,22 +38,10 @@ func GetLoggedinUser(c *gin.Context) (user models.User, success bool) {
 		user.Name = session.Get("user_name").(string)
 		user.Email = session.Get("user_email").(string)
 	} else {
-		return models.User{}, false
+		return user, false
 	}
 
 	return user, true
-}
-
-//getSessionUserInfo ...
-func getSessionUserInfo(c *gin.Context) (userSessionInfo models.UserSessionInfo) {
-	session := sessions.Default(c)
-	userID := session.Get("user_id")
-	if userID != nil {
-		userSessionInfo.ID = models.ConvertToInt64(userID)
-		userSessionInfo.Name = session.Get("user_name").(string)
-		userSessionInfo.Email = session.Get("user_email").(string)
-	}
-	return userSessionInfo
 }
 
 //Signin ...
@@ -61,7 +51,6 @@ func (ctrl UserController) Signin(c *gin.Context) {
 	// fmt.Println("WHAT IN THE FUCK")
 	// fmt.Println("EMAIL FORM", c.DefaultPostForm("email", "default"))
 	test, _ := c.GetPostForm("email")
-	fmt.Println("ENAIL", test)
 	signinForm.Email = test
 	signinForm.Password, success = c.GetPostForm("password")
 
@@ -132,7 +121,7 @@ func (ctrl UserController) Signout(c *gin.Context) {
 	session := sessions.Default(c)
 	session.Clear()
 	session.Save()
-	c.IndentedJSON(200, gin.H{"message": "Signed out..."})
+	c.Redirect(303, "/")
 }
 
 //GetOne ...

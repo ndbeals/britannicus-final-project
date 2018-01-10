@@ -3,46 +3,42 @@
 <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
 
 
+<div id="topnavbar"></div>
 
-<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+<!-- <div class="container"> -->
+    <h1>Inventory</h1>
 
-    <div id="topnavbar"></div>
-    
-    <!-- <div class="container"> -->
-        <h1>Inventory</h1>
-    
-        <form class="form-inline">
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" placeholder="Filter" aria-label="Search">
-            <button class="form-control btn btn-outline-success col-sm-1" id="search">Search</button>
-    
-            <div class="col-sm-1 ml-5"></div>
-    
-            <label class="sr-only" for="pagenumber">Page</label>
-            <div class="input-group ml-5 mr-4 mb-2 mr-sm-1 mb-sm-0">
-                <input type="number" min="0" class="form-control col-sm-4" id="pagenumber" placeholder="Page">
-                <button class="btn-success input-group-addon col-sm-3 " id="gotopagenumber">Go To</button>
-                <!-- <div class="input-group-addon">@</div> -->
-            </div>
-            <div class="mx-3"></div>
-    
-            <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button>
-            <button class="form-control btn btn-outline-success mx-1" id="next">Next</button>
-        </form>
-        </br>
-        <div class="row">
-            <div class="col-sm-1">ID</div>
-            <div class="col-sm-4">Item Name</div>
-            <div class="col-sm-2">Genre</div>
-            <div class="col-sm-1">Quantity</div>
-            <div class="col-sm-1">Price</div>
-            <div class="col-sm-2">Condition</div>
+    <form class="form-inline">
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" placeholder="Filter" aria-label="Search">
+        <button class="form-control btn btn-outline-success col-sm-1" id="search">Search</button>
+
+        <div class="col-sm-1 ml-5"></div>
+
+        <label class="sr-only" for="pagenumber">Page</label>
+        <div class="input-group ml-5 mr-4 mb-2 mr-sm-1 mb-sm-0">
+            <input type="number" min="0" class="form-control col-sm-4" id="pagenumber" placeholder="Page">
+            <button class="btn-success input-group-addon col-sm-3 " id="gotopagenumber">Go To</button>
+            <!-- <div class="input-group-addon">@</div> -->
         </div>
-    
-        <div id="inventory"></div>
-    
-    <!-- </div> -->
+        <div class="mx-3"></div>
 
-</main>
+        <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button>
+        <button class="form-control btn btn-outline-success mx-1" id="next">Next</button>
+    </form>
+    </br>
+    <div class="row">
+        <div class="col-sm-1">ID</div>
+        <div class="col-sm-4">Item Name</div>
+        <div class="col-sm-2">Genre</div>
+        <div class="col-sm-1">Quantity</div>
+        <div class="col-sm-1">Price</div>
+        <div class="col-sm-2">Condition</div>
+    </div>
+
+    <div id="inventory"></div>
+
+<!-- </div> -->
+
     
     
     <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
