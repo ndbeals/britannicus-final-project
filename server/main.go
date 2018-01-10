@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
@@ -91,21 +89,7 @@ func main() {
 
 	initializeBasicRoutes(r)
 
-	r.Use(AuthenticationMiddleware())
-
-	r.GET("/products", AuthenticationMiddleware(), func(c *gin.Context) {
-		c.HTML(http.StatusOK, "products.html", gin.H{
-			"title": "Products Page",
-			"route": "/products",
-		})
-	})
-
-	r.GET("/inventory", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "inventory.html", gin.H{
-			"title": "Inventory Page",
-			"route": "/inventory",
-		})
-	})
+	initializeControlRoutes(r)
 
 	r.NoRoute(func(c *gin.Context) {
 		c.HTML(404, "404.html", gin.H{})

@@ -9,14 +9,15 @@ import (
 
 //Product ...
 type Product struct {
-	ID          int    `json:"product_id"`
-	ISBN        string `json:"isbn"`
-	ProductName string `json:"product_name"`
-	Author      string `json:"product_author"`
-	Genre       string `json:"product_genre"`
-	Publisher   string `json:"product_publisher"`
-	ProductType int    `json:"product_type"`
-	Description string `json:"product_description"`
+	ID                int    `json:"product_id"`
+	ISBN              string `json:"isbn"`
+	ProductName       string `json:"product_name"`
+	Author            string `json:"product_author"`
+	Genre             string `json:"product_genre"`
+	Publisher         string `json:"product_publisher"`
+	ProductType       int    `json:"-"`
+	ProductTypeString string `json:"product_type"`
+	Description       string `json:"product_description"`
 }
 
 //ProductModel ...
@@ -32,6 +33,7 @@ var (
 func InitializeProductModel() *ProductModel {
 	GetProductModel()
 	loadedProducts = make(map[int]Product)
+	typeLookup = make(map[int]string)
 
 	typeLookup[1] = "Soft Cover"
 	typeLookup[2] = "Hard Cover"
@@ -64,10 +66,10 @@ func (m ProductModel) GetOne(ProductID int) (product Product, err error) {
 
 	err = row.Scan(&productID, &isbn, &productName, &author, &genre, &publisher, &productType, &description)
 	if err != nil {
-		panic(err)
+		return product, err
 	}
 
-	product = Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, description.String}
+	product = Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, typeLookup[productType], description.String}
 	loadedProducts[productID] = product
 
 	return product, err
@@ -98,7 +100,7 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 			panic(err)
 		}
 
-		products = append(products, Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, description.String})
+		products = append(products, Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, typeLookup[productType], description.String})
 
 		// products = append(products, Product{uid, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String})
 

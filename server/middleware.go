@@ -33,5 +33,6 @@ func AuthenticationMiddleware() gin.HandlerFunc {
 		}
 
 		c.Next()
+
 	}
 }

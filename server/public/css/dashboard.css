@@ -67,3 +67,13 @@ h1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+
+.tbl-btn {
+  padding: 0.05rem;
+  font-size: 0.75rem;
+}
+
+.tbl-lesspadding > tr > td {
+  padding: 0.45rem;
+}

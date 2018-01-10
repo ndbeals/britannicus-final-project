@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -85,5 +86,65 @@ func initializeBasicRoutes(r *gin.Engine) {
 				"user":  user,
 			})
 		}
+	})
+}
+
+func initializeControlRoutes(r *gin.Engine) {
+	r.Use(AuthenticationMiddleware())
+
+	r.GET("/products", AuthenticationMiddleware(), func(c *gin.Context) {
+		c.HTML(http.StatusOK, "products.html", gin.H{
+			"title": "Products Page",
+			"route": "/products",
+		})
+	})
+
+	r.GET("/product", AuthenticationMiddleware(), func(c *gin.Context) {
+		product, err := productModel.GetOne(1)
+
+		if err != nil {
+			c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
+			c.Abort()
+			return
+		}
+
+		c.HTML(http.StatusOK, "product.html", gin.H{
+			"title":     "Product Detail Page",
+			"route":     "/product",
+			"productid": 1,
+			"product":   product,
+		})
+	})
+	r.GET("/product/:id", AuthenticationMiddleware(), func(c *gin.Context) {
+		productid := c.Param("id")
+
+		if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
+			productid := int(productid)
+			product, err := productModel.GetOne(productid)
+
+			if err != nil {
+				c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
+				c.Abort()
+				return
+			}
+
+			c.HTML(http.StatusOK, "product.html", gin.H{
+				"title":     "Product Detail Page",
+				"route":     "/product",
+				"productid": productid,
+				"product":   product,
+			})
+		} else {
+			c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
+		}
+	})
+	//
+
+	// Inventory routes
+	r.GET("/inventory", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "inventory.html", gin.H{
+			"title": "Inventory Page",
+			"route": "/inventory",
+		})
 	})
 }
