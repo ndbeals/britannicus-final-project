@@ -110,3 +110,15 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 
 	return products, err
 }
+
+//Product Delete ...
+func (this *Product) Delete() (bool, error) {
+	_, err := db.DB.Query("DELETE FROM tblProducts WHERE product_id=$1", this.ID)
+
+	if err != nil {
+		// panic(err)
+		return false, err
+	}
+
+	return true, err
+}

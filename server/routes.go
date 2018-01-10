@@ -93,9 +93,12 @@ func initializeControlRoutes(r *gin.Engine) {
 	r.Use(AuthenticationMiddleware())
 
 	r.GET("/products", AuthenticationMiddleware(), func(c *gin.Context) {
+		user, _ := controllers.GetLoggedinUser(c)
+
 		c.HTML(http.StatusOK, "products.html", gin.H{
 			"title": "Products Page",
 			"route": "/products",
+			"user":  user,
 		})
 	})
 
@@ -108,14 +111,18 @@ func initializeControlRoutes(r *gin.Engine) {
 			return
 		}
 
+		user, _ := controllers.GetLoggedinUser(c)
+
 		c.HTML(http.StatusOK, "product.html", gin.H{
 			"title":     "Product Detail Page",
 			"route":     "/product",
+			"user":      user,
 			"productid": 1,
 			"product":   product,
 		})
 	})
-	r.GET("/product/:id", AuthenticationMiddleware(), func(c *gin.Context) {
+
+	r.GET("/product/get/:id", AuthenticationMiddleware(), func(c *gin.Context) {
 		productid := c.Param("id")
 
 		if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
@@ -128,9 +135,12 @@ func initializeControlRoutes(r *gin.Engine) {
 				return
 			}
 
+			user, _ := controllers.GetLoggedinUser(c)
+
 			c.HTML(http.StatusOK, "product.html", gin.H{
 				"title":     "Product Detail Page",
 				"route":     "/product",
+				"user":      user,
 				"productid": productid,
 				"product":   product,
 			})
@@ -138,13 +148,52 @@ func initializeControlRoutes(r *gin.Engine) {
 			c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 		}
 	})
+
+	r.GET("/product/delete/:id", AuthenticationMiddleware(), func(c *gin.Context) {
+		productid := c.Param("id")
+
+		fmt.Println("delete,", productid)
+
+		if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
+			productid := int(productid)
+			product, err := productModel.GetOne(productid)
+
+			if err != nil {
+				c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
+				c.Abort()
+				return
+			}
+
+			deleted, err := product.Delete()
+			fmt.Println(deleted)
+			fmt.Println(err)
+
+			if deleted {
+				user, _ := controllers.GetLoggedinUser(c)
+
+				c.HTML(http.StatusOK, "products.html", gin.H{
+					"title": "Products Page",
+					"route": "/products",
+					"user":  user,
+				})
+			} else {
+				c.JSON(404, gin.H{"Message": "Could not delete product, as other data relies on this Record."})
+			}
+
+		} else {
+			c.IndentedJSON(406, gin.H{"Message": "Invalid parameter"})
+		}
+	})
 	//
 
 	// Inventory routes
 	r.GET("/inventory", func(c *gin.Context) {
+		user, _ := controllers.GetLoggedinUser(c)
+
 		c.HTML(http.StatusOK, "inventory.html", gin.H{
 			"title": "Inventory Page",
 			"route": "/inventory",
+			"user":  user,
 		})
 	})
 }

@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
 
 
-    $.get("http://localhost:9000/v1/products/" + 1 + "/20", function (data) {
+    $.get("/v1/products/" + 1 + "/20", function (data) {
         if (data !== null) {
 
             var table = $("#productsFilterTable");
