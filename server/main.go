@@ -46,43 +46,6 @@ func main() {
 	inventoryController = new(controllers.InventoryController)
 	orderController = new(controllers.OrderController)
 
-	// db.DB = dbs
-
-	// dba := db.Init()
-
-	// fmt.Println("# Inserting values")
-
-	// var lastInsertId int
-	// err = db.QueryRow("INSERT INTO userinfo(username,departname,created) VALUES($1,$2,$3) returning uid;", "astaxie", "研发部门", "2012-12-09").Scan(&lastInsertId)
-	// checkErr(err)
-	// fmt.Println("last inserted id =", lastInsertId)
-
-	// fmt.Println("# Updating")
-	// stmt, err := db.Prepare("update userinfo set username=$1 where uid=$2")
-	// checkErr(err)
-
-	// res, err := stmt.Exec("astaxieupdate", lastInsertId)
-	// checkErr(err)
-
-	// affect, err := res.RowsAffected()
-	// checkErr(err)
-
-	// fmt.Println(affect, "rows changed")
-
-	// fmt.Println("# Deleting")
-	// stmt, err = db.Prepare("delete from userinfo where uid=$1")
-	// checkErr(err)
-
-	// res, err = stmt.Exec(lastInsertId)
-	// checkErr(err)
-
-	// affect, err = res.RowsAffected()
-	// checkErr(err)
-
-	// fmt.Println(affect, "rows changed")
-
-	// fmt.Println("main delme", userController.Delme)
-
 	r.LoadHTMLGlob("./public/html/templates/*")
 	// r.LoadHTMLGlob("./public/html/templates/*/*")
 

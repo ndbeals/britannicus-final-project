@@ -104,12 +104,12 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 		err = rows.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &price, &notes)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		product, err := GetProductModel().GetOne(productID)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		inventoryList = append(inventoryList, Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, price, notes.String})
