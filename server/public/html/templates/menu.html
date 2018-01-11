@@ -63,16 +63,22 @@
                     <a class='nav-link {{if eq .route "/products"}}active{{end}}' href="/products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class='nav-link {{if eq .route "/product"}}active{{end}}' href='/product/{{.productid}}'>Detailed Product View</a>
+                    <a class='nav-link {{if eq .route "/product"}}active{{end}}' href='/product/get/{{.product.ID}}'>Detailed Product View</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link {{if eq .route "/product/create"}}active{{end}}' href='/product/create'>Create Product</a>
                 </li>
             </ul>
 
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link {{if eq .route `/customer`}}active{{end}}" href="/customer">Customer Info</a>
+                    <a class='nav-link {{if eq .route "/customers"}}active{{end}}' href="/customers">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class='nav-link {{if eq .route "/customers"}}active{{end}}' href="/customers">Customers</a>
+                    <a class="nav-link {{if eq .route `/customer`}}active{{end}}" href="/customer/get">Customer Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{if eq .route `/customer/create`}}active{{end}}" href="/customer/create">Create Customer</a>
                 </li>
             </ul>
         </nav>

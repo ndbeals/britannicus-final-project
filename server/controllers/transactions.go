@@ -3,7 +3,6 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/ndbeals/britannicus-final-project/forms"
 	"github.com/ndbeals/britannicus-final-project/models"
 
 	"github.com/gin-gonic/contrib/sessions"
@@ -36,62 +35,6 @@ func getTransactionID(c *gin.Context) int {
 // 	}
 // 	return transactionSessionInfo
 // }
-
-//Signin ...
-func (ctrl TransactionController) Signin(c *gin.Context) {
-	var signinForm forms.SigninForm
-
-	if c.BindJSON(&signinForm) != nil {
-		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signinForm})
-		c.Abort()
-		return
-	}
-
-	transaction, err := transactionModel.Signin(signinForm)
-	if err == nil {
-		session := sessions.Default(c)
-		session.Set("transaction_id", transaction.ID)
-		// session.Set("transaction_email", transaction.Email)
-		// session.Set("transaction_name", transaction.Name)
-		session.Save()
-
-		c.IndentedJSON(200, gin.H{"message": "Transaction signed in", "transaction": transaction})
-	} else {
-		c.IndentedJSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
-	}
-
-}
-
-//Signup ...
-func (ctrl TransactionController) Signup(c *gin.Context) {
-	var signupForm forms.SignupForm
-
-	if c.BindJSON(&signupForm) != nil {
-		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signupForm})
-		c.Abort()
-		return
-	}
-
-	transaction, err := transactionModel.Signup(signupForm)
-
-	if err != nil {
-		c.IndentedJSON(406, gin.H{"message": err.Error()})
-		c.Abort()
-		return
-	}
-
-	if transaction.ID > 0 {
-		session := sessions.Default(c)
-		session.Set("transaction_id", transaction.ID)
-		// session.Set("transaction_email", transaction.Email)
-		// session.Set("transaction_name", transaction.Name)
-		session.Save()
-		c.IndentedJSON(200, gin.H{"message": "Success signup", "transaction": transaction})
-	} else {
-		c.IndentedJSON(406, gin.H{"message": "Could not signup this transaction", "error": err.Error()})
-	}
-
-}
 
 //Signout ...
 func (ctrl TransactionController) Signout(c *gin.Context) {

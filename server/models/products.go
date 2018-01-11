@@ -2,9 +2,11 @@ package models
 
 import (
 	"database/sql"
+	"fmt"
 	"math"
 
 	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/forms"
 )
 
 //Product ...
@@ -81,7 +83,7 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
 	// dbaa := db.Init()
-	rows, err := db.DB.Query("SELECT product_id, isbn, product_name, author, genre, publisher, product_type, description FROM tblProducts OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("SELECT product_id, isbn, product_name, author, genre, publisher, product_type, description FROM tblProducts ORDER BY product_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		panic(err)
 	}
@@ -115,10 +117,62 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 func (this *Product) Delete() (bool, error) {
 	_, err := db.DB.Query("DELETE FROM tblProducts WHERE product_id=$1", this.ID)
 
+	fmt.Println("deleted model")
+
 	if err != nil {
 		// panic(err)
 		return false, err
 	}
 
+	delete(loadedProducts, this.ID)
+	// productModel.GetOne(this.ID)
+
 	return true, err
+}
+
+// Update ...
+func (this *Product) Update(newdata forms.UpdateProductForm) (bool, error) {
+
+	stmt, err := db.DB.Prepare("update tblproducts set product_name=$2, author=$3, genre=$4, publisher=$5,description=$6 where product_id=$1")
+	if err != nil {
+		return false, err
+	}
+
+	_, err = stmt.Exec(this.ID, newdata.ProductName, newdata.Author, newdata.Genre, newdata.Publisher, newdata.Description)
+
+	if err != nil {
+		return false, err
+	}
+
+	// loadedProducts[this.ID] =
+	delete(loadedProducts, this.ID)
+	productModel.GetOne(this.ID)
+
+	return true, err
+}
+
+// Create ...
+func (this *Product) Create() (int, error) {
+	fmt.Println("#create", this.ISBN, this.ProductName, this.Author, this.Genre, this.Publisher, 1, this.Description, "end")
+	stmt, err := db.DB.Prepare("insert into tblproducts(isbn, product_name, author, genre, publisher, product_type, description) values( $1, $2, $3, $4, $5, $6, $7 ) RETURNING product_id")
+
+	if err != nil {
+		return 0, err
+	}
+
+	results := stmt.QueryRow(this.ISBN, this.ProductName, this.Author, this.Genre, this.Publisher, 1, this.Description)
+
+	var newid int
+	err = results.Scan(&newid)
+	fmt.Println("model product create", newid)
+
+	if err != nil {
+		return 0, err
+	}
+
+	// loadedProducts[this.ID] =
+	delete(loadedProducts, this.ID)
+	productModel.GetOne(int(newid))
+
+	return int(newid), err
 }

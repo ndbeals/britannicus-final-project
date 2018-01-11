@@ -1,51 +1,124 @@
+productID = 1;
+
 $(document).ready(function () {
-    $("#productsFilterInput").on("keyup", function () {
-        console.log("GA");
-        var value = $(this).val().toLowerCase();
-        $("#productsFilterTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+    productID = parseInt($("#product_ID").val());
+    console.log(productID);
+
+
+    $("#product_next").click(function () {
+        productID++;
+        console.log(productID);
+        window.location.href = productID;
+    });
+
+    $("#product_previous").click(function () {
+        productID--;
+        window.location.href = productID;
+    });
+
+    $("#product_ID").bind('change', function () {
+        prodid = parseInt($("#product_ID").val());
+
+        console.log("prodid")
+
+        if (prodid > 0) {
+            // ipcRenderer.send("set_inventory_page", pagenum);
+            // changeproduct(prodid)
+            productID++;
+            window.location.href = prodid;
+        }
+    });
+
+    $("#product_delete").click( function(e) {
+        e.preventDefault();
+        console.log("delete");
+
+        $.ajax({
+            url: "/v1/product/" + productID,
+            dataType: 'json',
+            type: 'DELETE',
+            success: function (data) {
+                console.log("DATA POSTED SUCCESSFULLY" + data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    })
+
+
+    $("#product_updateform").submit( function(e) {
+        e.preventDefault();
+        // $("#product_ISBN").val(data.isbn)
+        // $("#product_author").val(data.product_author)
+        // $("#product_genre").val(data.product_genre)
+        // $("#product_description").val(data.product_description)
+        // $("#product_name").val(data.product_name)
+        // $("#product_type").val(data.product_type)
+        console.log("pub",$("#product_publisher").val());
+
+        var data = {};
+        data.product_id = productID
+        data.product_isbn = $("#product_isbn").val()
+        data.product_publisher = $("#product_publisher").val()
+        data.product_author = $("#product_author").val()
+        data.product_genre = $("#product_genre").val()
+        data.product_description = $("#product_description").val()
+        data.product_name = $("#product_name").val()
+        data.product_type = $("#product_type").val()
+        
+
+        test = $("#product_updateform")
+
+        console.log(JSON.stringify(data));
+
+
+        $.ajax({
+            url: "/v1/product/" + productID,
+            dataType: 'json',
+            type: 'PATCH',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (data) {
+                console.log("DATA POSTED SUCCESSFULLY" + data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
         });
     });
 
-
-    $.get("/v1/products/" + 1 + "/20", function (data) {
-        if (data !== null) {
-
-            var table = $("#productsFilterTable");
-
-            table.empty();
-
-            for (var i = 0; i < data.length; i++) {
-                item = data[i];
-
-                addProduct(table, item.product_id, item.isbn, item.product_name, item.product_author, item.product_genre, item.product_publisher, item.product_type, item.product_description)
-                // AddItem(item.inventory_id, item.product.product_name, item.product.product_genre, item.amount, item.product.product_price, item.inventory_condition);
-            }
-        }
-    })
-    .done(function () {
-        //alert("second success");
-    })
-    .fail(function () {
-        //alert("error");
-    })
-    .always(function (data) {
-        //alert("finished" + data);
-    });
+    
 });
 
-function addProduct(table, productID, ISBN, productName, author, genre, publisher, productType, description) {
+function changeProduct(id) {
+    productID = id;
+    $("#product_ID").val(id)
 
-    var row = "<tr><td>" + 
-        productID + "</td><td>" +
-        ISBN + "</td><td>" +
-        productName + "</td><td>" +
-        author + "</td><td>" +
-        genre + "</td><td>" +
-        publisher + "</td><td>" +
-        productType + "</td><td>" +
-        description + '</td><td><a href="/product/'+productID+'"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td></tr>'
-        // </tr>
+    if ( id > 0) {
 
-    table.append(row);
+        $.get("/v1/product/" + productID, function (data) {
+            console.log("still",data);
+            if (data !== null) {
+                data = data.data
+                $("#product_ISBN").val(data.isbn)
+                $("#product_author").val(data.product_author)
+                $("#product_genre").val(data.product_genre)
+                $("#product_description").val(data.product_description)
+                $("#product_name").val(data.product_name)
+                $("#product_type").val(data.product_type)
+                $("#product_publisher").val(data.product_publisher)
+            }
+        })
+        .done(function () {
+            //alert("second success");
+        })
+        .fail(function () {
+            //alert("error");
+        })
+        .always(function (data) {
+            //alert("finished" + data);
+        });
+    }
 }

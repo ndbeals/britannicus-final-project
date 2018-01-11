@@ -1,9 +1,7 @@
 productPage = 1;
 
 $(document).ready(function () {
-
     productPage = parseInt($("#product_page").val());
-    console.log(productPage);
 
 
     $("#product_next").click(function () {
@@ -22,7 +20,6 @@ $(document).ready(function () {
         pagenum = parseInt($("#product_page").val());
 
         if (pagenum > 0) {
-            // ipcRenderer.send("set_inventory_page", pagenum);
             oldpage = productPage;
             
             if (!changePage(pagenum)){
@@ -30,32 +27,31 @@ $(document).ready(function () {
             }
         }
     });
-    // $("#product_page").on("keyup",function () {
-    //     console.log("key")
-    //     pagenum = $("#product_page").val()
-
-    //     if (pagenum > 0) {
-    //         // ipcRenderer.send("set_inventory_page", pagenum);
-    //         populateProducts(pagenum);
-    //     }
-    // });
-
 
 
     $("#productsFilterInput").on("keyup", function () {
-        console.log("GA");
         var value = $(this).val().toLowerCase();
-        $("#productsFilterTable tr").filter(function () {
-            // console.log(this, $(this).index());
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
+
+        if (value == "") {
+            changePage(productPage);
+        } else {
+            results = 0
+            $("#productsFilterTable tr").filter(function () {
+                if ($(this).is(":visible")) {
+                    $(this).toggle(false)
+                }
+                if (results < 15) {
+                    show = $(this).text().toLowerCase().indexOf(value) > -1
+                    $(this).toggle(show)
+                    if (show) {
+                        results++;
+                    }
+                }
+            });
+        }
     });
 
     populateProducts(1);
-
-
-
-
 });
 
 function addProduct(table, productID, ISBN, productName, author, genre, publisher, productType, description) {
@@ -68,26 +64,23 @@ function addProduct(table, productID, ISBN, productName, author, genre, publishe
         genre + "</td><td>" +
         publisher + "</td><td>" +
         productType + "</td><td>" +
-        description + '</td><td><a href="/product/get/' + productID + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel'+productID+'" type="button" class="delbutton btn btn-primary btn-block tbl-btn">Delete</button></td></tr>'
-        // </tr>
-        // /product/delete/' + productID +
+        description + '</td><td><a href="/product/get/' + productID + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel'+productID+'" type="button" class="btn btn-danger btn-block tbl-btn">Delete</button></td></tr>'
         
-    row = table.append(row);
+    row = $(row).appendTo(table)//table.append(row);
 
     $('#btndel'+productID).click(function () {
-        console.log("Test",productID);
-        var myValue = $(this).parent().parent();
-        // myValue.remove();
-        console.log(myValue);
-        console.log(($(this).attr("id")));
+        // console.log("Test",productID);
+        var parent = $(this).parent().parent();
+        // console.log(myValue);
+        // console.log(($(this).attr("id")));
 
         $.get("/product/delete/"+productID, function (data) {
-            console.log("succ",data);
+            // console.log("succ",data);
             if (data !== null ) {
-
+                parent.remove();
+                // changePage(productPage);
             }
         }).fail(function (data) {
-            //alert("error");
             alert(data.responseJSON.Message)
         });
     });
@@ -98,9 +91,6 @@ function addProduct(table, productID, ISBN, productName, author, genre, publishe
 function populateProducts( page , hide) {
     $.get("/v1/products/" + page + "/15", function (data) {
         if (data !== null) {
-            // productPage = page;
-            // $("#product_page").val(page)
-
             var table = $("#productsFilterTable");
 
             // table.empty();
@@ -111,7 +101,8 @@ function populateProducts( page , hide) {
                 row = addProduct(table, item.product_id, item.isbn, item.product_name, item.product_author, item.product_genre, item.product_publisher, item.product_type, item.product_description)
 
                 if (hide==true) {
-                    changePage(1);
+                    row.toggle(false)
+                    // changePage(productPage);
                 }
             }
 

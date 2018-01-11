@@ -3,6 +3,7 @@ package models
 import (
 	"database/sql"
 	"errors"
+	"fmt"
 	"math"
 
 	// "github.com/ndbeals/britannicus-final-project/db"
@@ -31,17 +32,25 @@ type CustomerModel struct {
 
 var (
 	loadedCustomers map[int]Customer
-	custModel       *CustomerModel
+	customerModel   *CustomerModel
 )
+
+//InitializeOrderModel ...
+func InitializeCustomerModel() *CustomerModel {
+	GetCustomerModel()
+	loadedCustomers = make(map[int]Customer)
+
+	return customerModel
+}
 
 //CustomerModel ...
 func GetCustomerModel() (model CustomerModel) {
 
-	if custModel != nil {
-		return *custModel
+	if customerModel != nil {
+		return *customerModel
 	}
-	custModel = new(CustomerModel)
-	model = *custModel
+	customerModel = new(CustomerModel)
+	model = *customerModel
 
 	return model
 }
@@ -124,7 +133,8 @@ func (m CustomerModel) GetOne(CustomerID int) (customer Customer, err error) {
 	err = row.Scan(&customerID, &firstName, &lastName, &email, &phoneNumber, &address, &city, &state, &country)
 
 	if err != nil {
-		panic(err)
+		// panic(err)
+		return customer, err
 	}
 
 	customer = Customer{customerID, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String}
@@ -139,7 +149,7 @@ func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
 	// dbaa := db.Init()
-	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, customer_city, customer_state, customer_country FROM tblCustomer OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, customer_city, customer_state, customer_country FROM tblCustomer ORDER BY customer_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		panic(err)
 	}
@@ -163,4 +173,71 @@ func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err 
 	}
 
 	return customers, err
+}
+
+// Create ...
+func (this *Customer) Create() (int, error) {
+	// fmt.Println("#create", this.ISBN, this.CustomerName, this.Author, this.Genre, this.Publisher, 1, this.Description, "end")
+	stmt, err := db.DB.Prepare("insert into tblcustomer(first_name, last_name, email, phone_number, customer_address, customer_city, customer_state, customer_country) values( $1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING customer_id")
+
+	fmt.Println("model cust create")
+	if err != nil {
+		panic(err)
+		return 0, err
+	}
+
+	results := stmt.QueryRow(this.FirstName, this.LastName, this.Email, this.PhoneNumber, this.Address, this.City, this.State, this.Country)
+
+	var newid int
+	err = results.Scan(&newid)
+	fmt.Println("model cust create", newid)
+
+	if err != nil {
+		panic(err)
+		return 0, err
+	}
+
+	// loadedCustomers[this.ID] =
+	delete(loadedCustomers, this.ID)
+	customerModel.GetOne(int(newid))
+
+	return int(newid), err
+}
+
+// Update ...
+func (this *Customer) Update(newdata forms.UpdateCustomerForm) (bool, error) {
+
+	stmt, err := db.DB.Prepare("update tblcustomer set first_name=$2, last_name=$3, email=$4, phone_number=$5, customer_address=$6, customer_city=$7, customer_state=$8, customer_country=$9 where customer_id=$1")
+	if err != nil {
+		return false, err
+	}
+
+	_, err = stmt.Exec(this.ID, newdata.FirstName, newdata.LastName, newdata.Email, newdata.PhoneNumber, newdata.Address, newdata.City, newdata.State, newdata.Country)
+
+	if err != nil {
+		return false, err
+	}
+
+	// loadedCustomers[this.ID] =
+	delete(loadedCustomers, this.ID)
+	customerModel.GetOne(this.ID)
+
+	return true, err
+}
+
+//Customer Delete ...
+func (this *Customer) Delete() (bool, error) {
+	_, err := db.DB.Query("DELETE FROM tblCustomer WHERE customer_id=$1", this.ID)
+
+	fmt.Println("deleted customer")
+
+	if err != nil {
+		// panic(err)
+		return false, err
+	}
+
+	delete(loadedCustomers, this.ID)
+	// customerModel.GetOne(this.ID)
+
+	return true, err
 }

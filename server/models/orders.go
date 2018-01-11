@@ -160,7 +160,7 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder OFFSET ORDER BY tblOrder.order_id $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		log.Fatal(err)
 	}

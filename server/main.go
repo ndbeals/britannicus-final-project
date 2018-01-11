@@ -20,6 +20,7 @@ var (
 	orderController     *controllers.OrderController
 	inventoryModel      *models.InventoryModel
 	inventoryController *controllers.InventoryController
+	customerModel       *models.CustomerModel
 	customerController  *controllers.CustomerController
 )
 
@@ -37,9 +38,11 @@ func main() {
 	inventoryModel = models.InitializeInventoryModel()
 	productModel = models.InitializeProductModel()
 	orderModel = models.InitializeOrderModel()
+	customerModel = models.InitializeCustomerModel()
 
 	userController = new(controllers.UserController)
 	customerController = new(controllers.CustomerController)
+	productController = new(controllers.ProductController)
 
 	// db.DB = dbs
 

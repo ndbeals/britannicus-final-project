@@ -90,7 +90,7 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory OFFSET $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory ORDER BY  inventory_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		panic(err)
 	}

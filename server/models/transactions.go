@@ -1,11 +1,8 @@
 package models
 
 import (
-	"errors"
-
 	// "github.com/ndbeals/britannicus-final-project/db"
 	"github.com/ndbeals/britannicus-final-project/db"
-	"github.com/ndbeals/britannicus-final-project/forms"
 )
 
 //Transaction ...
@@ -36,59 +33,6 @@ func GetTransactionModel() (model TransactionModel) {
 	return model
 }
 
-//Signin ...
-func (m TransactionModel) Signin(form forms.SigninForm) (transaction Transaction, err error) {
-
-	// err = db.GetDB().SelectOne(&Transaction, "SELECT id, email, password, name, updated_at, created_at FROM public.Transaction WHERE email=LOWER($1) LIMIT 1", form.Email)
-
-	// if err != nil {
-	// 	return Transaction, err
-	// }
-
-	// bytePassword := []byte(form.Password)
-	// byteHashedPassword := []byte(Transaction.Password)
-
-	// err = bcrypt.CompareHashAndPassword(byteHashedPassword, bytePassword)
-
-	// if err != nil {
-	// 	return Transaction, errors.New("Invalid password")
-	// }
-
-	return transaction, nil
-}
-
-//Signup ...
-func (m TransactionModel) Signup(form forms.SignupForm) (transaction Transaction, err error) {
-	// getDb := db.GetDB()
-
-	// checkTransaction, err := getDb.SelectInt("SELECT count(id) FROM public.Transaction WHERE email=LOWER($1) LIMIT 1", form.Email)
-
-	// if err != nil {
-	// 	return Transaction, err
-	// }
-
-	// if checkTransaction > 0 {
-	// 	return Transaction, errors.New("Transaction exists")
-	// }
-
-	// bytePassword := []byte(form.Password)
-	// hashedPassword, err := bcrypt.GenerateFromPassword(bytePassword, bcrypt.DefaultCost)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// res, err := getDb.Exec("INSERT INTO public.Transaction(email, password, name, updated_at, created_at) VALUES($1, $2, $3, $4, $5) RETURNING id", form.Email, string(hashedPassword), form.Name, time.Now().Unix(), time.Now().Unix())
-
-	// if res != nil && err == nil {
-	// 	err = getDb.SelectOne(&Transaction, "SELECT id, email, name, updated_at, created_at FROM public.Transaction WHERE email=LOWER($1) LIMIT 1", form.Email)
-	// 	if err == nil {
-	// 		return Transaction, nil
-	// 	}
-	// }
-
-	return transaction, errors.New("Not registered")
-}
-
 //GetOne ...
 func (m TransactionModel) GetOne(TransactionID int) (transaction Transaction, err error) {
 	// dbaa := db.Init()
@@ -113,7 +57,7 @@ func (m TransactionModel) GetOne(TransactionID int) (transaction Transaction, er
 //GetAll ...
 func (m TransactionModel) GetAllByCustomer(CustomerID int) (transactions []Transaction, err error) {
 
-	rows, err := db.DB.Query("SELECT transaction_id, customer_id, order_id, payment_method, amount_paid FROM tblTransaction tblTransaction WHERE customer_id=$1", CustomerID)
+	rows, err := db.DB.Query("SELECT transaction_id, customer_id, order_id, payment_method, amount_paid FROM tblTransaction tblTransaction WHERE customer_id=$1 ORDER BY transaction_id", CustomerID)
 	if err != nil {
 		panic(err)
 	}
