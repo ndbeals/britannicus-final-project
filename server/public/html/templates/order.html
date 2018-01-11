@@ -10,9 +10,7 @@
 <h1>Order Detail Page</h1>
 
 <div class="row">
-    <form id="order_updateform" class="col-8">
-        <h5>Order</h5>
-
+    <div class="col-8">
         <div class="form-row">
             <div class="form-group col-4">
                 <label for="customer_ID">OrderID:</label>
@@ -27,31 +25,35 @@
                 <button type="button" class="form-control btn btn-outline-success mx-1" id="order_next">Next</button>
             </div>
         </div>
+        <form id="order_updateform">
+            <h5>Order</h5>
+            
+            
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped tbl-lesspadding">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item Name</th>
+                            <th>Author</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Condition</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbl-lesspadding" id="orderlisttable">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" id="customer_update" class="btn btn-primary">Update</button>
+                <button type="button" id="customer_delete" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+    </div>
         
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped tbl-lesspadding">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Item Name</th>
-                        <th>Author</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Condition</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody class="tbl-lesspadding" id="orderlisttable">
-                </tbody>
-            </table>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" id="customer_update" class="btn btn-primary">Update</button>
-            <button type="button" id="customer_delete" class="btn btn-danger">Delete</button>
-        </div>
-    </form>
-
     <div class="col-4">
 
 

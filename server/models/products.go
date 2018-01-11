@@ -85,7 +85,7 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 	// dbaa := db.Init()
 	rows, err := db.DB.Query("SELECT product_id, isbn, product_name, author, genre, publisher, product_type, description FROM tblProducts ORDER BY product_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	for rows.Next() {
@@ -99,7 +99,7 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 		// fmt.Printf("WUT : %s \n", ProductFName)
 
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		products = append(products, Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, typeLookup[productType], description.String})
@@ -117,10 +117,10 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 func (this *Product) Delete() (bool, error) {
 	_, err := db.DB.Query("DELETE FROM tblProducts WHERE product_id=$1", this.ID)
 
-	fmt.Println("deleted model")
+	fmt.Println("deleted model", err)
 
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		return false, err
 	}
 

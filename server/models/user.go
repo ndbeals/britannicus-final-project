@@ -75,7 +75,7 @@ func (m UserModel) Signup(form forms.SignupForm) (user User, err error) {
 	// bytePassword := []byte(form.Password)
 	// hashedPassword, err := bcrypt.GenerateFromPassword(bytePassword, bcrypt.DefaultCost)
 	// if err != nil {
-	// 	panic(err)
+	// 	// panic(err)
 	// }
 
 	// res, err := getDb.Exec("INSERT INTO public.user(email, password, name, updated_at, created_at) VALUES($1, $2, $3, $4, $5) RETURNING id", form.Email, string(hashedPassword), form.Name, time.Now().Unix(), time.Now().Unix())

@@ -64,9 +64,7 @@ function addOrder(table, order_id, customer_id , customer_name , total_price) {
         total_price.toFixed(2) + "</td><td>" +
         '<a href="/order/get/' + order_id + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel' + order_id + '" type="button" class="btn btn-danger btn-block tbl-btn">Delete</button></td></tr>'
 
-    row = $(row).appendTo(table)//table.append(row);
-
-
+    row = $(row).appendTo(table)
 
     $('#btndel' + order_id).click(function () {
         var parent = $(this).parent().parent();
@@ -80,8 +78,7 @@ function addOrder(table, order_id, customer_id , customer_name , total_price) {
                 }
             },
             error: function (data, textStatus, errorThrown) {
-                // alert(data.responseJSON.Message)
-                console.log(data);
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             },
         });
     });
@@ -89,23 +86,7 @@ function addOrder(table, order_id, customer_id , customer_name , total_price) {
     return row;
 }
 
-function addOrderItem(table, order_id, item) {
-    // console.log("tast",item)
-    // var row = '<tr><td colspan="3">' + '</td><td><div id="#collapse' + order_id +' class="collapse in"' +
-    //     item.inventory_id + "</div></td><td>" +
-    //     item.product.product_name + "</td><td>" +
-    //     "" + "</td><td>" +
-
-    //     +'</td></div></tr>'
-    var row = `<tr>
-        <div id="collapse1" class="collapse in">
-                <td colspan="3">
-                        Details 1 Details 2 Details 3
-                        </td>
-                        <td>test</td>
-                        </div>
-            </tr>`
-            
+function addOrderItem(table, order_id, item) {          
     var row = `
     <tr>
         <td colspan=3></td>
@@ -142,27 +123,7 @@ function addOrderItem(table, order_id, item) {
         <td colspan='3'></td>
     </tr>`
 
-    row = $(row).appendTo(table)//table.append(row);
-    // row.toggle(false)
-
-
-    // $('#btndel' + order_id).click(function () {
-    //     var parent = $(this).parent().parent();
-    //     $.ajax({
-    //         url: "/v1/order/" + order_id,
-    //         dataType: 'json',
-    //         type: 'DELETE',
-    //         success: function (data) {
-    //             if (data !== null) {
-    //                 parent.remove()
-    //             }
-    //         },
-    //         error: function (data, textStatus, errorThrown) {
-    //             // alert(data.responseJSON.Message)
-    //             console.log(data);
-    //         },
-    //     });
-    // });
+    row = $(row).appendTo(table)
 
     return row;
 }
@@ -170,10 +131,7 @@ function addOrderItem(table, order_id, item) {
 function populateOrder(page, hide) {
     $.get("/v1/orders/" + page + "/15", function (data) {
         if (data !== null) {
-            // console.log(data);
             var table = $("#ordersFilterTable");
-            
-            // table.empty();
             
             for (var i = 0; i < data.length; i++) {
                 item = data[i];
@@ -183,26 +141,20 @@ function populateOrder(page, hide) {
 
                 if (hide == true) {
                     row.toggle(false)
-                    // changePage(orderPage);
                 }
 
                 if (item.item_list.length > 0) {
                     for (var ii = 0; ii < item.item_list.length; ii++) {
-                        // console.log("wat",ii,table, item.item_list[ii])
                         row = addOrderItem(table, item.order_id, item.item_list[ii])
 
                         if (hide == true) {
                             row.toggle(false)
-                            // changePage(orderPage);
                         }
                     }
                 }
             }
 
             populateOrder(page + 1, true);
-        }
-        else {
-            // populateOrders(orderPage);
         }
     })
 }

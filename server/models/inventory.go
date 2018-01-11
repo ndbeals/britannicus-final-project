@@ -35,7 +35,7 @@ func InitializeInventoryModel() *InventoryModel {
 
 	rows, err := db.DB.Query("SELECT condition_id, condition FROM tblInventoryConditions")
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	for rows.Next() {
@@ -44,7 +44,7 @@ func InitializeInventoryModel() *InventoryModel {
 
 		err = rows.Scan(&conditionID, &condition)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 		conditionLookup[conditionID] = condition.String
 	}
@@ -74,12 +74,12 @@ func (m InventoryModel) GetOne(InventoryID int) (inventory Inventory, err error)
 
 	err = row.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &price, &notes)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	product, err := GetProductModel().GetOne(productID)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	inventory = Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, price, notes.String}
@@ -94,7 +94,7 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory ORDER BY  inventory_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	for rows.Next() {
@@ -104,12 +104,12 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 		err = rows.Scan(&inventoryID, &productID, &inventoryCondition, &amount, &price, &notes)
 		if err != nil {
-			// panic(err)
+			// // panic(err)
 		}
 
 		product, err := GetProductModel().GetOne(productID)
 		if err != nil {
-			// panic(err)
+			// // panic(err)
 		}
 
 		inventoryList = append(inventoryList, Inventory{inventoryID, product, inventoryCondition, conditionLookup[inventoryCondition], amount, price, notes.String})
@@ -125,7 +125,7 @@ func (this *Inventory) Delete() (bool, error) {
 	fmt.Println("deleted inventory model")
 
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		return false, err
 	}
 

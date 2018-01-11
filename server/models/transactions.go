@@ -59,7 +59,7 @@ func (m TransactionModel) GetAllByCustomer(CustomerID int) (transactions []Trans
 
 	rows, err := db.DB.Query("SELECT transaction_id, customer_id, order_id, payment_method, amount_paid FROM tblTransaction tblTransaction WHERE customer_id=$1 ORDER BY transaction_id", CustomerID)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	defer rows.Close()
@@ -70,12 +70,12 @@ func (m TransactionModel) GetAllByCustomer(CustomerID int) (transactions []Trans
 
 		err = rows.Scan(&transactionID, &customerID, &orderID, &paymentMethod, &amountPaid)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		userID, err := GetCustomerModel().GetOne(int(customerID))
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		transactions = append(transactions, Transaction{transactionID, userID, orderID, paymentMethod, amountPaid})

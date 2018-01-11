@@ -52,30 +52,9 @@ $(document).ready(function () {
 
     $("#order_updateform").submit( function(e) {
         e.preventDefault();
-        // $("#order_ISBN").val(data.isbn)
-        // $("#order_author").val(data.order_author)
-        // $("#order_genre").val(data.order_genre)
-        // $("#order_description").val(data.order_description)
-        // $("#order_name").val(data.order_name)
-        // $("#order_type").val(data.order_type)
-        console.log("pub",$("#order_publisher").val());
 
         var data = {};
         data.order_id = orderID
-        // data.order_condition = parseInt($("#order_condition").val())
-        // data.order_amount = parseInt($("#order_amount").val())
-        // data.order_price = parseFloat($("#order_price").val())
-        // data.order_note = $("#order_note").val()
-        // data.order_description = $("#order_description").val()
-        // data.order_name = $("#order_name").val()
-        // data.order_type = $("#order_type").val()
-        
-        console.log($("#order_condition").val())
-
-        test = $("#order_updateform")
-
-        console.log(JSON.stringify(data));
-
 
         $.ajax({
             url: "/v1/order/" + orderID,
@@ -85,16 +64,16 @@ $(document).ready(function () {
             data: JSON.stringify(data),
             success: function (data) {
                 console.log("DATA POSTED SUCCESSFULLY" , data);
+                location.reload()
             },
-            error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
+            error: function (data, textStatus, errorThrown) {
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             }
         });
     });
 
     // $("#order_condition").val(orderCondtion)
     updateList();
-    console.log(orderID);
 });
 
 function updateList() {
@@ -103,7 +82,6 @@ function updateList() {
             table = $("#orderlisttable")
 
             for (var i=0; i<data.item_list.length; i++){
-                
                 addOrderItem( table , orderID, data.item_list[i] )
             }
         }
@@ -111,15 +89,6 @@ function updateList() {
 }
 
 function addOrderItem(table, order_id, item) {
-    // console.log("tast",item)
-    // var row = '<tr><td colspan="3">' + '</td><td><div id="#collapse' + order_id +' class="collapse in"' +
-    //     item.inventory_id + "</div></td><td>" +
-    //     item.product.product_name + "</td><td>" +
-    //     "" + "</td><td>" +
-
-    //     +'</td></div></tr>'
-
-    console.log(item)
     var row = `
     <tr>
         <td>
@@ -155,27 +124,7 @@ function addOrderItem(table, order_id, item) {
         <td colspan='3'></td>
     </tr>`
 
-    row = $(row).appendTo(table)//table.append(row);
-    // row.toggle(false)
-
-
-    // $('#btndel' + order_id).click(function () {
-    //     var parent = $(this).parent().parent();
-    //     $.ajax({
-    //         url: "/v1/order/" + order_id,
-    //         dataType: 'json',
-    //         type: 'DELETE',
-    //         success: function (data) {
-    //             if (data !== null) {
-    //                 parent.remove()
-    //             }
-    //         },
-    //         error: function (data, textStatus, errorThrown) {
-    //             // alert(data.responseJSON.Message)
-    //             console.log(data);
-    //         },
-    //     });
-    // });
+    row = $(row).appendTo(table)
 
     return row;
 }

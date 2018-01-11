@@ -40,7 +40,7 @@ func Init() *sql.DB {
 	DB = dbs
 
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	return dbs

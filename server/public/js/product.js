@@ -1,14 +1,11 @@
 productID = 1;
 
 $(document).ready(function () {
-
     productID = parseInt($("#product_ID").val());
-    console.log(productID);
 
 
     $("#product_next").click(function () {
         productID++;
-        console.log(productID);
         window.location.href = productID;
     });
 
@@ -20,11 +17,7 @@ $(document).ready(function () {
     $("#product_ID").bind('change', function () {
         prodid = parseInt($("#product_ID").val());
 
-        console.log("prodid")
-
         if (prodid > 0) {
-            // ipcRenderer.send("set_inventory_page", pagenum);
-            // changeproduct(prodid)
             productID++;
             window.location.href = prodid;
         }
@@ -39,26 +32,18 @@ $(document).ready(function () {
             dataType: 'json',
             type: 'DELETE',
             success: function (data) {
-                // console.log("DATA POSTED SUCCESSFULLY" , data);
                 alert(data.Message)
                 location.reload()
             },
             error: function (data, textStatus, errorThrown) {
-                alert(data.responseJSON.Message)
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             }
-        });
+        })
     })
 
 
     $("#product_updateform").submit( function(e) {
         e.preventDefault();
-        // $("#product_ISBN").val(data.isbn)
-        // $("#product_author").val(data.product_author)
-        // $("#product_genre").val(data.product_genre)
-        // $("#product_description").val(data.product_description)
-        // $("#product_name").val(data.product_name)
-        // $("#product_type").val(data.product_type)
-        console.log("pub",$("#product_publisher").val());
 
         var data = {};
         data.product_id = productID
@@ -69,11 +54,6 @@ $(document).ready(function () {
         data.product_description = $("#product_description").val()
         data.product_name = $("#product_name").val()
         data.product_type = $("#product_type").val()
-        
-
-        test = $("#product_updateform")
-
-        console.log(JSON.stringify(data));
 
 
         $.ajax({
@@ -83,10 +63,10 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                console.log("DATA POSTED SUCCESSFULLY" + data);
+                location.reload()
             },
-            error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
+            error: function (data, textStatus, errorThrown) {
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             }
         });
     });
@@ -113,14 +93,5 @@ function changeProduct(id) {
                 $("#product_publisher").val(data.product_publisher)
             }
         })
-        .done(function () {
-            //alert("second success");
-        })
-        .fail(function () {
-            //alert("error");
-        })
-        .always(function (data) {
-            //alert("finished" + data);
-        });
     }
 }

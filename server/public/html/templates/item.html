@@ -10,8 +10,7 @@
 <h1>Item Detail Page</h1>
 
 <div class="row">
-    <form id="inventory_updateform" class="col-6">
-
+    <div class="col-6">
         <div class="form-row">
             <div class="form-group col-3">
                 <label for="inventory_ID">Inventory ID:</label>
@@ -26,45 +25,47 @@
                 <button type="button" class="form-control btn btn-outline-success mx-1" id="inventory_next">Next</button>
             </div>
         </div>
-
-        <h5>Item</h5>
-        <div class="form-row">
-            <div class="form-group col-6">
-                <label for="inventory_isbn">Amount:</label>
-                <input class="form-control" type="text" value="{{.inventory.Amount}}" id="inventory_amount">
+        <form id="inventory_updateform" >
+            
+            
+            <h5>Item</h5>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="inventory_isbn">Amount:</label>
+                    <input class="form-control" type="text" value="{{.inventory.Amount}}" id="inventory_amount">
+                </div>
+                <div class="form-group col-6">
+                    <label for="inventory_publisher">Price:</label>
+                    <input class="form-control" type="text" value="{{.inventory.Price}}" id="inventory_price">
+                </div>
             </div>
-            <div class="form-group col-6">
-                <label for="inventory_publisher">Price:</label>
-                <input class="form-control" type="text" value="{{.inventory.Price}}" id="inventory_price">
+            <div class="form-row">
+                <div class="form-group col-3">
+                    <label for="inventory_condition">Condition:</label>
+                    <select class="form-control" id="inventory_condition">
+                        <option value="1">As New</option>
+                        <option value="2">Fine</option>
+                        <option value="3">Very Good</option>
+                        <option value="4">Good</option>
+                        <option value="5">Fair</option>
+                        <option value="6">Poor</option>
+                        <option value="7">Ex-Library</option>
+                        <option value="8">Book Club</option>
+                        <option value="9">Binding Copy</option>
+                    </select>
+                </div>
+                <div class="form-group col-9">
+                    <label for="inventory_note">Item Note</label>
+                    <textarea class="form-control" id="inventory_note" maxlength="245" rows="3">{{.inventory.Note}}</textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-3">
-                <label for="inventory_condition">Condition:</label>
-                <select class="form-control" id="inventory_condition">
-                    <option value="1">As New</option>
-                    <option value="2">Fine</option>
-                    <option value="3">Very Good</option>
-                    <option value="4">Good</option>
-                    <option value="5">Fair</option>
-                    <option value="6">Poor</option>
-                    <option value="7">Ex-Library</option>
-                    <option value="8">Book Club</option>
-                    <option value="9">Binding Copy</option>
-                </select>
-                <!-- <input class="form-control" type="text" value="{{.inventory.ConditionString}}" id="inventory_condition"> -->
+            
+            <div class="form-group">
+                <button type="submit" id="inventory_update" class="btn btn-primary">Update</button>
+                <button type="button" id="inventory_delete" class="btn btn-danger">Delete</button>
             </div>
-            <div class="form-group col-9">
-                <label for="inventory_note">Item Note</label>
-                <textarea class="form-control" id="inventory_note" maxlength="245" rows="3">{{.inventory.Note}}</textarea>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <button type="submit" id="inventory_update" class="btn btn-primary">Update</button>
-            <button type="button" id="inventory_delete" class="btn btn-danger">Delete</button>
-        </div>
-    </form>
+        </form>
+    </div>
 
     <div class="col-6">
         <h5>Product</h5>

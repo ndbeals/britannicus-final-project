@@ -81,7 +81,6 @@ function addCustomer(table, customerID, first_name, last_name, customer_email, c
                 }
             },
             error: function (data, textStatus, errorThrown) {
-                console.log(data)
                 alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             },
         });

@@ -195,7 +195,7 @@ func TestCreateArticle(t *testing.T) {
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	res := struct {

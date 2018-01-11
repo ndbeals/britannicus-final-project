@@ -6,33 +6,21 @@
 <h1>Customer Detail Page</h1>
 
 
-<form id="customer_updateform" class="col-6">
-    <!-- <div class="form-group row">
-        <label for="customerID" class="col-auto col-form-label">customer ID:</label>
-        <div class="col-1">
-            <input class="form-control" type="text" readonly value="{{.customer.ID}}" id="customerID">
-        </div>
-
-        <label for="customerID" class="col-auto col-form-label text-right">ISBN:</label>
-        <div class="col-2">
-            <input class="form-control" type="text" readonly value="" id="customerID">
-        </div>
-    </div> -->
-    <div class="form-row">
-        <div class="form-group col-4">
-            <label for="customer_ID">Customer ID:</label>
-            <input class="form-control" min="1" type="number" value="{{.custid}}" id="customer_ID">
-        </div>
-        <div class="form-group col-4">
-            <label>&nbsp;</label>
-            <button type="button" class="form-control btn btn-outline-success mx-1 ml-1" id="customer_previous">Previous</button>
-        </div>
-        <div class="form-group col-4">
-            <label>&nbsp;</label>
-            <button type="button" class="form-control btn btn-outline-success mx-1" id="customer_next">Next</button>
-        </div>
+<div class="form-row col-6">
+    <div class="form-group col-4">
+        <label for="customer_ID">Customer ID:</label>
+        <input class="form-control" min="1" type="number" value="{{.custid}}" id="customer_ID">
     </div>
-
+    <div class="form-group col-4">
+        <label>&nbsp;</label>
+        <button type="button" class="form-control btn btn-outline-success mx-1 ml-1" id="customer_previous">Previous</button>
+    </div>
+    <div class="form-group col-4">
+        <label>&nbsp;</label>
+        <button type="button" class="form-control btn btn-outline-success mx-1" id="customer_next">Next</button>
+    </div>
+</div>
+<form id="customer_updateform" class="col-6">
     <div class="form-row">
         <div class="form-group col-6">
             <label for="customer_firstname">First Name:</label>

@@ -93,7 +93,7 @@ func (m CustomerModel) Signup(form forms.SignupForm) (customer Customer, err err
 	// bytePassword := []byte(form.Password)
 	// hashedPassword, err := bcrypt.GenerateFromPassword(bytePassword, bcrypt.DefaultCost)
 	// if err != nil {
-	// 	panic(err)
+	// 	// panic(err)
 	// }
 
 	// res, err := getDb.Exec("INSERT INTO public.Customer(email, password, name, updated_at, created_at) VALUES($1, $2, $3, $4, $5) RETURNING id", form.Email, string(hashedPassword), form.Name, time.Now().Unix(), time.Now().Unix())
@@ -133,7 +133,7 @@ func (m CustomerModel) GetOne(CustomerID int) (customer Customer, err error) {
 	err = row.Scan(&customerID, &firstName, &lastName, &email, &phoneNumber, &address, &city, &state, &country)
 
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		return customer, err
 	}
 
@@ -151,7 +151,7 @@ func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err 
 	// dbaa := db.Init()
 	rows, err := db.DB.Query("SELECT customer_id, first_name, last_name, email, phone_number, customer_address, customer_city, customer_state, customer_country FROM tblCustomer ORDER BY customer_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	defer rows.Close()
@@ -163,7 +163,7 @@ func (m CustomerModel) GetList(Page int, Amount int) (customers []Customer, err 
 		err = rows.Scan(&uid, &firstName, &lastName, &email, &phoneNumber, &address, &city, &state, &country)
 
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		customers = append(customers, Customer{uid, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String})
@@ -182,7 +182,7 @@ func (this *Customer) Create() (int, error) {
 
 	fmt.Println("model cust create")
 	if err != nil {
-		panic(err)
+		// panic(err)
 		return 0, err
 	}
 
@@ -193,7 +193,7 @@ func (this *Customer) Create() (int, error) {
 	fmt.Println("model cust create", newid)
 
 	if err != nil {
-		panic(err)
+		// panic(err)
 		return 0, err
 	}
 
@@ -232,7 +232,7 @@ func (this *Customer) Delete() (bool, error) {
 	fmt.Println("deleted customer")
 
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		return false, err
 	}
 

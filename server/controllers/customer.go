@@ -191,7 +191,7 @@ func (ctrl CustomerController) Create(c *gin.Context) {
 	var updateForm forms.UpdateCustomerForm
 	err := c.BindJSON(&updateForm)
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		c.IndentedJSON(404, gin.H{"message": "Invalid form", "form": updateForm})
 		c.Abort()
 		return
@@ -229,7 +229,7 @@ func (ctrl CustomerController) Update(c *gin.Context) {
 		var updateForm forms.UpdateCustomerForm
 		err := c.BindJSON(&updateForm)
 		if err != nil {
-			panic(err)
+			// panic(err)
 			c.IndentedJSON(404, gin.H{"message": "Invalid form", "form": updateForm})
 			c.Abort()
 			return

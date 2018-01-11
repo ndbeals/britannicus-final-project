@@ -76,7 +76,7 @@ func getOrder(OrderID int) (order Order, cached bool) {
 func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 	rows, err := db.DB.Query("select order_id, customer_id, date_time from tblOrder WHERE tblOrder.order_id=$1", OrderID)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	var cached bool
@@ -85,14 +85,14 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 		var orderID, customerID, inventoryID, quantity, orderTime int
 		err = rows.Scan(&orderID, &customerID, &orderTime)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		// fmt.Printf("customerID %d \n\n", customerID)
 
 		customer, err := GetCustomerModel().GetOne(customerID)
 		if err != nil {
-			panic(nil)
+			// panic(nil)
 		}
 
 		// fmt.Printf("GOT USER: %+v \n", customer)
@@ -106,13 +106,13 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 
 		rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		for rows.Next() {
 			err = rows.Scan(&inventoryID, &quantity)
 			if err != nil {
-				panic(err)
+				// panic(err)
 			}
 
 			order.AddToInventory(inventoryID, quantity)
@@ -131,7 +131,7 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder ORDER BY tblOrder.order_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	var order Order
@@ -141,12 +141,12 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 		var orderID, customerID, inventoryID, quantity, orderTime int
 		err = rows.Scan(&orderID, &customerID, &orderTime)
 		if err != nil {
-			panic(err)
+			// panic(err)
 		}
 
 		customer, err := GetCustomerModel().GetOne(customerID)
 		if err != nil {
-			panic(nil)
+			// panic(nil)
 		}
 
 		order, cached = getOrder(orderID)
@@ -159,13 +159,13 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 			rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
 			if err != nil {
-				panic(err)
+				// panic(err)
 			}
 
 			for rows.Next() {
 				err = rows.Scan(&inventoryID, &quantity)
 				if err != nil {
-					panic(err)
+					// panic(err)
 				}
 
 				order.AddToInventory(inventoryID, quantity)
@@ -198,7 +198,7 @@ func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) 
 			fmt.Println("ITEM QUANT", item, quantity)
 			_, err := db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2, $3)", orderID, item, quantity)
 			if err != nil {
-				panic(err)
+				// panic(err)
 			}
 		}
 
@@ -216,7 +216,7 @@ func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) 
 func (o *Order) AddToInventory(inventoryID int, orderAmount int) {
 	inventory, err := GetInventoryModel().GetOne(inventoryID)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 	// fmt.Printf("\n\nOrder: %+v \n\n", o)
 	// fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
@@ -240,7 +240,7 @@ func (this *Order) Delete() (bool, error) {
 	fmt.Println("deleted order model")
 
 	if err != nil {
-		// panic(err)
+		// // panic(err)
 		return false, err
 	}
 

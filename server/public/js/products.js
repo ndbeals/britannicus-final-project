@@ -66,7 +66,7 @@ function addProduct(table, productID, ISBN, productName, author, genre, publishe
         productType + "</td><td>" +
         description + '</td><td><a href="/product/get/' + productID + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel'+productID+'" type="button" class="btn btn-danger btn-block tbl-btn">Delete</button></td></tr>'
         
-    row = $(row).appendTo(table)//table.append(row);
+    row = $(row).appendTo(table)
 
     $('#btndel'+productID).click(function () {
         var parent = $(this).parent().parent();
@@ -79,8 +79,8 @@ function addProduct(table, productID, ISBN, productName, author, genre, publishe
                     parent.remove()
                 }
             },
-            error: function (jqXhr, textStatus, errorThrown) {
-                alert(data.responseJSON.Message)
+            error: function (data, textStatus, errorThrown) {
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             },
         });
     });
@@ -93,8 +93,6 @@ function populateProducts( page , hide) {
         if (data !== null) {
             var table = $("#productsFilterTable");
 
-            // table.empty();
-
             for (var i = 0; i < data.length; i++) {
                 item = data[i];
 
@@ -102,7 +100,6 @@ function populateProducts( page , hide) {
 
                 if (hide==true) {
                     row.toggle(false)
-                    // changePage(productPage);
                 }
             }
             
@@ -112,19 +109,7 @@ function populateProducts( page , hide) {
 
             populateProducts(page+1,true);
         }
-        else {
-            // populateProducts(productPage);
-        }
     })
-        .done(function () {
-            //alert("second success");
-        })
-        .fail(function (data) {
-            //alert("error");
-        })
-        .always(function (data) {
-            //alert("finished" + data);
-        });
 }
 
 function changePage(page) {

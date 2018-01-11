@@ -80,8 +80,7 @@ function addInventory(table, inventory_id, product_name, product_author, product
                 }
             },
             error: function (data, textStatus, errorThrown) {
-                // alert(data.responseJSON.Message)
-                console.log(data);
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             },
         });
     });
@@ -94,35 +93,19 @@ function populateInventory(page, hide) {
         if (data !== null) {
             var table = $("#inventorysFilterTable");
             
-            // table.empty();
-            
             for (var i = 0; i < data.length; i++) {
                 item = data[i];
-                // console.log(item)
 
                 row = addInventory(table, item.inventory_id, item.product.product_name, item.product.product_author, item.product.product_genre, item.amount, item.item_price, item.inventory_condition, item.note)
 
                 if (hide == true) {
                     row.toggle(false)
-                    // changePage(inventoryPage);
                 }
             }
 
             populateInventory(page + 1, true);
         }
-        else {
-            // populateInventorys(inventoryPage);
-        }
     })
-        .done(function () {
-            //alert("second success");
-        })
-        .fail(function (data) {
-            //alert("error");
-        })
-        .always(function (data) {
-            //alert("finished" + data);
-        });
 }
 
 function changePage(page) {
