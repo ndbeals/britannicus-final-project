@@ -9,30 +9,6 @@ create table tblUser (
 insert into tblUser (user_name, user_email, user_password ) values ('Admin', 'admin@britannicus.com', '$2a$10$iRYt5JApjFKvs0nhRaaY0ueh0t5sigzpA81B2oQ7T5Sro4X5KZbLq');
 insert into tblUser (user_name, user_email, user_password ) values ('User1', 'user1@britannicus.com', '$$2a$10$BVeWB7RsM6aBeu9Tvs6jC.9xaFtgGwJnpuKemQb6vMuSo7B2rBnC2');
 
-DROP TABLE IF EXISTS tblPaymentMethod CASCADE;
-
-CREATE TABLE tblPaymentMethod (
-    payment_method_id   SERIAL PRIMARY KEY,
-    payment_method      VARCHAR(25)
-);
-
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Cash');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Debit');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Visa');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Mastercard');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('American Express');DROP TABLE IF EXISTS tblPaymentMethod CASCADE;
-
-CREATE TABLE tblPaymentMethod (
-    payment_method_id   SERIAL PRIMARY KEY,
-    payment_method      VARCHAR(25)
-);
-
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Cash');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Debit');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Visa');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('Mastercard');
-INSERT INTO tblPaymentMethod (payment_method) VALUES ('American Express');
-
 DROP TABLE IF EXISTS tblCustomer CASCADE;
 
 create table tblCustomer (
