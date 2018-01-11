@@ -180,45 +180,6 @@ func (ctrl CustomerController) GetList(c *gin.Context) {
 	}
 }
 
-//CustomersListingPage ...
-func (ctrl CustomerController) CustomersListingPage(c *gin.Context) {
-	user, _ := GetLoggedinUser(c)
-
-	c.HTML(http.StatusOK, "customers.html", gin.H{
-		"title": "Customers Page",
-		"route": "/customers",
-		"user":  user,
-	})
-}
-
-//CustomerDetailPage ...
-func (ctrl CustomerController) CustomerDetailPage(c *gin.Context) {
-	customerid := c.Param("id")
-
-	if customerid, err := strconv.ParseInt(customerid, 10, 32); err == nil {
-		customerid := int(customerid)
-		customer, _ := customerModel.GetOne(customerid)
-
-		// if err != nil {
-		// 	c.IndentedJSON(404, gin.H{"Message": "customer not found", "error": err.Error()})
-		// 	c.Abort()
-		// 	return
-		// }
-
-		user, _ := GetLoggedinUser(c)
-
-		c.HTML(http.StatusOK, "customer.html", gin.H{
-			"title":    "Customer Detail Page",
-			"route":    "/customer",
-			"user":     user,
-			"customer": customer,
-			"custid":   customerid,
-		})
-	} else {
-		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
-	}
-}
-
 //Create ...
 func (ctrl CustomerController) Create(c *gin.Context) {
 	// customerid := c.Param("id")
@@ -324,4 +285,56 @@ func (ctrl CustomerController) Delete(c *gin.Context) {
 
 		c.IndentedJSON(200, gin.H{"Message": "Customer Sucessfully deleted"})
 	}
+}
+
+//CustomersListingPage ...
+func (ctrl CustomerController) CustomersListingPage(c *gin.Context) {
+	user, _ := GetLoggedinUser(c)
+
+	c.HTML(http.StatusOK, "customers.html", gin.H{
+		"title": "Customers Page",
+		"route": "/customers",
+		"user":  user,
+	})
+}
+
+//CustomerDetailPage ...
+func (ctrl CustomerController) CustomerDetailPage(c *gin.Context) {
+	customerid := c.Param("id")
+
+	if customerid, err := strconv.ParseInt(customerid, 10, 32); err == nil {
+		customerid := int(customerid)
+		customer, _ := customerModel.GetOne(customerid)
+
+		// if err != nil {
+		// 	c.IndentedJSON(404, gin.H{"Message": "customer not found", "error": err.Error()})
+		// 	c.Abort()
+		// 	return
+		// }
+
+		user, _ := GetLoggedinUser(c)
+
+		c.HTML(http.StatusOK, "customer.html", gin.H{
+			"title":    "Customer Detail Page",
+			"route":    "/customer",
+			"user":     user,
+			"customer": customer,
+			"custid":   customerid,
+		})
+	} else {
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
+	}
+}
+
+//CustomerCreatePage ...
+func (ctrl CustomerController) CustomerCreatePage(c *gin.Context) {
+	user, _ := GetLoggedinUser(c)
+
+	c.HTML(http.StatusOK, "newcustomer.html", gin.H{
+		"title": "New Customer Page",
+		"route": "/customer/create",
+		"user":  user,
+		// "productid": 1,
+		// "product":   product,
+	})
 }

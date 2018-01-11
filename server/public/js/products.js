@@ -69,19 +69,19 @@ function addProduct(table, productID, ISBN, productName, author, genre, publishe
     row = $(row).appendTo(table)//table.append(row);
 
     $('#btndel'+productID).click(function () {
-        // console.log("Test",productID);
         var parent = $(this).parent().parent();
-        // console.log(myValue);
-        // console.log(($(this).attr("id")));
-
-        $.get("/product/delete/"+productID, function (data) {
-            // console.log("succ",data);
-            if (data !== null ) {
-                parent.remove();
-                // changePage(productPage);
-            }
-        }).fail(function (data) {
-            alert(data.responseJSON.Message)
+        $.ajax({
+            url: "/v1/product/" + productID,
+            dataType: 'json',
+            type: 'DELETE',
+            success: function (data) {
+                if (data !== null) {
+                    parent.remove()
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert(data.responseJSON.Message)
+            },
         });
     });
 
@@ -104,6 +104,10 @@ function populateProducts( page , hide) {
                     row.toggle(false)
                     // changePage(productPage);
                 }
+            }
+            
+            if ( page == productPage ) {
+                changePage(productPage)
             }
 
             populateProducts(page+1,true);

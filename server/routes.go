@@ -1,11 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
-	"strconv"
 
-	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/ndbeals/britannicus-final-project/controllers"
 )
@@ -30,10 +27,11 @@ func initializeAPIRoutes(r *gin.Engine) {
 		v1.GET("/customer/:id/transactions", customerController.GetTransactions)
 
 		/*** START INVENTORY ***/
-		inventory := new(controllers.InventoryController)
-
-		v1.GET("/inventory/:id", inventory.GetOne)
-		v1.GET("/inventories/:page/:amount", inventory.GetList)
+		v1.GET("/inventory/:id", inventoryController.GetOne)
+		v1.PATCH("/inventory/:id", inventoryController.Update)
+		v1.DELETE("/inventory/:id", inventoryController.Delete)
+		v1.POST("/inventory", inventoryController.Create)
+		v1.GET("/inventories/:page/:amount", inventoryController.GetList)
 
 		/*** START PRODUCTS ***/
 		v1.GET("/product/:id", productController.GetOne)
@@ -68,14 +66,12 @@ func initializeAPIRoutes(r *gin.Engine) {
 }
 
 func initializeBasicRoutes(r *gin.Engine) {
-	r.POST("/user/signin", userController.Signin)
-	r.GET("/user/logout", userController.Signout)
 	r.GET("/", func(c *gin.Context) {
 		userID := controllers.GetUserID(c)
-		fmt.Println(c.Get("user"))
-		fmt.Println(sessions.Default(c).Get("user"))
+		// fmt.Println(c.Get("user"))
+		// fmt.Println(sessions.Default(c).Get("user"))
 
-		fmt.Println("ASF", userID, c.Request.URL)
+		// fmt.Println("ASF", userID, c.Request.URL)
 
 		if userID == 0 {
 			c.HTML(http.StatusOK, "login.html", gin.H{
@@ -91,6 +87,9 @@ func initializeBasicRoutes(r *gin.Engine) {
 			})
 		}
 	})
+
+	r.POST("/user/signin", userController.Signin)
+	r.GET("/user/logout", userController.Signout)
 }
 
 func initializeControlRoutes(r *gin.Engine) {
@@ -99,109 +98,12 @@ func initializeControlRoutes(r *gin.Engine) {
 	r.GET("/products", productController.ProductListingPage)
 
 	r.GET("/product/get", func(c *gin.Context) {
-		product, err := productModel.GetOne(1)
-
-		if err != nil {
-			c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
-			c.Abort()
-			return
-		}
-
-		user, _ := controllers.GetLoggedinUser(c)
-
 		c.Redirect(http.StatusTemporaryRedirect, "/product/get/1")
-
-		c.HTML(http.StatusOK, "product.html", gin.H{
-			"title":   "Product Detail Page",
-			"route":   "/product",
-			"user":    user,
-			"product": product,
-		})
 	})
 
-	r.GET("/product/get/:id", func(c *gin.Context) {
-		productid := c.Param("id")
+	r.GET("/product/get/:id", productController.ProductDetailPage)
 
-		if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
-			productid := int(productid)
-			product, err := productModel.GetOne(productid)
-
-			if err != nil {
-				// c.String(200, "<body onload=\"history.back()\"></body>" )
-				// c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
-				// c.Abort()
-				// return
-			}
-
-			user, _ := controllers.GetLoggedinUser(c)
-
-			c.HTML(http.StatusOK, "product.html", gin.H{
-				"title":   "Product Detail Page",
-				"route":   "/product",
-				"user":    user,
-				"product": product,
-				"prodid":  productid,
-			})
-		} else {
-			c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
-		}
-	})
-
-	r.GET("/product/delete/:id", func(c *gin.Context) {
-		productid := c.Param("id")
-
-		fmt.Println("delete,", productid)
-
-		if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
-			productid := int(productid)
-			product, err := productModel.GetOne(productid)
-
-			if err != nil {
-				c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
-				c.Abort()
-				return
-			}
-
-			deleted, err := product.Delete()
-			fmt.Println(deleted)
-			fmt.Println(err)
-
-			if deleted {
-				user, _ := controllers.GetLoggedinUser(c)
-
-				c.HTML(http.StatusOK, "products.html", gin.H{
-					"title": "Products Page",
-					"route": "/products",
-					"user":  user,
-				})
-			} else {
-				c.JSON(404, gin.H{"Message": "Could not delete product, as other data relies on this Record."})
-			}
-
-		} else {
-			c.IndentedJSON(406, gin.H{"Message": "Invalid parameter"})
-		}
-	})
-
-	r.GET("/product/create", func(c *gin.Context) {
-		// product, err := productModel.GetOne(1)
-
-		// if err != nil {
-		// 	c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
-		// 	c.Abort()
-		// 	return
-		// }
-
-		user, _ := controllers.GetLoggedinUser(c)
-
-		c.HTML(http.StatusOK, "newproduct.html", gin.H{
-			"title": "Product Create Page",
-			"route": "/product/create",
-			"user":  user,
-			// "productid": 1,
-			// "product":   product,
-		})
-	})
+	r.GET("/product/create", productController.ProductCreatePage)
 
 	// Inventory routes
 	r.GET("/inventory", func(c *gin.Context) {
@@ -213,6 +115,11 @@ func initializeControlRoutes(r *gin.Engine) {
 			"user":  user,
 		})
 	})
+	r.GET("/inventory/get", func(c *gin.Context) {
+		c.Redirect(http.StatusTemporaryRedirect, "/inventory/get/1")
+	})
+	r.GET("/inventory/get/:id", inventoryController.InventoryDetailPage)
+	r.GET("/inventory/create", inventoryController.InventoryCreatePage)
 
 	// Customer routes
 	r.GET("/customers", customerController.CustomersListingPage)
@@ -223,15 +130,5 @@ func initializeControlRoutes(r *gin.Engine) {
 
 	r.GET("/customer/get/:id", customerController.CustomerDetailPage)
 
-	r.GET("/customer/create", func(c *gin.Context) {
-		user, _ := controllers.GetLoggedinUser(c)
-
-		c.HTML(http.StatusOK, "newcustomer.html", gin.H{
-			"title": "New Customer Page",
-			"route": "/customer/create",
-			"user":  user,
-			// "productid": 1,
-			// "product":   product,
-		})
-	})
+	r.GET("/customer/create", customerController.CustomerCreatePage)
 }

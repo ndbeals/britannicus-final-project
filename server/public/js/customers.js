@@ -65,23 +65,25 @@ function addCustomer(table, customerID, first_name, last_name, customer_email, c
         customer_address + "</td><td>" +
         customer_city + "</td><td>" +
         customer_state + "</td><td>" +
-        customer_country + '</td><td><a href="/customer/get/' + customerID + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel'+customerID+'" type="button" class="delbutton btn btn-primary btn-block tbl-btn">Delete</button></td></tr>'
+        customer_country + '</td><td><a href="/customer/get/' + customerID + '"><button type="button" class="btn btn-primary btn-block tbl-btn">Edit</button></a></td><td><button id="btndel'+customerID+'" type="button" class="btn btn-danger btn-block tbl-btn">Delete</button></td></tr>'
         
     row = $(row).appendTo(table); // table.append(row);
-    $('#btndel'+customerID).click(function () {
-        // console.log("Test",customerID);
-        var parent = $(this).parent().parent();
-        // console.log(myValue);
-        // console.log(($(this).attr("id")));
 
-        $.get("/customer/delete/"+customerID, function (data) {
-            console.log("succ",data);
-            if (data !== null ) {
-                parent.remove();
-                changePage(customerPage);
-            }
-        }).fail(function (data) {
-            alert(data.responseJSON.Message)
+    $('#btndel'+customerID).click(function () {
+        var parent = $(this).parent().parent();
+        $.ajax({
+            url: "/v1/customer/" + customerID,
+            dataType: 'json',
+            type: 'DELETE',
+            success: function (data) {
+                if (data !== null) {
+                    parent.remove()
+                }
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log(data)
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
+            },
         });
     });
 
@@ -104,9 +106,9 @@ function populateCustomers( page , hide) {
                     row.toggle(false);
                     // changePage(customerPage);
                 }
-                if (page==customerPage){
-                    changePage(customerPage)
-                }
+            }
+            if (page==customerPage){
+                changePage(customerPage)
             }
 
             populateCustomers(page+1,true);

@@ -1,51 +1,58 @@
+<!--index.html-->
+
 <!--Embed the header.html template at this location-->
 {{ template "header.html" .}}
-<!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
 
+<!-- <h1>Hello Gin!</h1> -->
 
-<div id="topnavbar"></div>
+<h1>Inventory Listing</h1>
 
-<!-- <div class="container"> -->
-    <h1>Inventory</h1>
-
-    <form class="form-inline">
-        <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" placeholder="Filter" aria-label="Search">
-        <button class="form-control btn btn-outline-success col-sm-1" id="search">Search</button>
-
-        <div class="col-sm-1 ml-5"></div>
-
-        <label class="sr-only" for="pagenumber">Page</label>
-        <div class="input-group ml-5 mr-4 mb-2 mr-sm-1 mb-sm-0">
-            <input type="number" min="0" class="form-control col-sm-4" id="pagenumber" placeholder="Page">
-            <button class="btn-success input-group-addon col-sm-3 " id="gotopagenumber">Go To</button>
-            <!-- <div class="input-group-addon">@</div> -->
-        </div>
-        <div class="mx-3"></div>
-
-        <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button>
-        <button class="form-control btn btn-outline-success mx-1" id="next">Next</button>
-    </form>
-    </br>
-    <div class="row">
-        <div class="col-sm-1">ID</div>
-        <div class="col-sm-4">Item Name</div>
-        <div class="col-sm-2">Genre</div>
-        <div class="col-sm-1">Quantity</div>
-        <div class="col-sm-1">Price</div>
-        <div class="col-sm-2">Condition</div>
+<!-- <p>Type something in the input field to search the table for first names, last names or emails:</p> -->
+<div class="form-row">
+    <div class="form-group col-6">
+        <label for="inventory_ID">Filter:</label>
+        <input class="form-control" id="inventorysFilterInput" type="text" placeholder="Filter Results...">
     </div>
+    <div class="form-group col-3">
+        <!-- <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button> -->
+    </div>
+    <div class="form-group col-1">
+        <label>&nbsp;</label>
+        <button class="form-control btn btn-outline-success mx-1 ml-1" id="inventory_previous">Previous</button>
+    </div>
+    <div class="form-group col-1">
+        <label for="inventory_ID">Page:</label>
+        <input class="form-control" min="1" type="number" value="1" id="inventory_page">
+    </div>
+    <div class="form-group col-1">
+        <label>&nbsp;</label>
+        <button class="form-control btn btn-outline-success mx-1" id="inventory_next">Next</button>
+    </div>
+</div>
 
-    <div id="inventory"></div>
-
-<!-- </div> -->
-
-    
-    
-    <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
-    		Chromium <script>document.write(process.versions.chrome)</script>,
-    		and Electron <script>document.write(process.versions.electron)</script>. -->
-
-<!--Embed the footer.html template at this location-->
+<!-- <h2>Section title</h2> -->
+<div class="table-responsive">
+    <table class="table table-bordered table-striped tbl-lesspadding">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Item Name</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Condition</th>
+                <th>Notes</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="tbl-lesspadding" id="inventorysFilterTable">
+        </tbody>
+    </table>
+</div>
 
 <script src="/js/inventory.js" type="text/javascript"></script>
+
+<!--Embed the footer.html template at this location-->
 {{ template "footer.html" .}}

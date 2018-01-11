@@ -39,10 +39,12 @@ $(document).ready(function () {
             dataType: 'json',
             type: 'DELETE',
             success: function (data) {
-                console.log("DATA POSTED SUCCESSFULLY" + data);
+                // console.log("DATA POSTED SUCCESSFULLY" , data);
+                alert(data.Message)
+                location.reload()
             },
-            error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
+            error: function (data, textStatus, errorThrown) {
+                alert(data.responseJSON.Message)
             }
         });
     })

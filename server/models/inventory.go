@@ -2,9 +2,11 @@ package models
 
 import (
 	"database/sql"
+	"fmt"
 	"math"
 
 	"github.com/ndbeals/britannicus-final-project/db"
+	"github.com/ndbeals/britannicus-final-project/forms"
 )
 
 //Inventory ...
@@ -114,4 +116,59 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 	}
 
 	return inventoryList, err
+}
+
+//Inventory Delete ...
+func (this *Inventory) Delete() (bool, error) {
+	_, err := db.DB.Query("DELETE FROM tblInventory WHERE inventory_id=$1", this.ID)
+
+	fmt.Println("deleted inventory model")
+
+	if err != nil {
+		// panic(err)
+		return false, err
+	}
+
+	return true, err
+}
+
+// Update ...
+func (this *Inventory) Update(newdata forms.UpdateInventoryForm) (bool, error) {
+
+	stmt, err := db.DB.Prepare("update tblinventory set inventory_condition=$2, amount=$3, price=$4, notes=$5 where inventory_id=$1")
+	if err != nil {
+		return false, err
+	}
+
+	_, err = stmt.Exec(this.ID, newdata.InventoryCondition, newdata.Amount, newdata.Price, newdata.Note)
+
+	if err != nil {
+		return false, err
+	}
+
+	inventoryModel.GetOne(this.ID)
+
+	return true, err
+}
+
+// Create ...
+func (this *Inventory) Create() (int, error) {
+	stmt, err := db.DB.Prepare("insert into tblinventory(product_id, inventory_condition, amount, price, notes) values( $1, $2, $3, $4, $5 ) RETURNING inventory_id")
+
+	if err != nil {
+		return 0, err
+	}
+
+	results := stmt.QueryRow(this.Product.ID, this.InventoryCondition, this.Amount, this.Price, this.Note)
+
+	var newid int
+	err = results.Scan(&newid)
+
+	if err != nil {
+		return 0, err
+	}
+
+	inventoryModel.GetOne(int(newid))
+
+	return int(newid), err
 }

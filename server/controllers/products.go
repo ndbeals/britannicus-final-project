@@ -29,7 +29,7 @@ func (ctrl ProductController) GetOne(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.IndentedJSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, data)
 	} else {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
@@ -164,5 +164,47 @@ func (ctrl ProductController) ProductListingPage(c *gin.Context) {
 		"title": "Products Page",
 		"route": "/products",
 		"user":  user,
+	})
+}
+
+//ProductDetailPage ...
+func (ctrl ProductController) ProductDetailPage(c *gin.Context) {
+	productid := c.Param("id")
+
+	if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
+		productid := int(productid)
+		product, err := productModel.GetOne(productid)
+
+		if err != nil {
+			// c.String(200, "<body onload=\"history.back()\"></body>" )
+			// c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
+			// c.Abort()
+			// return
+		}
+
+		user, _ := GetLoggedinUser(c)
+
+		c.HTML(http.StatusOK, "product.html", gin.H{
+			"title":   "Product Detail Page",
+			"route":   "/product",
+			"user":    user,
+			"product": product,
+			"prodid":  productid,
+		})
+	} else {
+		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
+	}
+}
+
+//ProductCreatePage ...
+func (ctrl ProductController) ProductCreatePage(c *gin.Context) {
+	user, _ := GetLoggedinUser(c)
+
+	c.HTML(http.StatusOK, "newproduct.html", gin.H{
+		"title": "Product Create Page",
+		"route": "/product/create",
+		"user":  user,
+		// "productid": 1,
+		// "product":   product,
 	})
 }

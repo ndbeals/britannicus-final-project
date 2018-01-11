@@ -26,7 +26,7 @@ var (
 
 func main() {
 	r := gin.Default()
-	r.Use(CORSMiddleware())
+	// r.Use(CORSMiddleware())
 
 	store := sessions.NewCookieStore([]byte("secret"))
 	//sessions.NewRedisStore(10, "tcp", "localhost:6379", "", []byte("secret"))
@@ -43,6 +43,7 @@ func main() {
 	userController = new(controllers.UserController)
 	customerController = new(controllers.CustomerController)
 	productController = new(controllers.ProductController)
+	inventoryController = new(controllers.InventoryController)
 
 	// db.DB = dbs
 

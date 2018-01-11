@@ -60,6 +60,16 @@
                     <a class="nav-link {{if eq .route `/inventory`}}active{{end}}" href="/inventory">Inventory</a>
                 </li>
                 <li class="nav-item">
+                    <a class='nav-link {{if eq .route "/inventory/get"}}active{{end}}' href='/inventory/get/{{.item.ID}}'>Detailed Item View</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link {{if eq .route "/inventory/create"}}active{{end}}' href='/inventory/create'>Create Item</a>
+                </li>
+            </ul>
+
+
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
                     <a class='nav-link {{if eq .route "/products"}}active{{end}}' href="/products">Products</a>
                 </li>
                 <li class="nav-item">
