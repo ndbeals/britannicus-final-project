@@ -143,7 +143,7 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.IndentedJSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, data)
 	} else {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}

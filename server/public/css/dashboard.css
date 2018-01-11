@@ -77,3 +77,7 @@ h1 {
 .tbl-lesspadding > tr > td {
   padding: 0.45rem;
 }
+
+.collapserow {
+  display:table-row;
+}

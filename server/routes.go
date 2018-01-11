@@ -41,12 +41,12 @@ func initializeAPIRoutes(r *gin.Engine) {
 		v1.GET("/products/:page/:amount", productController.GetList)
 
 		/*** START ORDERS ***/
-		order := new(controllers.OrderController)
+		v1.GET("/order/:id", orderController.GetOne)
+		// v1.PATCH("/order/:id", orderController.Update)
+		// v1.DELETE("/order/:id", orderController.Delete)
+		v1.POST("/order", orderController.CreateOrder)
 
-		v1.GET("/order/:id", order.GetOne)
-		v1.GET("/orders/:page/:amount", order.GetList)
-
-		v1.POST("order/new", order.CreateOrder)
+		v1.GET("/orders/:page/:amount", orderController.GetList)
 
 		/*** START TRANSACTIONS ***/
 		transaction := new(controllers.TransactionController)
@@ -95,15 +95,21 @@ func initializeBasicRoutes(r *gin.Engine) {
 func initializeControlRoutes(r *gin.Engine) {
 	r.Use(AuthenticationMiddleware())
 
+	// Product routes
 	r.GET("/products", productController.ProductListingPage)
-
 	r.GET("/product/get", func(c *gin.Context) {
 		c.Redirect(http.StatusTemporaryRedirect, "/product/get/1")
 	})
-
 	r.GET("/product/get/:id", productController.ProductDetailPage)
-
 	r.GET("/product/create", productController.ProductCreatePage)
+
+	// Customer routes
+	r.GET("/customers", customerController.CustomersListingPage)
+	r.GET("/customer/get", func(c *gin.Context) {
+		c.Redirect(http.StatusTemporaryRedirect, "/customer/get/1")
+	})
+	r.GET("/customer/get/:id", customerController.CustomerDetailPage)
+	r.GET("/customer/create", customerController.CustomerCreatePage)
 
 	// Inventory routes
 	r.GET("/inventory", func(c *gin.Context) {
@@ -121,14 +127,11 @@ func initializeControlRoutes(r *gin.Engine) {
 	r.GET("/inventory/get/:id", inventoryController.InventoryDetailPage)
 	r.GET("/inventory/create", inventoryController.InventoryCreatePage)
 
-	// Customer routes
-	r.GET("/customers", customerController.CustomersListingPage)
-
-	r.GET("/customer/get", func(c *gin.Context) {
-		c.Redirect(http.StatusTemporaryRedirect, "/customer/get/1")
+	// Order Routes
+	r.GET("/orders", orderController.OrderListingPage)
+	r.GET("/order/get", func(c *gin.Context) {
+		c.Redirect(http.StatusTemporaryRedirect, "/order/get/1")
 	})
-
-	r.GET("/customer/get/:id", customerController.CustomerDetailPage)
-
-	r.GET("/customer/create", customerController.CustomerCreatePage)
+	r.GET("/order/get/:id", orderController.OrderDetailPage)
+	r.GET("/order/create", orderController.OrderCreatePage)
 }

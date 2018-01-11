@@ -44,6 +44,7 @@ func main() {
 	customerController = new(controllers.CustomerController)
 	productController = new(controllers.ProductController)
 	inventoryController = new(controllers.InventoryController)
+	orderController = new(controllers.OrderController)
 
 	// db.DB = dbs
 

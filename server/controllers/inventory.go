@@ -29,7 +29,7 @@ func (ctrl InventoryController) GetOne(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.IndentedJSON(200, gin.H{"data": data})
+		c.IndentedJSON(200, data)
 	} else {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
@@ -84,8 +84,6 @@ func (ctrl InventoryController) Update(c *gin.Context) {
 
 		inventory.Update(updateForm)
 
-		fmt.Println("updated")
-
 		c.IndentedJSON(200, gin.H{"data": inventory})
 	} else {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
@@ -94,12 +92,6 @@ func (ctrl InventoryController) Update(c *gin.Context) {
 
 //Create ...
 func (ctrl InventoryController) Create(c *gin.Context) {
-	// inventoryid := c.Param("id")
-	fmt.Println("create")
-
-	// if inventoryid, err := strconv.ParseInt(inventoryid, 10, 32); err == nil {
-	// 	inventoryid := int(inventoryid)
-
 	var updateForm forms.UpdateInventoryForm
 	err := c.BindJSON(&updateForm)
 	if err != nil {
@@ -108,7 +100,6 @@ func (ctrl InventoryController) Create(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	// fmt.Println(updateForm.ISBN, updateForm.InventoryName, updateForm.Author, updateForm.Genre, updateForm.Publisher, 1, "Soft Cover", updateForm.Description)
 
 	product, _ := productModel.GetOne(updateForm.ProductID)
 
@@ -121,12 +112,7 @@ func (ctrl InventoryController) Create(c *gin.Context) {
 
 	newid, _ := inventory.Create()
 
-	fmt.Println("Createds", newid)
-
 	c.IndentedJSON(200, gin.H{"data": inventory, "id": newid})
-	// } else {
-	// 	c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
-	// }
 }
 
 //Delete ...
@@ -175,14 +161,7 @@ func (ctrl InventoryController) InventoryDetailPage(c *gin.Context) {
 
 	if inventoryid, err := strconv.ParseInt(inventoryid, 10, 32); err == nil {
 		inventoryid := int(inventoryid)
-		inventory, err := inventoryModel.GetOne(inventoryid)
-
-		if err != nil {
-			// c.String(200, "<body onload=\"history.back()\"></body>" )
-			// c.IndentedJSON(404, gin.H{"Message": "Inventory not found", "error": err.Error()})
-			// c.Abort()
-			// return
-		}
+		inventory, _ := inventoryModel.GetOne(inventoryid)
 
 		user, _ := GetLoggedinUser(c)
 
@@ -206,7 +185,5 @@ func (ctrl InventoryController) InventoryCreatePage(c *gin.Context) {
 		"title": "New Item Page",
 		"route": "/inventory/create",
 		"user":  user,
-		// "productid": 1,
-		// "product":   product,
 	})
 }

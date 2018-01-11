@@ -2,7 +2,7 @@ package models
 
 import (
 	"errors"
-	"log"
+	"fmt"
 	"math"
 	"time"
 
@@ -20,33 +20,19 @@ type ItemList struct {
 	InventoryCondition int     `json:"-"`
 	ConditionString    string  `json:"inventory_condition"`
 	OrderAmount        int     `json:"order_amount"`
+	Price              float64 `json:"item_price"`
 	Note               string  `json:"note"`
 }
 
 //Order ...
 type Order struct {
-	ID        int         `json:"order_id"`
-	Customer  Customer    `json:"customer"`
-	OrderTime int         `json:"order_time"`
-	ItemList  *[]ItemList `json:"item_list"`
+	ID         int         `json:"order_id"`
+	Customer   Customer    `json:"customer"`
+	OrderTime  int         `json:"order_time"`
+	ItemList   *[]ItemList `json:"item_list"`
+	TotalPrice float64     `json:"total_price"`
 	// UpdatedAt int  `db:"updated_at" json:"updated_at"`
 	// CreatedAt int  `db:"created_at" json:"created_at"`
-}
-
-func (o *Order) AddToInventory(inventoryID int, orderAmount int) {
-	inventory, err := GetInventoryModel().GetOne(inventoryID)
-	if err != nil {
-		panic(err)
-	}
-	// fmt.Printf("\n\nOrder: %+v \n\n", o)
-	// fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
-
-	itemList := ItemList{inventory.ID, inventory.Product, inventory.InventoryCondition, inventory.ConditionString, orderAmount, inventory.Note}
-
-	// fmt.Println("ADDED?")
-	// fmt.Printf("GOT ITEMLIST: %+v \n", itemList)
-
-	*o.ItemList = append(*o.ItemList, itemList)
 }
 
 //OrderModel ...
@@ -75,41 +61,22 @@ func GetOrderModel() (model OrderModel) {
 	return model
 }
 
-//Create ...
-func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) {
-	// Vars to for inserting into the table
-	var orderID int
-	customerID := form.CustomerID
-	dateTime := int(time.Now().Unix())
-
-	row := db.DB.QueryRow("INSERT INTO public.tblOrder(customer_id, date_time) VALUES($1, $2) RETURNING order_id", customerID, dateTime)
-	err = row.Scan(&orderID)
-
-	if orderID > 0 && err == nil {
-		for item, quantity := range form.ItemList {
-			_, err := db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2, $3)", orderID, item, quantity)
-
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-
-		order, err = orderModel.GetOne(int(orderID))
-		if err != nil {
-			return Order{}, err
-		}
-
-		return order, nil
+func getOrder(OrderID int) (order Order, cached bool) {
+	if loadedOrders[OrderID].ID > 0 {
+		return loadedOrders[OrderID], true
 	}
-
-	return Order{}, errors.New("Couldn't create Order record: " + err.Error())
+	order = Order{}
+	order.ID = OrderID
+	order.ItemList = &[]ItemList{}
+	loadedOrders[OrderID] = order
+	return order, false
 }
 
 //GetOne ...
 func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 	rows, err := db.DB.Query("select order_id, customer_id, date_time from tblOrder WHERE tblOrder.order_id=$1", OrderID)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	var cached bool
@@ -139,18 +106,20 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 
 		rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 
 		for rows.Next() {
 			err = rows.Scan(&inventoryID, &quantity)
 			if err != nil {
-				log.Fatal(err)
+				panic(err)
 			}
 
 			order.AddToInventory(inventoryID, quantity)
 		}
 	}
+
+	loadedOrders[order.ID] = order
 
 	return order, err
 }
@@ -160,9 +129,9 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder OFFSET ORDER BY tblOrder.order_id $1 LIMIT $2", Page, Amount)
+	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder ORDER BY tblOrder.order_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	var order Order
@@ -190,13 +159,13 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 			rows, err := db.DB.Query("select jncOrderItems.inventory_id, jncOrderItems.quantity FROM jncOrderItems WHERE order_id=$1", orderID)
 			if err != nil {
-				log.Fatal(err)
+				panic(err)
 			}
 
 			for rows.Next() {
 				err = rows.Scan(&inventoryID, &quantity)
 				if err != nil {
-					log.Fatal(err)
+					panic(err)
 				}
 
 				order.AddToInventory(inventoryID, quantity)
@@ -207,20 +176,93 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 				// fmt.Println("appended")
 				// }
 			}
-
+			loadedOrders[order.ID] = order
 		}
 	}
 
 	return orders, err
 }
 
-func getOrder(OrderID int) (order Order, cached bool) {
-	if loadedOrders[OrderID].ID > 0 {
-		return loadedOrders[OrderID], true
+//Create ...
+func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) {
+	// Vars to for inserting into the table
+	var orderID int
+	customerID := form.CustomerID
+	dateTime := int(time.Now().Unix())
+
+	row := db.DB.QueryRow("INSERT INTO public.tblOrder(customer_id, date_time) VALUES($1, $2) RETURNING order_id", customerID, dateTime)
+	err = row.Scan(&orderID)
+
+	if orderID > 0 && err == nil {
+		for item, quantity := range form.ItemList {
+			fmt.Println("ITEM QUANT", item, quantity)
+			_, err := db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2, $3)", orderID, item, quantity)
+			if err != nil {
+				panic(err)
+			}
+		}
+
+		order, err = orderModel.GetOne(int(orderID))
+		if err != nil {
+			return Order{}, err
+		}
+
+		return order, nil
 	}
-	order = Order{}
-	order.ID = OrderID
-	order.ItemList = &[]ItemList{}
-	loadedOrders[OrderID] = order
-	return order, false
+
+	return Order{}, errors.New("Couldn't create Order record: " + err.Error())
+}
+
+func (o *Order) AddToInventory(inventoryID int, orderAmount int) {
+	inventory, err := GetInventoryModel().GetOne(inventoryID)
+	if err != nil {
+		panic(err)
+	}
+	// fmt.Printf("\n\nOrder: %+v \n\n", o)
+	// fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
+
+	itemList := ItemList{inventory.ID, inventory.Product, inventory.InventoryCondition, inventory.ConditionString, orderAmount, inventory.Price, inventory.Note}
+
+	// fmt.Println("add to inv", o.TotalPrice, inventory.Price, orderAmount)
+	o.TotalPrice = o.TotalPrice + (inventory.Price * float64(orderAmount))
+	// fmt.Println("add to inv aft", o.TotalPrice, inventory.Price, orderAmount)
+
+	// fmt.Println("ADDED?")
+	// fmt.Printf("GOT ITEMLIST: %+v \n", itemList)
+
+	*o.ItemList = append(*o.ItemList, itemList)
+}
+
+//Order Delete ...
+func (this *Order) Delete() (bool, error) {
+	_, err := db.DB.Query("DELETE FROM tblorder WHERE order_id=$1", this.ID)
+
+	fmt.Println("deleted order model")
+
+	if err != nil {
+		// panic(err)
+		return false, err
+	}
+
+	return true, err
+}
+
+// Update ...
+func (this *Order) Update(newdata forms.UpdateOrderForm) (success bool, err error) {
+
+	// stmt, err := db.DB.Prepare("update tblorder set order_condition=$2, amount=$3, price=$4, notes=$5 where order_id=$1")
+	// if err != nil {
+	// return false, err
+	// }
+
+	// _, err = stmt.Exec(this.ID, newdata.OrderCondition, newdata.Amount, newdata.Price, newdata.Note)
+
+	// if err != nil {
+	// return false, err
+	// }
+	fmt.Println(newdata.ItemList)
+
+	orderModel.GetOne(this.ID)
+
+	return true, err
 }

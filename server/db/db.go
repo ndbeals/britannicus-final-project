@@ -3,7 +3,6 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"log"
 
 	"github.com/go-gorp/gorp"
 	_ "github.com/lib/pq" //import postgres
@@ -41,7 +40,7 @@ func Init() *sql.DB {
 	DB = dbs
 
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	return dbs

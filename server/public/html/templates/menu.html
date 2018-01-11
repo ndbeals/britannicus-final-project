@@ -43,14 +43,29 @@
                 <li class="nav-item">
                     <a class="nav-link {{if eq .route `/`}}active{{end}}" href="/">Home</a>
                 </li>
+            </ul>
+
+            <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reports</a>
+                    <a class='nav-link {{if eq .route "/customers"}}active{{end}}' href="/customers">Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Analytics</a>
+                    <a class="nav-link {{if eq .route `/customer`}}active{{end}}" href="/customer/get">Customer Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="delme" href="#">Export</a>
+                    <a class="nav-link {{if eq .route `/customer/create`}}active{{end}}" href="/customer/create">Create Customer</a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link {{if eq .route `/orders`}}active{{end}}" href="/orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link {{if eq .route "/order/get"}}active{{end}}' href='/order/get/{{.order.ID}}'>Detailed Order View</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link {{if eq .route "/order/create"}}active{{end}}' href='/order/create'>Create Order</a>
                 </li>
             </ul>
 
@@ -79,18 +94,5 @@
                     <a class='nav-link {{if eq .route "/product/create"}}active{{end}}' href='/product/create'>Create Product</a>
                 </li>
             </ul>
-
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class='nav-link {{if eq .route "/customers"}}active{{end}}' href="/customers">Customers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{if eq .route `/customer`}}active{{end}}" href="/customer/get">Customer Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{if eq .route `/customer/create`}}active{{end}}" href="/customer/create">Create Customer</a>
-                </li>
-            </ul>
         </nav>
-    
     <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">

@@ -8,7 +8,6 @@ import (
 	"fmt"
 
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -196,7 +195,7 @@ func TestCreateArticle(t *testing.T) {
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	res := struct {
