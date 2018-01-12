@@ -135,7 +135,6 @@ function populateOrder(page, hide) {
             
             for (var i = 0; i < data.length; i++) {
                 item = data[i];
-                console.log(item)
 
                 row = addOrder(table, item.order_id, item.customer.customer_id, item.customer.first_name + " " + item.customer.last_name, item.total_price)
 

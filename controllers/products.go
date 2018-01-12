@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -61,7 +60,6 @@ func (ctrl ProductController) GetList(c *gin.Context) {
 //Update ...
 func (ctrl ProductController) Update(c *gin.Context) {
 	productid := c.Param("id")
-	fmt.Println(productid)
 
 	if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
 		productid := int(productid)
@@ -84,8 +82,6 @@ func (ctrl ProductController) Update(c *gin.Context) {
 
 		product.Update(updateForm)
 
-		fmt.Println("updated")
-
 		c.IndentedJSON(200, gin.H{"data": product})
 	} else {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
@@ -103,7 +99,6 @@ func (ctrl ProductController) Create(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	fmt.Println(updateForm.ISBN, updateForm.ProductName, updateForm.Author, updateForm.Genre, updateForm.Publisher, 1, "Soft Cover", updateForm.Description)
 
 	product := models.Product{-1, updateForm.ISBN, updateForm.ProductName, updateForm.Author, updateForm.Genre, updateForm.Publisher, 1, "Soft Cover", updateForm.Description}
 	if err != nil {
@@ -164,14 +159,7 @@ func (ctrl ProductController) ProductDetailPage(c *gin.Context) {
 
 	if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
 		productid := int(productid)
-		product, err := productModel.GetOne(productid)
-
-		if err != nil {
-			// c.String(200, "<body onload=\"history.back()\"></body>" )
-			// c.IndentedJSON(404, gin.H{"Message": "Product not found", "error": err.Error()})
-			// c.Abort()
-			// return
-		}
+		product, _ := productModel.GetOne(productid)
 
 		user, _ := GetLoggedinUser(c)
 
@@ -195,7 +183,5 @@ func (ctrl ProductController) ProductCreatePage(c *gin.Context) {
 		"title": "Product Create Page",
 		"route": "/product/create",
 		"user":  user,
-		// "productid": 1,
-		// "product":   product,
 	})
 }

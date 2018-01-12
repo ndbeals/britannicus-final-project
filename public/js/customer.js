@@ -65,7 +65,6 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                // console.log("DATA POSTED SUCCESSFULLY" , data);
                 location.reload()
             },
             error: function (data, textStatus, errorThrown) {

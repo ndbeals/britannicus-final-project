@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -28,6 +29,14 @@ func getCustomerID(c *gin.Context) int {
 
 //GetOne ...
 func (ctrl CustomerController) GetOne(c *gin.Context) {
+	// CustomerID := getCustomerID(c)
+
+	// if CustomerID == 0 {
+	// 	c.IndentedJSON(403, gin.H{"message": "Please login first"})
+	// 	c.Abort()
+	// 	return
+	// }
+
 	userid := c.Param("id")
 
 	if userid, err := strconv.ParseInt(userid, 10, 32); err == nil {
@@ -45,9 +54,8 @@ func (ctrl CustomerController) GetOne(c *gin.Context) {
 	}
 }
 
-//GetList ...
+//GetOne ...
 func (ctrl CustomerController) GetList(c *gin.Context) {
-
 	page := c.Param("page")
 	amount, err := strconv.ParseInt(c.Param("amount"), 10, 64)
 
@@ -59,7 +67,7 @@ func (ctrl CustomerController) GetList(c *gin.Context) {
 		page, amount := int(page), int(amount)
 		data, err := customerModel.GetList(page, amount)
 		if err != nil {
-			c.IndentedJSON(404, gin.H{"Message": "Customers not found", "error": err.Error()})
+			c.IndentedJSON(404, gin.H{"Message": "Article not found", "error": err.Error()})
 			c.Abort()
 			return
 		}
@@ -73,8 +81,8 @@ func (ctrl CustomerController) GetList(c *gin.Context) {
 func (ctrl CustomerController) Create(c *gin.Context) {
 	var updateForm forms.UpdateCustomerForm
 	err := c.BindJSON(&updateForm)
-
 	if err != nil {
+		// // panic(err)
 		c.IndentedJSON(404, gin.H{"message": "Invalid form", "form": updateForm})
 		c.Abort()
 		return
@@ -85,7 +93,8 @@ func (ctrl CustomerController) Create(c *gin.Context) {
 	newid, err := customer.Create()
 
 	if err != nil {
-		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter", "error": err.Error()})
+		c.IndentedJSON(404, gin.H{"Message": "Failed to Create customer", "error": err.Error()})
+	}
 	} else {
 		c.IndentedJSON(200, gin.H{"data": customer, "id": newid})
 	}
@@ -171,12 +180,6 @@ func (ctrl CustomerController) CustomerDetailPage(c *gin.Context) {
 	if customerid, err := strconv.ParseInt(customerid, 10, 32); err == nil {
 		customerid := int(customerid)
 		customer, _ := customerModel.GetOne(customerid)
-
-		// if err != nil {
-		// 	c.IndentedJSON(404, gin.H{"Message": "customer not found", "error": err.Error()})
-		// 	c.Abort()
-		// 	return
-		// }
 
 		user, _ := GetLoggedinUser(c)
 

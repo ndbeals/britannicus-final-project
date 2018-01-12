@@ -57,7 +57,6 @@ $(document).ready(function () {
 
 function populateProduct( id ) {
     $.get("/v1/product/"+id, function(data) {
-        console.log(data)
         if (data !== null) {
             productID = id
             $("#product_ID").val(id)

@@ -2,7 +2,6 @@ package models
 
 import (
 	"database/sql"
-	"fmt"
 	"math"
 
 	"github.com/ndbeals/britannicus-final-project/db"
@@ -107,8 +106,6 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 //Product Delete ...
 func (this *Product) Delete() (bool, error) {
 	_, err := db.DB.Query("DELETE FROM tblProducts WHERE product_id=$1", this.ID)
-
-	fmt.Println("deleted model", err)
 
 	if err != nil {
 		return false, err

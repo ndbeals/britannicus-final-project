@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -87,7 +86,6 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 //Update ...
 func (ctrl OrderController) Update(c *gin.Context) {
 	orderid := c.Param("id")
-	fmt.Println(orderid)
 
 	if orderid, err := strconv.ParseInt(orderid, 10, 32); err == nil {
 		orderid := int(orderid)
@@ -119,7 +117,6 @@ func (ctrl OrderController) Update(c *gin.Context) {
 //Delete ...
 func (ctrl OrderController) Delete(c *gin.Context) {
 	orderid := c.Param("id")
-	fmt.Println("Delete")
 
 	if orderid, err := strconv.ParseInt(orderid, 10, 32); err == nil {
 		orderid := int(orderid)
@@ -132,8 +129,6 @@ func (ctrl OrderController) Delete(c *gin.Context) {
 		}
 
 		_, err = order.Delete()
-
-		fmt.Println("deleted order from api")
 
 		if err != nil {
 			c.IndentedJSON(404, gin.H{"Message": "Failed to delete", "error": err.Error()})

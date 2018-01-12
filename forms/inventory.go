@@ -10,10 +10,3 @@ type UpdateInventoryForm struct {
 	Price              float64 `json:"inventory_price" form:"inventory_price" `
 	Note               string  `json:"inventory_note" form:"inventory_note" `
 }
-
-// //SignupForm ...
-// type SignupForm struct {
-// 	Name     string `form:"name" json:"name" binding:"required,max=100"`
-// 	Email    string `form:"email" json:"email" binding:"required,email"`
-// 	Password string `form:"password" json:"password" `
-// }

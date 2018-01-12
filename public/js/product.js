@@ -25,7 +25,6 @@ $(document).ready(function () {
 
     $("#product_delete").click( function(e) {
         e.preventDefault();
-        console.log("delete");
 
         $.ajax({
             url: "/v1/product/" + productID,
@@ -81,7 +80,6 @@ function changeProduct(id) {
     if ( id > 0) {
 
         $.get("/v1/product/" + productID, function (data) {
-            console.log("still",data);
             if (data !== null) {
                 data = data.data
                 $("#product_ISBN").val(data.isbn)

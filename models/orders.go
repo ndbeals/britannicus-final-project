@@ -242,19 +242,6 @@ func (this *Order) Delete() (bool, error) {
 
 // Update ...
 func (this *Order) Update(newdata forms.UpdateOrderForm) (success bool, err error) {
-
-	// stmt, err := db.DB.Prepare("update tblorder set order_condition=$2, amount=$3, price=$4, notes=$5 where order_id=$1")
-	// if err != nil {
-	// return false, err
-	// }
-
-	// _, err = stmt.Exec(this.ID, newdata.OrderCondition, newdata.Amount, newdata.Price, newdata.Note)
-
-	// if err != nil {
-	// return false, err
-	// }
-	// fmt.Println(newdata.ItemList)
-
 	orderModel.GetOne(this.ID)
 
 	return true, err

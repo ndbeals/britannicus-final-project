@@ -6,8 +6,8 @@ create table tblUser (
 	user_email VARCHAR(40),
 	user_password VARCHAR(80)
 );
-insert into tblUser (user_name, user_email, user_password ) values ('Admin', 'admin@britannicus.com', '$2a$10$hajTTtG1HVzs.ckfX8wZVOx8xynbcjT83HxVaxxjioay6D/xpBQOe');
-insert into tblUser (user_name, user_email, user_password ) values ('User1', 'user1@britannicus.com', '$2a$10$hajTTtG1HVzs.ckfX8wZVOx8xynbcjT83HxVaxxjioay6D/xpBQOe');
+insert into tblUser (user_name, user_email, user_password ) values ('Admin', 'admin@britannicus.com', 'password');
+insert into tblUser (user_name, user_email, user_password ) values ('User1', 'user1@britannicus.com', 'password');
 
 DROP TABLE IF EXISTS tblCustomer CASCADE;
 

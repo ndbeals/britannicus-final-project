@@ -74,7 +74,6 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                // console.log("DATA POSTED SUCCESSFULLY" , data);
                 window.location.href="/order/get/"+data.data.order_id
             },
             error: function (data, textStatus, errorThrown) {

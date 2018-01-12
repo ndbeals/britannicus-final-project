@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -61,7 +60,6 @@ func (ctrl InventoryController) GetList(c *gin.Context) {
 //Update ...
 func (ctrl InventoryController) Update(c *gin.Context) {
 	inventoryid := c.Param("id")
-	fmt.Println(inventoryid)
 
 	if inventoryid, err := strconv.ParseInt(inventoryid, 10, 32); err == nil {
 		inventoryid := int(inventoryid)
@@ -118,7 +116,6 @@ func (ctrl InventoryController) Create(c *gin.Context) {
 //Delete ...
 func (ctrl InventoryController) Delete(c *gin.Context) {
 	inventoryid := c.Param("id")
-	fmt.Println("Delete")
 
 	if inventoryid, err := strconv.ParseInt(inventoryid, 10, 32); err == nil {
 		inventoryid := int(inventoryid)
@@ -131,8 +128,6 @@ func (ctrl InventoryController) Delete(c *gin.Context) {
 		}
 
 		_, err = inventory.Delete()
-
-		fmt.Println("deleted inventory from api")
 
 		if err != nil {
 			c.IndentedJSON(404, gin.H{"Message": "Failed to delete", "error": err.Error()})

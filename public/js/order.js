@@ -28,14 +28,12 @@ $(document).ready(function () {
 
     $("#order_delete").click( function(e) {
         e.preventDefault();
-        console.log("delete order");
 
         $.ajax({
             url: "/v1/order/" + orderID,
             dataType: 'json',
             type: 'DELETE',
             success: function (data) {
-                // console.log("DATA POSTED SUCCESSFULLY" , data);
                 alert(data.Message)
                 location.reload()
             },
@@ -59,7 +57,6 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (data) {
-                console.log("DATA POSTED SUCCESSFULLY" , data);
                 location.reload()
             },
             error: function (data, textStatus, errorThrown) {
