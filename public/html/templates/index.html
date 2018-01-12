@@ -1,0 +1,42 @@
+<!--index.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+
+
+
+<h1>Dashboard</h1>
+
+<p>Select a link to begin.</p>
+<section class="row text-center placeholders">
+    <div class="col-6 col-sm-3 placeholder">
+        <h1>Customers</h1>
+        <h5><a href="/customers">List Customers</a></h5>
+        <h5><a href="/customer/get">Edit Customer</a></h5>
+        <h5><a href="/customer/create">Create Customer</a></h5>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+        <h1>Orders</h1>
+        <h5><a href="/orders">List Orders</a></h5>
+        <h5><a href="/order/get">Edit Order</a></h5>
+        <h5><a href="/order/create">Create Order</a></h5>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+        <h1>Inventory</h1>
+        <h5><a href="/Inventorys">List Inventory</a></h5>
+        <h5><a href="/Inventory/get/1">Edit Item</a></h5>
+        <h5><a href="/Inventory/create">Create Item</a></h5>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+        <h1>Products</h1>
+        <h5><a href="/products">List Products</a></h5>
+        <h5><a href="/product/get/1">Edit Product</a></h5>
+        <h5><a href="/product/create">Create Product</a></h5>
+    </div>
+</section>
+
+
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

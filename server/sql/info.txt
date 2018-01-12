@@ -1,3 +1,0 @@
-db name: britannicus
-db username: britannicus
-db password: britannicus

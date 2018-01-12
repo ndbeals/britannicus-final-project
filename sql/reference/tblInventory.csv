@@ -1,0 +1,1001 @@
+inventory_id,item_id,item_condition,amount,notes
+1,80,1,10,vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut
+2,82,2,0,blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede
+3,132,4,2,
+4,195,1,3,morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at
+5,197,1,19,nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta
+6,140,8,19,
+7,96,1,3,eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit
+8,199,2,17,viverra dapibus nulla suscipit ligula in
+9,211,3,3,
+10,87,7,1,
+11,15,4,13,erat tortor sollicitudin mi sit amet lobortis
+12,149,6,9,
+13,149,3,6,ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus
+14,1,3,18,nulla dapibus dolor
+15,60,1,1,consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+16,16,5,19,magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient
+17,129,6,2,dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque
+18,42,9,8,
+19,27,4,13,orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque
+20,15,5,11,interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam
+21,168,1,18,quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+22,121,6,7,eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum
+23,35,5,20,eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis
+24,53,1,6,
+25,98,1,8,sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet
+26,197,8,5,varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et
+27,202,5,12,vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula
+28,50,4,0,dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non
+29,114,4,8,
+30,16,8,8,aliquet massa id lobortis
+31,209,1,17,
+32,30,2,6,diam in magna
+33,174,4,5,pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque
+34,43,2,8,nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget
+35,125,7,12,ligula sit amet eleifend pede libero quis orci nullam molestie
+36,176,7,16,dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar
+37,98,6,17,quisque erat eros viverra eget
+38,187,9,13,sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies
+39,170,6,8,ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra
+40,160,8,20,nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor
+41,172,3,11,
+42,206,6,10,lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum
+43,192,4,18,
+44,135,2,8,
+45,11,1,11,ac enim in tempor turpis
+46,105,7,19,libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit
+47,28,5,10,dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien
+48,117,4,18,aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet
+49,140,7,6,posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet
+50,37,9,4,ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum
+51,58,4,14,amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae
+52,22,4,14,primis in faucibus orci luctus
+53,91,2,10,odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit
+54,147,2,16,quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae
+55,12,5,1,nunc nisl duis bibendum
+56,76,5,16,tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel
+57,208,2,7,eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo
+58,51,5,19,ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu
+59,59,8,20,
+60,161,1,1,pede justo eu massa donec
+61,23,5,19,nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum
+62,153,5,17,diam vitae quam suspendisse
+63,3,5,1,tortor duis mattis egestas metus aenean fermentum
+64,70,4,11,elementum nullam varius nulla facilisi cras non velit nec nisi vulputate
+65,40,7,1,massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo
+66,182,8,7,
+67,43,1,3,id nulla ultrices aliquet maecenas leo
+68,58,3,20,orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio
+69,179,6,14,ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium
+70,9,2,13,
+71,178,9,4,duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus
+72,119,4,17,nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet
+73,18,1,10,volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut
+74,207,3,15,
+75,179,9,7,et magnis dis parturient montes nascetur
+76,209,8,14,sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus
+77,201,3,16,vestibulum sagittis sapien cum
+78,92,4,11,laoreet ut rhoncus aliquet pulvinar sed nisl nunc
+79,206,6,10,in consequat ut nulla sed accumsan felis ut at dolor quis
+80,3,7,17,
+81,171,1,7,blandit mi in porttitor pede justo
+82,94,2,2,eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis
+83,88,7,16,augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis
+84,165,9,3,non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget
+85,139,9,10,vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla
+86,62,4,12,tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non
+87,188,6,2,ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis
+88,88,4,19,turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec
+89,169,2,8,amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu
+90,161,8,0,nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue
+91,173,9,10,vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy
+92,45,1,20,aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus
+93,103,1,13,orci vehicula condimentum curabitur in libero ut
+94,204,3,1,est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique
+95,175,7,3,sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum
+96,19,2,18,et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor
+97,8,8,14,sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit
+98,1,1,17,mauris enim leo rhoncus sed vestibulum
+99,89,8,19,convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est
+100,64,8,9,
+101,65,9,3,felis fusce posuere
+102,72,6,0,ut nunc vestibulum ante
+103,72,9,15,tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est
+104,133,1,6,elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat
+105,77,9,19,sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at
+106,153,6,18,habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat
+107,7,4,3,
+108,66,7,17,
+109,180,1,16,quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante
+110,172,1,9,sapien varius ut
+111,146,7,0,
+112,128,9,7,
+113,181,9,20,convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci
+114,101,7,10,metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh
+115,166,9,13,potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam
+116,170,7,0,habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo
+117,36,5,15,sit amet eleifend pede libero quis orci nullam molestie nibh
+118,121,2,6,rutrum nulla nunc purus phasellus
+119,164,3,18,vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed
+120,65,4,19,sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus
+121,194,1,6,
+122,137,7,3,elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec
+123,30,8,11,in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla
+124,156,6,19,non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc
+125,80,2,18,placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus
+126,61,3,0,nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar
+127,211,2,4,egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet
+128,50,5,15,
+129,173,5,5,eget semper rutrum nulla
+130,188,7,20,amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque
+131,199,5,14,
+132,155,9,3,id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat
+133,56,8,9,quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi
+134,210,5,15,at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum
+135,68,2,9,a nibh in quis
+136,186,7,9,placerat praesent blandit nam nulla
+137,153,6,12,donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat
+138,154,8,9,
+139,44,7,19,mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis
+140,138,1,16,sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo
+141,205,2,6,turpis eget elit sodales scelerisque mauris
+142,178,7,6,nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien
+143,133,7,18,at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros
+144,36,9,18,in hac habitasse platea
+145,209,1,11,sapien ut nunc
+146,134,3,12,sagittis sapien cum sociis natoque penatibus et
+147,27,1,15,morbi odio odio elementum eu interdum eu tincidunt in
+148,25,2,0,commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit
+149,137,6,17,augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede
+150,133,8,7,
+151,143,1,13,cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi
+152,20,9,6,quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse
+153,189,3,3,quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit
+154,70,6,20,nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue
+155,6,6,18,arcu sed augue aliquam erat volutpat in
+156,10,3,5,nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse
+157,167,2,2,euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh
+158,128,4,11,donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi
+159,61,5,2,
+160,193,8,5,
+161,195,5,15,at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare
+162,10,4,15,diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat
+163,25,3,4,congue vivamus metus
+164,192,8,5,sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam
+165,179,4,6,accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum
+166,124,7,5,nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat
+167,88,3,18,libero ut massa volutpat convallis morbi odio odio elementum eu
+168,143,5,16,feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut
+169,152,9,20,morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus
+170,66,5,4,ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+171,43,4,20,
+172,20,7,8,luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor
+173,40,2,5,condimentum curabitur in libero ut massa
+174,116,8,12,ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros
+175,197,7,7,aliquet maecenas leo odio condimentum id
+176,204,8,4,et magnis dis parturient montes nascetur ridiculus mus
+177,17,2,8,
+178,182,6,5,tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae
+179,111,1,13,
+180,194,5,13,molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis
+181,39,3,10,turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit
+182,125,1,8,vestibulum ante ipsum
+183,57,3,14,faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam
+184,190,2,0,
+185,42,2,17,
+186,54,9,20,non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus
+187,110,7,0,vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut
+188,108,2,14,
+189,159,1,14,sollicitudin ut suscipit a
+190,67,2,16,faucibus orci luctus et ultrices posuere cubilia curae
+191,9,2,11,
+192,103,9,12,volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis
+193,120,5,15,sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim
+194,11,4,1,sed vestibulum sit
+195,71,8,0,tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor
+196,98,8,1,ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus
+197,72,7,13,mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce
+198,159,8,20,orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus
+199,131,2,16,
+200,86,1,18,lorem id ligula suspendisse ornare
+201,143,5,16,tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam
+202,53,8,12,convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin
+203,122,6,8,eget congue eget semper rutrum nulla
+204,171,3,5,sem sed sagittis nam congue risus
+205,35,8,17,quam sapien varius ut blandit non interdum in ante vestibulum
+206,10,1,15,ut dolor morbi
+207,155,4,12,dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel
+208,50,2,11,ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat
+209,122,7,11,praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et
+210,126,2,10,nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor
+211,206,4,0,rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras
+212,152,8,6,
+213,138,2,1,
+214,74,4,19,lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus
+215,115,9,16,in hac habitasse
+216,202,4,13,
+217,122,6,18,
+218,134,9,3,quam a odio in hac habitasse platea
+219,93,6,13,elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus
+220,157,3,0,purus phasellus in felis donec
+221,43,1,6,facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget
+222,117,3,1,donec vitae nisi nam ultrices libero non mattis
+223,172,2,2,
+224,6,8,17,
+225,155,6,11,cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus
+226,187,3,4,quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non
+227,206,8,0,
+228,19,9,14,id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in
+229,188,6,16,mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere
+230,133,5,15,
+231,177,7,7,malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit
+232,143,7,12,velit eu est congue elementum in hac habitasse platea dictumst
+233,95,1,17,metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam
+234,57,1,15,dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium
+235,191,8,7,vivamus vel nulla eget eros elementum pellentesque quisque porta
+236,17,5,0,suspendisse potenti cras in purus eu magna vulputate
+237,174,7,8,faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat
+238,116,8,14,imperdiet sapien urna pretium nisl ut
+239,37,9,18,
+240,143,5,2,dictumst morbi vestibulum velit id pretium iaculis diam
+241,208,7,1,mauris vulputate elementum nullam varius nulla facilisi
+242,34,1,3,odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi
+243,114,9,19,aliquam non mauris morbi non
+244,117,5,8,luctus rutrum nulla tellus in sagittis dui vel nisl
+245,148,1,3,
+246,168,9,6,nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam
+247,136,2,17,feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem
+248,169,9,18,pede posuere nonummy integer non velit donec diam neque vestibulum eget
+249,42,2,12,in felis donec semper sapien a libero nam
+250,129,7,17,ipsum aliquam non
+251,47,8,7,aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et
+252,152,5,20,velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris
+253,62,8,14,
+254,115,6,6,ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus
+255,95,7,1,erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec
+256,4,5,5,in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in
+257,37,8,8,nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque
+258,151,9,17,sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes
+259,136,2,17,pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra
+260,138,1,20,
+261,28,2,14,odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu
+262,158,1,0,molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat
+263,84,5,0,
+264,125,5,12,vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh
+265,73,6,17,venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus
+266,91,9,14,platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat
+267,179,5,17,purus eu magna vulputate luctus
+268,58,9,1,faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam
+269,103,6,15,
+270,160,5,5,quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus
+271,156,8,1,rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie
+272,50,1,17,
+273,201,6,8,blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede
+274,15,8,18,leo rhoncus sed
+275,99,3,0,in hac habitasse platea dictumst etiam faucibus cursus urna
+276,49,8,9,luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum
+277,76,7,6,aliquet at feugiat non
+278,193,4,7,lacinia eget tincidunt eget tempus vel pede
+279,204,1,11,id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis
+280,114,3,7,turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies
+281,183,9,5,est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis
+282,162,8,3,lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus
+283,58,3,20,nulla tempus vivamus in
+284,36,8,20,pulvinar lobortis est phasellus sit
+285,57,6,11,congue vivamus metus arcu adipiscing molestie hendrerit
+286,159,4,15,convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum
+287,52,7,17,sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit
+288,51,2,8,
+289,206,7,9,
+290,134,4,12,nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu
+291,70,8,20,ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique
+292,210,7,20,libero non mattis pulvinar
+293,111,7,0,dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi
+294,98,7,10,sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla
+295,82,9,17,amet justo morbi ut odio cras mi pede malesuada in imperdiet et
+296,179,2,5,
+297,211,9,4,
+298,182,9,8,enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris
+299,191,6,0,ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie
+300,119,5,19,phasellus in felis donec
+301,200,3,15,rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend
+302,133,8,20,duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non
+303,194,1,5,
+304,94,7,13,justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin
+305,45,7,17,
+306,132,4,4,condimentum id luctus nec molestie sed
+307,159,7,6,nibh ligula nec sem duis aliquam convallis nunc proin
+308,52,6,13,et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus
+309,54,5,11,enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue
+310,205,6,17,nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque
+311,83,1,2,fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim
+312,149,2,8,lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis
+313,186,6,12,est phasellus sit amet erat nulla tempus vivamus in felis eu
+314,185,6,11,vestibulum ac est lacinia nisi venenatis
+315,17,5,5,morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis
+316,131,6,5,id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo
+317,35,3,6,massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula
+318,8,5,11,eget orci vehicula
+319,112,6,16,nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit
+320,180,8,0,neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh
+321,25,6,17,rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas
+322,137,6,0,ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus
+323,47,4,18,penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus
+324,23,9,2,aenean auctor gravida
+325,142,8,16,est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum
+326,197,4,0,ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+327,185,5,4,
+328,151,2,15,leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin
+329,103,3,10,
+330,14,1,15,platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat
+331,165,9,3,
+332,196,3,15,eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae
+333,175,6,13,faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti
+334,209,3,9,sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat
+335,170,5,4,platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate
+336,59,7,4,dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan
+337,153,5,10,bibendum morbi non quam nec dui
+338,131,8,6,rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut
+339,45,8,10,ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in
+340,47,7,15,dignissim vestibulum vestibulum ante ipsum primis
+341,205,5,18,mauris ullamcorper purus sit amet nulla quisque
+342,76,7,8,curabitur in libero ut massa volutpat convallis
+343,82,1,0,sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum
+344,72,2,19,hendrerit at vulputate vitae nisl
+345,197,4,1,proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante
+346,90,1,18,pulvinar sed nisl
+347,146,3,1,cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus
+348,144,1,14,lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat
+349,3,9,17,
+350,5,2,12,suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum
+351,82,7,6,justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula
+352,70,7,4,
+353,167,7,1,
+354,37,7,18,in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla
+355,190,6,8,morbi a ipsum integer a nibh in quis justo
+356,27,4,15,sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor
+357,98,4,17,
+358,95,1,20,orci vehicula condimentum curabitur
+359,64,7,16,eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien
+360,73,8,15,curae duis faucibus accumsan odio curabitur convallis
+361,10,8,3,diam in magna bibendum imperdiet nullam orci pede venenatis non sodales
+362,39,4,4,
+363,19,9,17,amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero
+364,33,3,10,tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin
+365,201,4,17,morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus
+366,96,4,12,nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut
+367,13,6,13,quis odio consequat varius integer ac
+368,30,8,18,diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis
+369,146,4,9,diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse
+370,127,4,4,accumsan odio curabitur convallis
+371,194,6,12,mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula
+372,110,2,15,turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin
+373,60,9,17,sem praesent id massa id
+374,199,7,11,dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat
+375,207,4,2,nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas
+376,7,1,2,cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula
+377,197,1,12,
+378,150,2,12,scelerisque mauris sit amet eros suspendisse accumsan tortor quis
+379,114,8,19,
+380,61,7,1,erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis
+381,87,6,10,congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec
+382,182,8,1,
+383,165,7,0,orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere
+384,117,4,3,massa volutpat convallis morbi odio odio elementum
+385,181,1,8,in hac habitasse
+386,21,9,4,sed accumsan felis
+387,205,2,0,eros suspendisse accumsan tortor quis turpis
+388,117,1,2,non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium
+389,197,2,11,donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar
+390,166,9,16,
+391,112,7,7,
+392,53,5,14,nulla eget eros elementum pellentesque quisque porta volutpat erat quisque
+393,191,1,8,curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla
+394,37,3,5,interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et
+395,159,4,4,aenean sit amet justo morbi ut odio cras mi
+396,58,6,12,
+397,111,1,12,
+398,9,5,9,dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis
+399,118,2,9,
+400,4,9,16,
+401,95,4,16,
+402,172,5,2,quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse
+403,34,4,20,nullam molestie nibh in
+404,96,1,17,amet erat nulla tempus
+405,89,6,0,orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est
+406,52,3,4,quis lectus suspendisse potenti in eleifend quam a
+407,27,1,17,nibh in lectus pellentesque at nulla suspendisse
+408,90,2,19,integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam
+409,133,8,11,convallis nulla neque libero convallis eget eleifend
+410,197,8,1,sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu
+411,210,5,10,porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus
+412,157,8,6,in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo
+413,3,3,16,et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec
+414,72,9,20,primis in faucibus orci luctus et ultrices
+415,71,4,9,vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum
+416,101,4,6,vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra
+417,166,5,18,vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa
+418,158,5,18,
+419,127,3,19,
+420,95,6,11,magna vestibulum aliquet
+421,159,7,17,venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at
+422,209,3,5,
+423,143,8,10,erat fermentum justo nec condimentum neque sapien placerat
+424,142,9,10,ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede
+425,57,5,15,est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna
+426,150,5,14,consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut
+427,160,9,13,
+428,18,4,17,
+429,45,5,13,potenti in eleifend quam a odio in hac habitasse platea dictumst
+430,95,1,8,
+431,100,4,2,
+432,19,4,0,ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis
+433,133,4,10,libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
+434,196,3,9,eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus
+435,162,5,14,viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo
+436,160,3,19,faucibus accumsan odio curabitur convallis duis consequat dui nec nisi
+437,133,9,13,sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est
+438,131,4,11,
+439,38,9,2,orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis
+440,102,3,5,sit amet erat nulla tempus vivamus in felis
+441,80,2,8,etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean
+442,144,8,16,
+443,209,7,12,venenatis tristique fusce congue diam
+444,17,1,6,
+445,88,1,13,nulla quisque arcu libero rutrum ac lobortis vel
+446,25,1,6,eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate
+447,57,4,10,lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt
+448,75,3,7,a libero nam dui proin
+449,54,1,18,
+450,185,5,16,eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla
+451,206,6,15,accumsan felis ut at dolor quis odio consequat
+452,177,1,15,diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+453,166,5,7,pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in
+454,27,9,20,
+455,210,3,6,sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu pede
+456,30,2,15,aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero
+457,162,8,14,purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et
+458,12,5,8,ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio
+459,39,8,15,integer ac neque duis bibendum morbi non
+460,208,2,14,augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante
+461,17,1,14,pede justo eu massa donec dapibus duis at velit eu
+462,129,3,3,leo maecenas pulvinar lobortis est
+463,26,5,8,nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus
+464,40,4,10,
+465,57,9,9,
+466,101,9,12,
+467,190,6,17,semper est quam pharetra magna ac consequat metus
+468,156,4,20,mattis nibh ligula
+469,126,3,3,semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+470,16,1,9,lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem
+471,139,7,2,maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper
+472,177,8,2,
+473,107,3,15,lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est
+474,17,9,13,ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis
+475,129,7,12,odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique
+476,80,8,16,etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit
+477,140,3,7,viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante
+478,13,5,19,suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur
+479,92,6,11,quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam
+480,200,4,5,
+481,162,3,0,vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis
+482,40,4,1,vitae nisi nam ultrices libero non mattis pulvinar nulla
+483,194,7,9,
+484,65,5,18,interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum
+485,47,6,2,quis libero nullam sit amet turpis elementum ligula
+486,130,1,8,elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper
+487,144,3,17,nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio
+488,180,2,18,justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris
+489,22,4,13,
+490,44,9,1,in lacus curabitur
+491,84,8,3,quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis
+492,145,9,0,a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus
+493,54,4,7,
+494,8,8,7,sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac
+495,102,1,9,ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus
+496,8,4,17,interdum in ante vestibulum ante
+497,110,3,19,urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo
+498,43,9,19,erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia
+499,130,3,13,sit amet sem fusce consequat
+500,66,3,5,ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in
+501,157,3,19,cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat
+502,123,1,17,magna ac consequat metus sapien
+503,76,1,8,laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam
+504,29,7,6,dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac
+505,97,1,5,risus semper porta volutpat quam pede lobortis
+506,123,9,16,elit proin risus praesent lectus vestibulum quam sapien varius ut blandit
+507,160,1,12,
+508,83,3,16,ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas
+509,174,1,18,tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam
+510,188,4,17,nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula
+511,102,5,13,non pretium quis
+512,204,5,19,
+513,166,8,8,purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque
+514,194,9,8,adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae
+515,114,6,13,
+516,62,8,10,amet diam in magna bibendum imperdiet nullam orci pede
+517,169,2,20,euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam
+518,115,8,2,penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit
+519,48,8,0,eleifend luctus ultricies
+520,133,2,16,
+521,163,1,9,ipsum aliquam non mauris morbi non lectus
+522,129,8,9,
+523,75,2,10,amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi
+524,113,7,7,primis in faucibus orci luctus et ultrices
+525,138,3,17,
+526,86,3,2,
+527,87,7,16,
+528,74,1,2,ultrices vel augue vestibulum ante ipsum
+529,97,3,0,congue eget semper rutrum nulla nunc purus phasellus
+530,102,7,1,justo maecenas rhoncus aliquam
+531,203,6,16,nulla integer pede justo lacinia eget tincidunt
+532,183,1,0,feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue
+533,48,5,11,
+534,10,2,3,mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat
+535,196,3,2,quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac
+536,197,8,11,tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis
+537,9,6,1,tempus vel pede morbi porttitor
+538,157,5,7,nibh fusce lacus purus aliquet
+539,181,3,19,
+540,99,6,2,
+541,141,8,4,sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat
+542,208,3,12,suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam
+543,135,3,1,quis justo maecenas rhoncus aliquam lacus morbi quis
+544,182,8,7,nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis
+545,193,8,8,
+546,18,1,18,
+547,8,6,12,convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis
+548,179,9,1,morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra
+549,185,7,14,
+550,127,9,5,
+551,75,9,10,
+552,114,8,19,suscipit a feugiat et eros
+553,140,9,11,ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper
+554,172,4,20,amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio
+555,35,2,17,
+556,204,2,1,fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim
+557,87,7,2,lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor
+558,73,4,18,in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien
+559,209,4,2,hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci
+560,55,7,14,nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta
+561,18,3,18,
+562,50,8,7,mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae
+563,162,5,15,
+564,15,4,4,suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis
+565,57,2,4,lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus
+566,95,9,5,metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales
+567,182,7,20,
+568,163,8,16,tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh
+569,91,3,14,eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit
+570,65,2,8,
+571,65,7,12,mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede
+572,165,6,2,posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at
+573,100,6,16,eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem
+574,42,2,6,varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat
+575,97,5,13,duis consequat dui nec nisi volutpat
+576,152,8,15,justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare
+577,31,4,2,diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium
+578,39,8,20,nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam
+579,151,8,3,ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo
+580,15,6,1,
+581,66,1,16,
+582,57,8,3,donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices
+583,96,3,10,
+584,149,3,16,massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum
+585,163,3,12,ac consequat metus sapien ut nunc vestibulum ante ipsum primis in
+586,157,4,8,
+587,111,9,16,accumsan tellus nisi eu
+588,34,6,7,ipsum aliquam non mauris morbi
+589,50,3,1,libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum
+590,114,7,15,dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum
+591,171,8,16,ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu
+592,109,4,16,quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis
+593,177,8,16,a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra
+594,212,7,6,
+595,3,9,20,in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at
+596,77,1,10,nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget
+597,42,8,6,ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat
+598,174,3,15,id sapien in sapien iaculis congue vivamus metus
+599,27,6,2,dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam
+600,67,4,2,phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl
+601,156,9,2,
+602,143,8,18,potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus
+603,41,1,7,id pretium iaculis diam erat fermentum justo nec
+604,20,4,12,
+605,54,6,20,
+606,207,5,3,dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque
+607,51,3,8,parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean
+608,194,4,2,volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien
+609,196,1,1,non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi
+610,108,6,5,a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut
+611,6,5,7,mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien
+612,14,1,3,pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede
+613,81,9,9,risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis
+614,67,3,7,in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit
+615,133,9,5,pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus
+616,28,7,17,
+617,133,7,15,id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu
+618,54,1,3,
+619,104,7,11,eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in
+620,144,4,11,quis tortor id nulla ultrices aliquet maecenas leo odio condimentum
+621,42,6,17,
+622,65,5,2,ultrices posuere cubilia curae mauris viverra
+623,74,5,1,risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien
+624,188,4,13,
+625,80,9,12,nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at
+626,200,2,7,etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada
+627,15,7,6,ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat
+628,69,3,2,volutpat in congue etiam
+629,26,8,16,a libero nam dui proin leo odio porttitor id consequat
+630,60,2,10,
+631,124,6,8,turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc
+632,25,5,19,
+633,104,1,17,nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget
+634,182,4,8,nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci
+635,183,7,19,vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing
+636,164,2,11,lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc
+637,121,3,15,mi integer ac neque duis bibendum morbi
+638,35,3,2,
+639,163,6,15,platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie
+640,153,4,17,
+641,117,4,3,eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper
+642,33,4,17,mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum
+643,1,5,7,porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc
+644,125,6,6,ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo
+645,5,4,18,mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque
+646,76,1,17,diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
+647,160,1,17,
+648,3,3,13,elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet
+649,38,2,4,sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis
+650,127,1,8,sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci
+651,164,9,0,posuere felis sed lacus morbi sem
+652,29,7,4,sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae
+653,91,5,3,et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a
+654,177,7,7,auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo
+655,94,7,0,congue etiam justo etiam pretium
+656,167,3,19,
+657,71,6,13,
+658,181,4,20,felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam
+659,77,8,4,in est risus
+660,98,7,4,blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est
+661,54,2,6,odio cras mi pede malesuada in imperdiet et commodo vulputate justo
+662,15,3,9,lacus morbi quis tortor id nulla ultrices aliquet maecenas
+663,40,6,17,
+664,75,1,19,dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non
+665,178,2,10,magna at nunc commodo placerat praesent blandit nam nulla integer pede
+666,115,2,8,habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla
+667,133,8,20,velit vivamus vel nulla eget eros elementum pellentesque quisque porta
+668,189,2,19,id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis
+669,193,3,5,in porttitor pede justo eu massa donec dapibus duis
+670,159,4,8,
+671,94,6,20,a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis
+672,163,2,17,pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse
+673,28,9,20,libero ut massa
+674,108,4,12,placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor
+675,71,1,17,
+676,178,5,11,est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue
+677,36,3,14,posuere nonummy integer non velit
+678,73,5,10,
+679,159,2,12,
+680,165,7,18,ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam
+681,115,4,2,vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet
+682,185,1,10,convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit
+683,28,8,7,duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse
+684,120,6,11,dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus
+685,24,9,11,amet eleifend pede libero quis orci nullam molestie nibh in lectus
+686,193,5,10,
+687,136,4,16,in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna
+688,174,4,4,dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor
+689,42,9,15,habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo
+690,199,8,14,vehicula consequat morbi a ipsum integer a nibh
+691,124,8,17,amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat
+692,141,6,2,luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend
+693,72,1,18,
+694,172,9,20,tortor id nulla ultrices aliquet maecenas leo odio condimentum
+695,30,8,3,
+696,186,5,11,ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea
+697,156,3,17,mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse
+698,155,1,18,eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo
+699,127,4,9,aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi
+700,36,6,1,
+701,97,5,4,magnis dis parturient
+702,148,1,6,penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida
+703,85,7,10,eu magna vulputate
+704,206,5,8,
+705,178,4,2,neque duis bibendum morbi non quam
+706,118,8,15,ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id
+707,18,5,7,aenean lectus pellentesque eget nunc
+708,131,2,13,
+709,208,8,8,quis augue luctus tincidunt nulla mollis
+710,141,9,14,lorem ipsum dolor sit amet consectetuer
+711,118,3,5,
+712,208,1,10,
+713,94,5,9,aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est
+714,81,8,9,
+715,43,9,10,auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis
+716,8,6,18,cubilia curae nulla
+717,22,5,6,
+718,147,1,17,
+719,197,4,13,eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium
+720,38,2,18,
+721,176,3,13,mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla
+722,25,3,16,purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst
+723,154,8,14,elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci
+724,151,8,6,integer non velit donec diam neque vestibulum eget vulputate ut
+725,95,2,6,lacus at velit vivamus vel
+726,95,2,6,turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam
+727,152,1,0,non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl
+728,104,8,18,posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique
+729,143,3,17,
+730,109,6,8,molestie lorem quisque ut erat curabitur gravida nisi at
+731,40,1,1,massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin
+732,209,9,7,justo aliquam quis turpis eget elit sodales scelerisque mauris sit
+733,136,9,4,ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis
+734,134,1,8,pharetra magna ac
+735,176,8,10,magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor
+736,63,1,5,pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum
+737,119,6,18,imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris
+738,100,7,3,sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit
+739,60,6,0,urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy
+740,171,7,13,habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit
+741,62,9,13,in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet
+742,4,1,2,at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt
+743,89,9,17,morbi odio odio elementum eu interdum eu tincidunt in leo
+744,34,8,3,
+745,66,5,11,metus sapien ut nunc vestibulum ante
+746,48,1,14,vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac
+747,141,1,4,diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan
+748,190,2,15,nascetur ridiculus mus
+749,29,6,14,nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus
+750,121,1,15,turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam
+751,117,8,12,
+752,65,8,12,
+753,61,7,14,rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet
+754,88,9,19,amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor
+755,193,9,2,sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et
+756,10,1,5,
+757,137,9,12,
+758,54,4,15,
+759,187,1,5,rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id
+760,188,6,12,vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus
+761,108,4,13,amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu
+762,192,2,14,nisl duis bibendum
+763,10,5,9,
+764,206,2,18,
+765,122,3,8,nonummy maecenas tincidunt lacus at velit vivamus vel nulla
+766,73,5,4,
+767,99,5,11,risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh
+768,74,2,10,turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante
+769,87,9,8,posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus
+770,204,2,14,vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum
+771,170,9,13,a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo
+772,173,4,6,ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia
+773,93,7,4,lacus at turpis donec posuere metus vitae
+774,22,7,2,metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa
+775,172,1,17,duis bibendum felis sed interdum venenatis turpis enim blandit mi
+776,188,9,0,montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida
+777,118,4,14,primis in faucibus orci luctus et ultrices posuere cubilia curae
+778,102,9,12,vivamus vestibulum sagittis
+779,206,4,16,vitae nisl aenean lectus pellentesque eget nunc donec quis
+780,126,4,5,mi pede malesuada
+781,93,8,6,sapien a libero nam
+782,33,4,6,platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at
+783,203,8,14,vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum
+784,192,4,17,venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et
+785,186,9,19,pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in
+786,31,8,12,libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti
+787,12,5,14,id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci
+788,139,2,11,
+789,77,1,3,suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt
+790,61,9,13,at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum
+791,199,4,20,orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu
+792,3,9,19,
+793,164,3,20,imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo
+794,26,6,13,nisl aenean lectus pellentesque eget nunc donec quis orci
+795,119,8,3,elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget
+796,118,1,5,at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue
+797,66,2,3,fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed
+798,41,8,7,
+799,197,2,8,vel ipsum praesent blandit lacinia erat vestibulum sed magna at
+800,97,5,13,
+801,147,6,4,orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec
+802,103,3,6,id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
+803,92,8,12,donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla
+804,108,9,19,platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum
+805,76,3,3,dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum
+806,133,8,10,at nunc commodo placerat praesent blandit nam nulla integer
+807,36,9,14,nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec
+808,35,2,2,cursus urna ut tellus nulla ut erat id
+809,110,8,2,sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui
+810,176,3,1,semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis
+811,138,2,8,
+812,43,3,7,elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus
+813,25,1,14,elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis
+814,33,3,13,est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam
+815,79,4,11,curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet
+816,89,7,2,eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac
+817,107,7,16,sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit
+818,58,1,11,elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat
+819,132,4,8,nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc
+820,50,7,15,
+821,18,6,4,
+822,71,1,19,lectus suspendisse potenti in eleifend quam a odio in
+823,19,6,1,
+824,169,9,3,
+825,141,9,18,integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non
+826,34,8,0,maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in
+827,181,2,2,lobortis est phasellus sit amet erat nulla tempus vivamus
+828,17,8,10,curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non
+829,91,7,0,
+830,82,7,12,eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien
+831,6,8,4,scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque
+832,210,4,4,ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi
+833,161,4,6,condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt
+834,155,9,6,erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros
+835,198,7,1,fusce posuere felis sed lacus morbi sem mauris
+836,35,6,18,posuere cubilia curae duis faucibus accumsan odio curabitur convallis
+837,99,2,14,quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie
+838,158,7,13,
+839,138,7,2,sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede
+840,179,9,8,blandit ultrices enim lorem ipsum dolor sit
+841,22,9,18,
+842,36,7,14,
+843,110,4,14,
+844,145,5,14,libero quis orci nullam molestie nibh in lectus pellentesque
+845,193,6,1,turpis enim blandit mi in porttitor
+846,20,5,14,ultrices posuere cubilia curae nulla dapibus
+847,112,6,0,lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus
+848,168,5,2,sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie
+849,55,7,13,arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget
+850,78,6,2,duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo
+851,59,6,7,orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus
+852,78,6,3,
+853,208,3,5,pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum
+854,32,3,1,at feugiat non pretium quis
+855,41,5,18,lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl
+856,112,5,12,porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor
+857,37,2,18,convallis eget eleifend luctus ultricies eu nibh quisque id justo sit
+858,61,1,3,mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis
+859,144,5,16,
+860,43,6,19,ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla
+861,35,1,15,
+862,194,2,5,gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at
+863,212,7,12,maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+864,13,3,10,non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue
+865,207,4,2,iaculis justo in hac habitasse platea dictumst
+866,150,7,2,hendrerit at vulputate vitae
+867,18,2,15,sollicitudin ut suscipit a feugiat et eros vestibulum
+868,86,5,9,tempus semper est quam pharetra
+869,121,7,10,
+870,19,2,19,dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et
+871,108,3,18,
+872,61,1,6,
+873,173,4,13,
+874,98,6,6,vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo
+875,206,8,6,iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam
+876,94,4,4,nunc proin at turpis a pede posuere nonummy integer non
+877,26,7,2,vulputate nonummy maecenas tincidunt lacus
+878,39,2,9,tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer
+879,172,2,10,rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor
+880,129,8,8,justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo
+881,97,6,0,ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula
+882,200,3,19,convallis nunc proin at turpis a pede posuere nonummy
+883,35,3,8,fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse
+884,179,9,11,justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris
+885,163,9,13,odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien
+886,138,2,16,nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede
+887,68,9,20,tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+888,73,8,6,
+889,147,2,11,vivamus tortor duis mattis egestas
+890,54,6,9,porttitor id consequat in consequat ut nulla sed accumsan felis
+891,41,8,10,semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras
+892,29,2,13,ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec
+893,119,8,7,enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis
+894,183,7,17,dolor morbi vel lectus in
+895,18,4,3,est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
+896,25,5,8,non lectus aliquam sit amet diam in magna
+897,165,8,16,
+898,30,9,4,aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed
+899,125,8,18,sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus
+900,143,9,7,amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at
+901,168,1,20,porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam
+902,19,8,12,sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam
+903,168,8,2,erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante
+904,176,2,17,ut ultrices vel augue vestibulum ante ipsum primis
+905,129,3,0,
+906,50,5,16,elit proin risus praesent lectus vestibulum
+907,69,5,3,
+908,196,7,20,
+909,203,6,1,lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi
+910,162,7,7,lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar
+911,185,3,2,convallis tortor risus dapibus augue
+912,104,4,7,porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus
+913,148,9,3,curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt
+914,86,9,20,enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum
+915,115,2,4,in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu
+916,208,7,16,duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio
+917,112,9,10,fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend
+918,86,4,19,
+919,153,9,16,quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl
+920,91,4,1,lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus
+921,90,7,2,rhoncus sed vestibulum sit amet cursus id turpis integer
+922,89,7,1,est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis
+923,76,4,5,
+924,172,5,8,
+925,24,9,11,placerat praesent blandit nam nulla integer pede justo lacinia
+926,59,8,13,aenean fermentum donec ut mauris eget massa tempor convallis
+927,63,7,18,libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo
+928,193,1,0,dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum
+929,168,2,6,tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed
+930,192,6,4,bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at
+931,7,2,12,nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu
+932,13,2,14,
+933,4,7,7,ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc
+934,141,4,17,nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor
+935,94,2,6,enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus
+936,174,6,12,platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget
+937,47,3,5,dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue
+938,3,8,2,id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan
+939,180,9,5,dui nec nisi volutpat eleifend
+940,152,6,3,faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in
+941,50,6,5,potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris
+942,72,2,2,malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin
+943,112,5,19,consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum
+944,57,7,10,lectus aliquam sit amet diam in
+945,42,3,13,lorem integer tincidunt ante vel ipsum praesent
+946,122,9,11,felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec
+947,33,9,10,aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed
+948,19,6,4,
+949,60,9,19,sit amet sem fusce consequat nulla nisl nunc nisl
+950,94,4,5,nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper
+951,11,3,17,duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec
+952,52,8,4,
+953,79,4,16,
+954,167,4,8,dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum
+955,203,5,3,diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices
+956,153,6,16,ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices
+957,198,2,11,
+958,18,3,7,mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel
+959,149,2,10,urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit
+960,56,7,18,ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin
+961,27,5,7,maecenas tincidunt lacus at velit
+962,43,4,7,ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus
+963,4,4,12,pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros
+964,34,6,4,quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede
+965,64,2,13,in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+966,148,5,17,vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes
+967,192,5,0,sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing
+968,102,7,7,
+969,140,4,15,nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel
+970,21,4,8,elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla
+971,42,7,18,donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit
+972,49,2,2,
+973,89,8,16,in hac habitasse platea dictumst morbi vestibulum velit id
+974,166,8,9,vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum
+975,206,9,20,orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed
+976,28,7,1,diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra
+977,178,3,12,metus sapien ut
+978,125,3,16,massa volutpat convallis morbi odio odio elementum eu interdum eu
+979,55,8,2,vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat
+980,120,2,18,et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus
+981,10,2,13,
+982,48,2,17,
+983,150,1,0,quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec
+984,117,6,19,
+985,186,1,6,neque sapien placerat
+986,113,6,9,etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate
+987,172,4,16,
+988,140,6,0,vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget
+989,174,6,5,orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et
+990,193,9,15,pellentesque viverra pede ac diam cras pellentesque volutpat
+991,75,5,13,integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit
+992,159,4,8,natoque penatibus et magnis dis parturient montes
+993,143,5,10,
+994,138,5,7,id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et
+995,138,7,14,
+996,85,7,4,tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a
+997,25,8,1,faucibus cursus urna ut
+998,58,9,19,justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu
+999,204,1,17,
+1000,109,8,7,

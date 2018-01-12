@@ -1,0 +1,92 @@
+<!--index.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+
+
+<h1>Order Listing</h1>
+
+
+<div class="form-row">
+    <div class="form-group col-6">
+        <label for="order_ID">Filter:</label>
+        <input class="form-control" id="ordersFilterInput" type="text" placeholder="Filter Results...">
+    </div>
+    <div class="form-group col-3">
+        <!-- <button class="form-control btn btn-outline-success mx-1 ml-1" id="previous">Previous</button> -->
+    </div>
+    <div class="form-group col-1">
+        <label>&nbsp;</label>
+        <button class="form-control btn btn-outline-success mx-1 ml-1" id="order_previous">Previous</button>
+    </div>
+    <div class="form-group col-1">
+        <label for="order_ID">Page:</label>
+        <input class="form-control" min="1" type="number" value="1" id="order_page">
+    </div>
+    <div class="form-group col-1">
+        <label>&nbsp;</label>
+        <button class="form-control btn btn-outline-success mx-1" id="order_next">Next</button>
+    </div>
+</div>
+
+<!-- <h2>Section title</h2> -->
+<div class="table-responsive">
+    <table x-accordion-table="" class="table table-bordered table-striped tbl-lesspadding">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer #</th>
+                <th>Customer Name</th>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Condition</th>
+                <th>Item Amount</th>
+                <th>Item Cost</th>
+                <th>Item Notes</th>
+                <th>Total Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="tbl-lesspadding" id="ordersFilterTable">
+
+        </tbody>
+    </table>
+</div>
+
+<script src="/js/orders.js" type="text/javascript"></script>
+
+<!--Embed the footer.html template at this location-->
+
+{{ template "footer.html" .}}
+
+
+<!-- <tr class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne">
+    <td>1</td>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+
+</tr>
+<tr>
+    <td colspan="3">
+        <div id="collapseOne" class="collapse in">
+            Details 1 Details 2 Details 3
+        </div>
+    </td>
+</tr>
+<tr class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne">
+    <td>1</td>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+
+</tr>
+<tr hidden class="collapserow">
+    <td colspan="3">
+        <div id="collapseOne" class="collapse in">
+            Details 1 Details 2 Details 3
+        </div>
+    </td>
+</tr> -->
