@@ -13,3 +13,5 @@
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
 *.exe
+britannicus-final-project.exe
+*.exe

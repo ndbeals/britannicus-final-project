@@ -2,7 +2,6 @@ package models
 
 import (
 	"errors"
-	"fmt"
 	"math"
 	"time"
 
@@ -185,7 +184,7 @@ func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) 
 
 	if orderID > 0 && err == nil {
 		for item, quantity := range form.ItemList {
-			fmt.Println("ITEM QUANT", item, quantity)
+
 			_, err := db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2, $3)", orderID, item, quantity)
 			if err != nil {
 				return order, err
@@ -228,8 +227,6 @@ func (this *Order) Delete() (bool, error) {
 	}
 
 	_, err = db.DB.Query("DELETE FROM tblorder WHERE order_id=$1", this.ID)
-
-	fmt.Println("deleted order model")
 
 	if err != nil {
 		// // panic(err)

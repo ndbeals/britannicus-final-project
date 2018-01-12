@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -29,13 +28,6 @@ func getCustomerID(c *gin.Context) int {
 
 //GetOne ...
 func (ctrl CustomerController) GetOne(c *gin.Context) {
-	// CustomerID := getCustomerID(c)
-
-	// if CustomerID == 0 {
-	// 	c.IndentedJSON(403, gin.H{"message": "Please login first"})
-	// 	c.Abort()
-	// 	return
-	// }
 
 	userid := c.Param("id")
 
