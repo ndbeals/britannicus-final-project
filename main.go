@@ -26,10 +26,8 @@ var (
 
 func main() {
 	r := gin.Default()
-	// r.Use(CORSMiddleware())
 
 	store := sessions.NewCookieStore([]byte("secret"))
-	//sessions.NewRedisStore(10, "tcp", "localhost:6379", "", []byte("secret"))
 	r.Use(sessions.Sessions("britannicus-session", store))
 
 	dbs := db.Init()
@@ -47,9 +45,7 @@ func main() {
 	orderController = new(controllers.OrderController)
 
 	r.LoadHTMLGlob("./public/html/templates/*")
-	// r.LoadHTMLGlob("./public/html/templates/*/*")
 
-	// r.Static("/public", "./public")
 	r.Static("/js", "./public/js")
 	r.Static("/css", "./public/css")
 
@@ -64,10 +60,4 @@ func main() {
 	})
 
 	r.Run(":9000")
-}
-
-func checkErr(err error) {
-	if err != nil {
-		// panic(err)
-	}
 }

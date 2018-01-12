@@ -69,6 +69,7 @@ func initializeBasicRoutes(r *gin.Engine) {
 }
 
 func initializeControlRoutes(r *gin.Engine) {
+
 	r.Use(AuthenticationMiddleware())
 
 	// Product routes
