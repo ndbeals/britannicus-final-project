@@ -94,16 +94,11 @@ func (ctrl ProductController) Update(c *gin.Context) {
 
 //Create ...
 func (ctrl ProductController) Create(c *gin.Context) {
-	// productid := c.Param("id")
-	fmt.Println("create")
-
-	// if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
-	// 	productid := int(productid)
-
 	var updateForm forms.UpdateProductForm
+
 	err := c.BindJSON(&updateForm)
 	if err != nil {
-		// panic(err)
+
 		c.IndentedJSON(404, gin.H{"message": "Invalid form", "form": updateForm})
 		c.Abort()
 		return
@@ -117,20 +112,18 @@ func (ctrl ProductController) Create(c *gin.Context) {
 		return
 	}
 
-	newid, _ := product.Create()
+	newid, err := product.Create()
 
-	fmt.Println("Createds", newid)
-
-	c.IndentedJSON(200, gin.H{"data": product, "id": newid})
-	// } else {
-	// 	c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
-	// }
+	if err == nil {
+		c.IndentedJSON(200, gin.H{"data": product, "id": newid})
+	} else {
+		c.IndentedJSON(404, gin.H{"Message": "Couldn't Create product", "error": err.Error()})
+	}
 }
 
 //Delete ...
 func (ctrl ProductController) Delete(c *gin.Context) {
 	productid := c.Param("id")
-	fmt.Println("Delete")
 
 	if productid, err := strconv.ParseInt(productid, 10, 32); err == nil {
 		productid := int(productid)
@@ -143,8 +136,6 @@ func (ctrl ProductController) Delete(c *gin.Context) {
 		}
 
 		_, err = product.Delete()
-
-		fmt.Println("deleted product from api")
 
 		if err != nil {
 			c.IndentedJSON(404, gin.H{"Message": "Failed to delete", "error": err.Error()})

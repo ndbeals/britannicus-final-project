@@ -82,32 +82,23 @@ func (m ProductModel) GetList(Page int, Amount int) (products []Product, err err
 
 	Page = int(math.Max(float64((Page-1)*Amount), 0))
 
-	// dbaa := db.Init()
 	rows, err := db.DB.Query("SELECT product_id, isbn, product_name, author, genre, publisher, product_type, description FROM tblProducts ORDER BY product_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
 		// panic(err)
+		return products, err
 	}
 
 	for rows.Next() {
 		var productID, productType int
-		// var price float64
 		var isbn, productName, author, genre, publisher, description sql.NullString
 
 		err = rows.Scan(&productID, &isbn, &productName, &author, &genre, &publisher, &productType, &description)
-		// err = row.Scan(&uid, &ProductName)
-
-		// fmt.Printf("WUT : %s \n", ProductFName)
 
 		if err != nil {
 			// panic(err)
 		}
 
 		products = append(products, Product{productID, isbn.String, productName.String, author.String, genre.String, publisher.String, productType, typeLookup[productType], description.String})
-
-		// products = append(products, Product{uid, firstName, lastName, email, phoneNumber, address.String, city.String, state.String, country.String})
-
-		// fmt.Println("uid | username | department | created ")
-		// fmt.Printf("%3v | %8v | %6v | %6v\n", uid, firstName, lastName, email)
 	}
 
 	return products, err
@@ -120,19 +111,16 @@ func (this *Product) Delete() (bool, error) {
 	fmt.Println("deleted model", err)
 
 	if err != nil {
-		// // panic(err)
 		return false, err
 	}
 
 	delete(loadedProducts, this.ID)
-	// productModel.GetOne(this.ID)
 
 	return true, err
 }
 
 // Update ...
 func (this *Product) Update(newdata forms.UpdateProductForm) (bool, error) {
-
 	stmt, err := db.DB.Prepare("update tblproducts set product_name=$2, author=$3, genre=$4, publisher=$5,description=$6 where product_id=$1")
 	if err != nil {
 		return false, err
@@ -144,7 +132,6 @@ func (this *Product) Update(newdata forms.UpdateProductForm) (bool, error) {
 		return false, err
 	}
 
-	// loadedProducts[this.ID] =
 	delete(loadedProducts, this.ID)
 	productModel.GetOne(this.ID)
 
@@ -153,7 +140,6 @@ func (this *Product) Update(newdata forms.UpdateProductForm) (bool, error) {
 
 // Create ...
 func (this *Product) Create() (int, error) {
-	fmt.Println("#create", this.ISBN, this.ProductName, this.Author, this.Genre, this.Publisher, 1, this.Description, "end")
 	stmt, err := db.DB.Prepare("insert into tblproducts(isbn, product_name, author, genre, publisher, product_type, description) values( $1, $2, $3, $4, $5, $6, $7 ) RETURNING product_id")
 
 	if err != nil {
@@ -164,13 +150,11 @@ func (this *Product) Create() (int, error) {
 
 	var newid int
 	err = results.Scan(&newid)
-	fmt.Println("model product create", newid)
 
 	if err != nil {
 		return 0, err
 	}
 
-	// loadedProducts[this.ID] =
 	delete(loadedProducts, this.ID)
 	productModel.GetOne(int(newid))
 

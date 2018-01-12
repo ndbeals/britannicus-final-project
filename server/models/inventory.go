@@ -2,7 +2,6 @@ package models
 
 import (
 	"database/sql"
-	"fmt"
 	"math"
 
 	"github.com/ndbeals/britannicus-final-project/db"
@@ -94,7 +93,7 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 
 	rows, err := db.DB.Query("SELECT inventory_id, product_id, inventory_condition, amount, price, notes FROM tblInventory ORDER BY  inventory_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		// panic(err)
+		return inventoryList, err
 	}
 
 	for rows.Next() {
@@ -122,10 +121,7 @@ func (m InventoryModel) GetList(Page int, Amount int) (inventoryList []Inventory
 func (this *Inventory) Delete() (bool, error) {
 	_, err := db.DB.Query("DELETE FROM tblInventory WHERE inventory_id=$1", this.ID)
 
-	fmt.Println("deleted inventory model")
-
 	if err != nil {
-		// // panic(err)
 		return false, err
 	}
 
@@ -134,7 +130,6 @@ func (this *Inventory) Delete() (bool, error) {
 
 // Update ...
 func (this *Inventory) Update(newdata forms.UpdateInventoryForm) (bool, error) {
-
 	stmt, err := db.DB.Prepare("update tblinventory set inventory_condition=$2, amount=$3, price=$4, notes=$5 where inventory_id=$1")
 	if err != nil {
 		return false, err

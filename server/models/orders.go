@@ -31,8 +31,6 @@ type Order struct {
 	OrderTime  int         `json:"order_time"`
 	ItemList   *[]ItemList `json:"item_list"`
 	TotalPrice float64     `json:"total_price"`
-	// UpdatedAt int  `db:"updated_at" json:"updated_at"`
-	// CreatedAt int  `db:"created_at" json:"created_at"`
 }
 
 //OrderModel ...
@@ -76,7 +74,7 @@ func getOrder(OrderID int) (order Order, cached bool) {
 func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 	rows, err := db.DB.Query("select order_id, customer_id, date_time from tblOrder WHERE tblOrder.order_id=$1", OrderID)
 	if err != nil {
-		// panic(err)
+		return order, err
 	}
 
 	var cached bool
@@ -88,14 +86,10 @@ func (m OrderModel) GetOne(OrderID int) (order Order, err error) {
 			// panic(err)
 		}
 
-		// fmt.Printf("customerID %d \n\n", customerID)
-
 		customer, err := GetCustomerModel().GetOne(customerID)
 		if err != nil {
 			// panic(nil)
 		}
-
-		// fmt.Printf("GOT USER: %+v \n", customer)
 
 		order, cached = getOrder(orderID)
 		order.Customer = customer
@@ -131,7 +125,7 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 
 	rows, err := db.DB.Query("select tblOrder.order_id, tblOrder.customer_id, tblOrder.date_time from tblOrder ORDER BY tblOrder.order_id OFFSET $1 LIMIT $2", Page, Amount)
 	if err != nil {
-		// panic(err)
+		return orders, err
 	}
 
 	var order Order
@@ -169,12 +163,8 @@ func (m OrderModel) GetList(Page int, Amount int) (orders []Order, err error) {
 				}
 
 				order.AddToInventory(inventoryID, quantity)
-				// }
 
-				// if len(*order.ItemList) < 2 {
 				orders = append(orders, order)
-				// fmt.Println("appended")
-				// }
 			}
 			loadedOrders[order.ID] = order
 		}
@@ -198,7 +188,7 @@ func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) 
 			fmt.Println("ITEM QUANT", item, quantity)
 			_, err := db.DB.Exec("INSERT INTO public.jncOrderItems(order_id, inventory_id,quantity) VALUES($1, $2, $3)", orderID, item, quantity)
 			if err != nil {
-				// panic(err)
+				return order, err
 			}
 		}
 
@@ -213,29 +203,31 @@ func (m OrderModel) Create(form forms.CreateOrderForm) (order Order, err error) 
 	return Order{}, errors.New("Couldn't create Order record: " + err.Error())
 }
 
-func (o *Order) AddToInventory(inventoryID int, orderAmount int) {
+func (o *Order) AddToInventory(inventoryID int, orderAmount int) error {
 	inventory, err := GetInventoryModel().GetOne(inventoryID)
 	if err != nil {
+		return err
 		// panic(err)
 	}
-	// fmt.Printf("\n\nOrder: %+v \n\n", o)
-	// fmt.Printf("\n\nOrder ITEMLIST: %+v \n\n", o.ItemList)
 
 	itemList := ItemList{inventory.ID, inventory.Product, inventory.InventoryCondition, inventory.ConditionString, orderAmount, inventory.Price, inventory.Note}
 
-	// fmt.Println("add to inv", o.TotalPrice, inventory.Price, orderAmount)
 	o.TotalPrice = o.TotalPrice + (inventory.Price * float64(orderAmount))
-	// fmt.Println("add to inv aft", o.TotalPrice, inventory.Price, orderAmount)
-
-	// fmt.Println("ADDED?")
-	// fmt.Printf("GOT ITEMLIST: %+v \n", itemList)
 
 	*o.ItemList = append(*o.ItemList, itemList)
+
+	return nil
 }
 
 //Order Delete ...
 func (this *Order) Delete() (bool, error) {
-	_, err := db.DB.Query("DELETE FROM tblorder WHERE order_id=$1", this.ID)
+	_, err := db.DB.Query("DELETE FROM jncorderitems WHERE order_id=$1", this.ID)
+	if err != nil {
+		// // panic(err)
+		return false, err
+	}
+
+	_, err = db.DB.Query("DELETE FROM tblorder WHERE order_id=$1", this.ID)
 
 	fmt.Println("deleted order model")
 
@@ -260,7 +252,7 @@ func (this *Order) Update(newdata forms.UpdateOrderForm) (success bool, err erro
 	// if err != nil {
 	// return false, err
 	// }
-	fmt.Println(newdata.ItemList)
+	// fmt.Println(newdata.ItemList)
 
 	orderModel.GetOne(this.ID)
 

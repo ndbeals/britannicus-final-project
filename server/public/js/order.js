@@ -3,28 +3,24 @@ orderID = 1;
 $(document).ready(function () {
 
     orderID = parseInt($("#order_ID").val());
-    console.log(orderID);
 
 
     $("#order_next").click(function () {
         orderID++;
-        console.log(orderID);
         window.location.href = orderID;
     });
 
     $("#order_previous").click(function () {
-        orderID--;
-        window.location.href = orderID;
+        if (orderID > 1){
+            orderID--;
+            window.location.href = orderID;
+        }
     });
 
     $("#order_ID").bind('change', function () {
         prodid = parseInt($("#order_ID").val());
 
-        console.log("prodid")
-
         if (prodid > 0) {
-            // ipcRenderer.send("set_order_page", pagenum);
-            // changeorder(prodid)
             orderID++;
             window.location.href = prodid;
         }
@@ -32,7 +28,7 @@ $(document).ready(function () {
 
     $("#order_delete").click( function(e) {
         e.preventDefault();
-        console.log("delete");
+        console.log("delete order");
 
         $.ajax({
             url: "/v1/order/" + orderID,
@@ -44,7 +40,7 @@ $(document).ready(function () {
                 location.reload()
             },
             error: function (data, textStatus, errorThrown) {
-                alert(data.responseJSON.Message)
+                alert(data.responseJSON.Message + "\n" + data.responseJSON.error)
             }
         });
     })
@@ -80,9 +76,10 @@ function updateList() {
     $.get( "/v1/order/"+orderID , function( data ) {
         if (data !== null ){
             table = $("#orderlisttable")
-
-            for (var i=0; i<data.item_list.length; i++){
-                addOrderItem( table , orderID, data.item_list[i] )
+            if (data.item_list.length) {
+                for (var i=0; i<data.item_list.length; i++){
+                    addOrderItem( table , orderID, data.item_list[i] )
+                }
             }
         }
     })

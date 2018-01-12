@@ -61,7 +61,6 @@ func (ctrl OrderController) GetList(c *gin.Context) {
 //CreateOrder ...
 func (ctrl OrderController) CreateOrder(c *gin.Context) {
 	var createOrderForm forms.CreateOrderForm
-	// fmt.Printf("\n\nOrder DATA: %s \n\n", c.PostForm("customer_id"))
 
 	if c.BindJSON(&createOrderForm) != nil {
 		c.IndentedJSON(406, gin.H{"message": "Invalid Post form", "form": createOrderForm})
@@ -71,7 +70,6 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 
 	order, err := orderModel.Create(createOrderForm)
 
-	// fmt.Printf("\n\nOrder POST DATA: %+v \n\n", order)
 	if err != nil {
 		c.IndentedJSON(406, gin.H{"message": err.Error()})
 		c.Abort()
@@ -79,14 +77,9 @@ func (ctrl OrderController) CreateOrder(c *gin.Context) {
 	}
 
 	if order.ID > 0 {
-		// session := sessions.Default(c)
-		// session.Set("user_id", user.ID)
-		// session.Set("user_email", user.Email)
-		// session.Set("user_name", user.Name)
-		// session.Save()
 		c.IndentedJSON(200, gin.H{"message": "Successfully created order", "data": order})
 	} else {
-		// c.IndentedJSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
+		c.IndentedJSON(406, gin.H{"message": "Could not create order", "error": err.Error()})
 	}
 
 }
@@ -122,31 +115,6 @@ func (ctrl OrderController) Update(c *gin.Context) {
 		c.IndentedJSON(404, gin.H{"Message": "Invalid parameter"})
 	}
 }
-
-// //Create ...
-// func (ctrl OrderController) Create(c *gin.Context) {
-// 	var updateForm forms.UpdateOrderForm
-// 	err := c.BindJSON(&updateForm)
-// 	if err != nil {
-// 		// panic(err)
-// 		c.IndentedJSON(404, gin.H{"message": "Invalid form", "form": updateForm})
-// 		c.Abort()
-// 		return
-// 	}
-
-// 	product, _ := productModel.GetOne(updateForm.ProductID)
-
-// 	order := models.Order{-1, product, 4, "Good", updateForm.Amount, updateForm.Price, updateForm.Note}
-// 	if err != nil {
-// 		c.IndentedJSON(404, gin.H{"Message": "Order not found", "error": err.Error()})
-// 		c.Abort()
-// 		return
-// 	}
-
-// 	newid, _ := order.Create()
-
-// 	c.IndentedJSON(200, gin.H{"data": order, "id": newid})
-// }
 
 //Delete ...
 func (ctrl OrderController) Delete(c *gin.Context) {

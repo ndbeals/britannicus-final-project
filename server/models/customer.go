@@ -108,12 +108,6 @@ func (m CustomerModel) Signup(form forms.SignupForm) (customer Customer, err err
 	return customer, errors.New("Not registered")
 }
 
-//GetTransactions ...
-func (m CustomerModel) GetTransactions(CustomerID int) (transactions []Transaction, err error) {
-
-	return GetTransactionModel().GetAllByCustomer(CustomerID)
-}
-
 //GetOne ...
 func (m CustomerModel) GetOne(CustomerID int) (customer Customer, err error) {
 	if len(loadedCustomers) > 0 {

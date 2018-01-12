@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/ndbeals/britannicus-final-project/forms"
@@ -13,7 +12,6 @@ import (
 
 //UserController ...
 type UserController struct {
-	// Delme string
 }
 
 var userModel = new(models.UserModel)
@@ -48,33 +46,23 @@ func GetLoggedinUser(c *gin.Context) (user models.User, success bool) {
 func (ctrl UserController) Signin(c *gin.Context) {
 	var signinForm forms.SigninForm
 	var success bool
-	// fmt.Println("WHAT IN THE FUCK")
-	// fmt.Println("EMAIL FORM", c.DefaultPostForm("email", "default"))
-	test, _ := c.GetPostForm("email")
-	signinForm.Email = test
-	signinForm.Password, success = c.GetPostForm("password")
 
-	// if c.BindJSON(&signinForm) != nil {
-	// 	c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signinForm})
-	// 	c.Abort()
-	// 	return
-	// }
-	fmt.Println(signinForm)
+	signinForm.Email, success = c.GetPostForm("email")
 	if !success {
-		// c.(406, "failed to log in")
-		fmt.Println("failed")
+		c.Abort()
+	}
+	signinForm.Password, success = c.GetPostForm("password")
+	if !success {
 		c.Abort()
 	}
 
 	user, err := userModel.Signin(signinForm)
 	if err == nil {
 		session := sessions.Default(c)
-		fmt.Println("Ifds", session)
+
 		session.Set("user_id", user.ID)
 		session.Set("user_email", user.Email)
 		session.Set("user_name", user.Name)
-		// c.Set("user", user)
-		// session.Set("user", user)
 		session.Save()
 
 		// c.IndentedJSON(200, gin.H{"message": "User signed in", "user": user})
@@ -82,38 +70,6 @@ func (ctrl UserController) Signin(c *gin.Context) {
 	} else {
 		c.IndentedJSON(406, gin.H{"message": "Invalid signin details", "error": err.Error()})
 	}
-
-}
-
-//Signup ...
-func (ctrl UserController) Signup(c *gin.Context) {
-	var signupForm forms.SignupForm
-
-	if c.BindJSON(&signupForm) != nil {
-		c.IndentedJSON(406, gin.H{"message": "Invalid form", "form": signupForm})
-		c.Abort()
-		return
-	}
-
-	user, err := userModel.Signup(signupForm)
-
-	if err != nil {
-		c.IndentedJSON(406, gin.H{"message": err.Error()})
-		c.Abort()
-		return
-	}
-
-	if user.ID > 0 {
-		session := sessions.Default(c)
-		session.Set("user_id", user.ID)
-		session.Set("user_email", user.Email)
-		session.Set("user_name", user.Name)
-		session.Save()
-		c.IndentedJSON(200, gin.H{"message": "Success signup", "user": user})
-	} else {
-		c.IndentedJSON(406, gin.H{"message": "Could not signup this user", "error": err.Error()})
-	}
-
 }
 
 //Signout ...

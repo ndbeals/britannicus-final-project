@@ -15,11 +15,11 @@
         <div class="form-row">
             <div class="form-group col-6">
                 <label for="inventory_isbn">Amount:</label>
-                <input class="form-control" type="text" value="{{.inventory.Amount}}" id="inventory_amount">
+                <input class="form-control" min="0" type="number" value="0" id="inventory_amount">
             </div>
             <div class="form-group col-6">
                 <label for="inventory_publisher">Price:</label>
-                <input class="form-control" type="text" value="{{.inventory.Price}}" id="inventory_price">
+                <input class="form-control" min="0" type="number" step="0.01" value="0" id="inventory_price">
             </div>
         </div>
         <div class="form-row">
